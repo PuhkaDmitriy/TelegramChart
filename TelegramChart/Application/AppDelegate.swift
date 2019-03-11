@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TelegramChart
 //
-//  Created by Macbook on 3/10/19.
+//  Created by Dmitriy Puchka on 3/10/19.
 //  Copyright © 2019 DmitriyPuchka. All rights reserved.
 //
 
@@ -13,10 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        setup()
         return true
+    }
+
+    func setup() {
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

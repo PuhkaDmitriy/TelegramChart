@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  TelegramChart
+
+  Created by DmitriyPuchka on 3/11/19.
+  Copyright © 2019 DmitriyPuchka. All rights reserved.
+*/
+
+"mainScreen.title.statistics" = "Statistics";
+"mainScreen.label.followers" = "FOLLOWERS";
+"mainScreen.label.joinedChannel" = "Joined Channel";
+"mainScreen.label.leftChannel" = "Left Channel";
+"mainScreen.label.themeSwitchButton.day" = "Switch to Day Mode";
+"mainScreen.label.themeSwitchButton.night" = "Switch to Night Mode";

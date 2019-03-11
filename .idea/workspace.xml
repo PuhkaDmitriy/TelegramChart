@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/Common/Constants.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/Extensions/Color.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/Managers/Settings.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/Protocols/ThemeProtocol.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controllers/BaseViewController/BaseViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChrtViewPresenter.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Button/TButton.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Array_String.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxis.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisGeneratorMultiplier.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelGeneratorDate.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsConflictSolver.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsConflictSolverMoveUpDown.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsGenerator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsGeneratorBase.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsGeneratorBasic.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsGeneratorFixed.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsGeneratorFunc.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsGeneratorNumber.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLabelsGeneratorNumberSuffix.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisLayerDefault.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValueStaticGenerator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValuesGenerator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValuesGeneratorDate.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValuesGeneratorFixed.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValuesGeneratorFixedNonOverlapping.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValuesGeneratorNice.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValuesGeneratorXDividers.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValuesGeneratorXFixedNonOverlapping.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisValuesGeneratorYFixedNonOverlapping.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisX.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisXHighLayerDefault.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisXLayerDefault.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisXLowLayerDefault.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisY.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisYHighLayerDefault.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisYLayerDefault.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Axis/ChartAxisYLowLayerDefault.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/AxisValues/ChartAxisValue.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/AxisValues/ChartAxisValueDate.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/AxisValues/ChartAxisValueDouble.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/AxisValues/ChartAxisValueDoubleScreenLoc.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/AxisValues/ChartAxisValueFloat.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/AxisValues/ChartAxisValueFloatScreenLoc.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/AxisValues/ChartAxisValueInt.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/AxisValues/ChartAxisValueString.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/CGPoint.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/CGRect.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/ChartAxisValueArray.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/ChartBuilder.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/ChartCoordsSpace.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/ChartLineModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/ChartPoint/ChartPoint.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/ChartPoint/ChartPointBubble.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/ChartPoint/ChartPointCandleStick.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/ChartViewsConflictSolver.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Convenience/BarsChart.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Convenience/ChartConfig.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Convenience/LineChart.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Drawers/ChartContextDrawer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Drawers/ChartDrawerFunctions.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Drawers/ChartLabelDrawer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Drawers/ChartLineDrawer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Globals.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Int.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartBarsLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartCandleStickLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartCoordsSpaceLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartDividersLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartGroupedBarsLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartGuideLinesLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartLayerBase.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsAreaLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsBubbleLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsCandleStickViewsLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsLineLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsLineTrackerLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsScatterLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsSingleViewLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsTouchHighlightLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsTrackerLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartPointsViewsLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartShowCoordsLinesLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/ChartStackedBarsLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Layers/GroupedBarsCompanionsLayer.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/NSDate.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Optional.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Pannable.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/String.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/UIColor.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Utils/ChartNiceNumberCalculator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Utils/ChartTextUtils.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Utils/ChartTimeUtils.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Utils/ChartViewSelector.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Utils/ChartViewSelectorAlpha.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Utils/ChartViewSelectorBrightness.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Utils/Operators.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Utils/Trendlines/TrendlineGenerator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/CatmullPathGenerator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartAreasView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartCandleStickView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartLinesView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartPointEllipseView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartPointTargetingView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartPointTextCircleView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartPointViewBar.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartPointViewBarGreyOut.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartPointViewBarStacked.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartViewAlphaAnimator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartViewAnimator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartViewAnimators.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/ChartViewGrowAnimator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/CubicLinePathGenerator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/HandlingLabel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/HandlingView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/InfoBubble.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Views/StraightLinePathGenerator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Zoomable.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Label/TLabel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/View/TView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart.xcodeproj/xcuserdata/macbook.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart.xcodeproj/xcuserdata/macbook.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/Application/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/Application/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/Resources/Storyboards/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/Resources/Storyboards/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/AggregationTypeView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ChartBase.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ChartWindow.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Enum.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/ActiveIndicatorViewCellTableViewCell.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/ActiveIndicatorViewCellTableViewCell.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/ChartMenuCell.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/ChartMenuCell.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/ChartMenuView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/IndicatorGroup.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/IndicatorGroupTableViewCell.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/IndicatorGroupTableViewCell.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/IndicatorObject.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/IndicatorTableViewCell.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/IndicatorTableViewCell.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/IThemeChanged.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/BaseIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/Channels/BBIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/Channels/ChannelIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/IndicatorInterLine.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/IndicatorLine.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/IndicatorsBox.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/MovingAverages/EMAIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/MovingAverages/LWMAIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/MovingAverages/MMAIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/MovingAverages/RegressionIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/MovingAverages/SMAIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/MovingAverages/SMMAIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/Oscillators/CCIIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/Oscillators/MACDIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/Trend/ICHIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Indicators/Trend/SARIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/MobileProChart.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ProChart.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/ProChartDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/BaseRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/IndicatorRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/IndicatorStorageRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/MainPriceRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/PriceScaleRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/ProCursorRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/ProHeaderRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/RendererSettings/TerceraChartBaseScaleRendererSettings.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/RendererSettings/TerceraChartNumberScaleRendererSettings.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/RendererSettings/TerceraChartTimeScaleRendererSettings.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/SimpleChartTableRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/SimpleCursorRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/SimpleHeaderRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/SpreadRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TerceraChartNumberScaleRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TimeScaleRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/ToolsRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TradingTools/ClosingOrderToolView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TradingTools/OrderToolView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TradingTools/PositionToolView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TradingTools/SLToolView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TradingTools/TPToolView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TradingTools/TradingToolKey.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TradingTools/TradingToolView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/TradingToolsRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Renderers/VolumeBarsRenderer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/RequestTimeHolder.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Series/TerceraChartCashItemSeries.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Series/TerceraChartCashItemSeriesCacheScreenData.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Series/TerceraChartCashItemSeriesCacheScreenDataStorage.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Series/TerceraChartCashItemSeriesDataBlock.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Series/TerceraChartCashItemSeriesSettings.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Series/TerceraChartSeriesDataConverter.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Series/TimeHolder.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/SimpleChart.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/SimpleChartSeries.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/TabletProChart.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/TerceraChartTradingDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Utils/DrawPointer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Utils/IPointConverter.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Utils/Interfaces.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Utils/PaddingHistoryStrategy.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Utils/TerceraChartDrawingType.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Utils/TerceraChartPriceScaleLayoutInfo.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/Utils/TerceraChartUtils.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Chart/WindowContainer.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/ViewController.swift" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_EE1E0A96-A85A-46B8-A8F5-843E34749A21" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/BaseViewController/BaseViewController.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/UIKit.UIViewController/UIKit.UIViewController.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="442" column="27" lean-forward="true" selection-start-line="442" selection-start-column="27" selection-end-line="442" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>import ProFinanceApi</find>
+      <find>colorTheme</find>
+      <find>NSAttributedStringKey</find>
+      <find>loadChartData</find>
+      <find>themeDidChange</find>
+      <find>.light</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>NSAttributedString.Key</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/ChartMenuView.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Chart/Colors/ColorManager.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ViewController.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/Application/AppDelegate.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/MainController/MainViewController.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/MainController/MainViewPresenter.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/Protocols/ThemeProtocol.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/Label/TLabel.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/Button/TButton.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/Common/Constants.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/Managers/Settings.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/View/TView.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/BaseViewController/BaseViewController.swift" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="797" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Cidr.FilesView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="TelegramChart" type="1d218c8b:XcodeProjectNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="TelegramChart" type="1d218c8b:XcodeProjectNode" />
+              <item name="TelegramChart" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="TelegramChart" type="1d218c8b:XcodeProjectNode" />
+              <item name="TelegramChart" type="fcab9f18:XcodeViewNode" />
+              <item name="UI" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="TelegramChart" type="1d218c8b:XcodeProjectNode" />
+              <item name="TelegramChart" type="fcab9f18:XcodeViewNode" />
+              <item name="UI" type="fcab9f18:XcodeViewNode" />
+              <item name="Controls" type="fcab9f18:XcodeViewNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="TelegramChart" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TelegramChart" TARGET_NAME="TelegramChart" CONFIG_NAME="Debug" SCHEME_NAME="TelegramChart" IS_LOCATION_SIMULATION_ALLOWED="true" RUN_TARGET_PROJECT_NAME="TelegramChart" RUN_TARGET_NAME="TelegramChart" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="" />
+      <created>1552234630681</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552234630681</updated>
+      <workItem from="1552234632711" duration="478000" />
+      <workItem from="1552235560537" duration="708000" />
+      <workItem from="1552293014083" duration="459000" />
+      <workItem from="1552294906364" duration="390000" />
+      <workItem from="1552296744281" duration="482000" />
+      <workItem from="1552299054568" duration="864000" />
+      <workItem from="1552306305239" duration="1308000" />
+      <workItem from="1552310178166" duration="1684000" />
+      <workItem from="1552312539383" duration="1396000" />
+      <workItem from="1552315034816" duration="1695000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="9464000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28183118" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3219858" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32907802" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>NSLocalizedString(&quot;mainScreen.label.themeSwitchButton.night&quot;, comment: &quot;&quot;)</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.view as? TView</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.view</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>controller.chartView</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/ChartMenuView.swift" />
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Chart/Colors/ColorManager.swift" />
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ViewController.swift" />
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/MainController/MainViewPresenter.swift" />
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/MainController/MainViewController.swift" />
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Application/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/UIKit.UILabel/UIKit.UILabel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Button/TButton.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="61" column="45" lean-forward="true" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Protocols/ThemeProtocol.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Common/Constants.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Label/TLabel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="56" column="30" lean-forward="true" selection-start-line="53" selection-start-column="12" selection-end-line="56" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Managers/Settings.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/View/TView.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="50" column="76" lean-forward="true" selection-start-line="50" selection-start-column="76" selection-end-line="50" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/UIKit.UIApplication/UIKit.UIApplication.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/UIKit.UIViewController/UIKit.UIViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="442" column="27" lean-forward="true" selection-start-line="442" selection-start-column="27" selection-end-line="442" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/BaseViewController/BaseViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

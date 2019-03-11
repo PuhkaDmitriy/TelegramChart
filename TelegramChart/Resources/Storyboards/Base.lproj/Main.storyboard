@@ -1,24 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OPL-zn-O9b">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="PfK-J0-KQh">
+            <objects>
+                <navigationController id="OPL-zn-O9b" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cde-Mq-Hth">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UQg-po-e9U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1f-6T-Ygv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1168" y="329"/>
+        </scene>
+        <!--Chart View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BYZ-38-t0r" customClass="ChartViewController" customModule="TelegramChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOWERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cx3-FN-HTg" customClass="TLabel" customModule="TelegramChart" customModuleProvider="target">
+                                <rect key="frame" x="20" y="128" width="374" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="zzl-kX-jqh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="darkTxtColor">
+                                        <color key="value" red="0.35686274509803922" green="0.41960784313725491" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lightTxtColor">
+                                        <color key="value" red="0.4194968044757843" green="0.41926056146621704" blue="0.43994408845901489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8x-8D-28c" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="161" width="414" height="571"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4w-tu-EKj" userLabel="Chart View" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="451"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="k4w-tu-EKj" secondAttribute="trailing" id="FHu-Us-q7M"/>
+                                    <constraint firstAttribute="bottom" secondItem="k4w-tu-EKj" secondAttribute="bottom" constant="120" id="aPG-XG-Olk"/>
+                                    <constraint firstItem="k4w-tu-EKj" firstAttribute="top" secondItem="G8x-8D-28c" secondAttribute="top" id="s9i-HE-xJY"/>
+                                    <constraint firstItem="k4w-tu-EKj" firstAttribute="leading" secondItem="G8x-8D-28c" secondAttribute="leading" id="yJT-RD-0Bu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                        <color key="value" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                                        <color key="value" red="0.13333333333333333" green="0.18431372549019609" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTL-q6-JAZ" customClass="TButton" customModule="TelegramChart" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="772" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wAT-wq-dUx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Switch to Day Mode"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                        <color key="value" red="0.99597054719924927" green="0.99614065885543823" blue="0.9959598183631897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                                        <color key="value" red="0.13137704133987427" green="0.18321189284324646" blue="0.24556392431259155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lightTxtColor">
+                                        <color key="value" red="0.094117647058823528" green="0.56862745098039214" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="darkTxtColor">
+                                        <color key="value" red="0.094117647058823528" green="0.56862745098039214" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ThemeSwitchButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sYS-Ge-ZpY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="2cs-xc-fQc" firstAttribute="bottom" secondItem="NTL-q6-JAZ" secondAttribute="bottom" constant="40" id="AMA-3q-cQO"/>
+                            <constraint firstItem="2cs-xc-fQc" firstAttribute="trailing" secondItem="cx3-FN-HTg" secondAttribute="trailing" constant="20" id="C16-kf-Kbn"/>
+                            <constraint firstItem="NTL-q6-JAZ" firstAttribute="leading" secondItem="2cs-xc-fQc" secondAttribute="leading" id="GHN-sx-dCr"/>
+                            <constraint firstItem="cx3-FN-HTg" firstAttribute="top" secondItem="2cs-xc-fQc" secondAttribute="top" constant="40" id="KMF-Gz-Xm4"/>
+                            <constraint firstItem="NTL-q6-JAZ" firstAttribute="top" secondItem="G8x-8D-28c" secondAttribute="bottom" constant="40" id="fJX-yw-tWn"/>
+                            <constraint firstItem="cx3-FN-HTg" firstAttribute="leading" secondItem="2cs-xc-fQc" secondAttribute="leading" constant="20" id="jd1-Jh-SDo"/>
+                            <constraint firstItem="G8x-8D-28c" firstAttribute="top" secondItem="cx3-FN-HTg" secondAttribute="bottom" constant="8" id="upZ-vN-yYS"/>
+                            <constraint firstItem="NTL-q6-JAZ" firstAttribute="trailing" secondItem="2cs-xc-fQc" secondAttribute="trailing" id="v1s-ze-0Hw"/>
+                            <constraint firstItem="G8x-8D-28c" firstAttribute="trailing" secondItem="2cs-xc-fQc" secondAttribute="trailing" id="x6Z-tP-D7f"/>
+                            <constraint firstItem="G8x-8D-28c" firstAttribute="leading" secondItem="2cs-xc-fQc" secondAttribute="leading" id="yVC-g5-USA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2cs-xc-fQc"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                <color key="value" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                                <color key="value" red="0.092633895576000214" green="0.13254308700561523" blue="0.17828202247619629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
+                    <navigationItem key="navigationItem" id="5fN-Cl-OSa"/>
+                    <connections>
+                        <outlet property="chartView" destination="k4w-tu-EKj" id="5qd-uq-Wbm"/>
+                        <outlet property="followersLabel" destination="cx3-FN-HTg" id="JdG-dL-Ryl"/>
+                        <outlet property="mainView" destination="G8x-8D-28c" id="WqL-Fc-3fv"/>
+                        <outlet property="themeSwitchButton" destination="NTL-q6-JAZ" id="gNS-fI-q1l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-202.89855072463769" y="328.125"/>
         </scene>
     </scenes>
 </document>
