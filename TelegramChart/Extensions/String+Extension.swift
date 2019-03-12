@@ -1,17 +1,18 @@
 //
-//  Color.swift
+//  String+Extension.swift
 //  TelegramChart
 //
-//  Created by DmitriyPuchka on 3/11/19.
+//  Created by DmitriyPuchka on 3/12/19.
 //  Copyright © 2019 DmitriyPuchka. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-extension UIColor {
+extension String {
     
-    static func hexStringToUIColor(hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    func hexToColor() -> UIColor? {
+        var cString:String = trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
@@ -31,5 +32,4 @@ extension UIColor {
             alpha: CGFloat(1.0)
         )
     }
-    
 }

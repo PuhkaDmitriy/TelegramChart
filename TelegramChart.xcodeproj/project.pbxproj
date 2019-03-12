@@ -138,8 +138,10 @@
 		FA1B2AC3223690A800AC271D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2AC2223690A800AC271D /* BaseViewController.swift */; };
 		FA1B2AC622369A2D00AC271D /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2AC522369A2D00AC271D /* ThemeProtocol.swift */; };
 		FA1B2AC92236A58000AC271D /* chart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = FA1B2AC82236A57F00AC271D /* chart_data.json */; };
-		FA1B2ACC2236A63D00AC271D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2ACB2236A63D00AC271D /* Color.swift */; };
 		FA1B2ACF2236A66A00AC271D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2ACE2236A66A00AC271D /* Constants.swift */; };
+		FAE0427F2237CE28007F972E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0427E2237CE28007F972E /* JSONParser.swift */; };
+		FAE042832237D42A007F972E /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE042822237D42A007F972E /* ChartData.swift */; };
+		FAE0428522385063007F972E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0428422385063007F972E /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -276,8 +278,10 @@
 		FA1B2AC2223690A800AC271D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FA1B2AC522369A2D00AC271D /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		FA1B2AC82236A57F00AC271D /* chart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chart_data.json; sourceTree = "<group>"; };
-		FA1B2ACB2236A63D00AC271D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		FA1B2ACE2236A66A00AC271D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FAE0427E2237CE28007F972E /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		FAE042822237D42A007F972E /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		FAE0428422385063007F972E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +314,7 @@
 		FA1B27B92235699800AC271D /* TelegramChart */ = {
 			isa = PBXGroup;
 			children = (
+				FAE042802237D409007F972E /* Models */,
 				FA1B2ACD2236A65B00AC271D /* Common */,
 				FA1B2ACA2236A62F00AC271D /* Extensions */,
 				FA1B2AC422369A0900AC271D /* Protocols */,
@@ -651,7 +656,7 @@
 		FA1B2ACA2236A62F00AC271D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FA1B2ACB2236A63D00AC271D /* Color.swift */,
+				FAE0428422385063007F972E /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -659,9 +664,26 @@
 		FA1B2ACD2236A65B00AC271D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FAE0427E2237CE28007F972E /* JSONParser.swift */,
 				FA1B2ACE2236A66A00AC271D /* Constants.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		FAE042802237D409007F972E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAE042812237D40F007F972E /* ChartData */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FAE042812237D40F007F972E /* ChartData */ = {
+			isa = PBXGroup;
+			children = (
+				FAE042822237D42A007F972E /* ChartData.swift */,
+			);
+			path = ChartData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -739,6 +761,7 @@
 			files = (
 				FA1B2A932236711300AC271D /* ChartAxisLabelsConflictSolverMoveUpDown.swift in Sources */,
 				FA1B2AB12236711300AC271D /* ChartViewAnimator.swift in Sources */,
+				FAE0428522385063007F972E /* String+Extension.swift in Sources */,
 				FA1B2A592236711300AC271D /* ChartAxisValueDoubleScreenLoc.swift in Sources */,
 				FA1B2A6A2236711300AC271D /* ChartPointsLineLayer.swift in Sources */,
 				FA1B2A5D2236711300AC271D /* ChartContextDrawer.swift in Sources */,
@@ -748,7 +771,6 @@
 				FA1B2A7F2236711300AC271D /* ChartAxisYLowLayerDefault.swift in Sources */,
 				FA1B2AA52236711300AC271D /* StraightLinePathGenerator.swift in Sources */,
 				FA1B2AA82236711300AC271D /* ChartPointTextCircleView.swift in Sources */,
-				FA1B2ACC2236A63D00AC271D /* Color.swift in Sources */,
 				FA1B2A622236711300AC271D /* ChartCoordsSpaceLayer.swift in Sources */,
 				FA1B2A732236711300AC271D /* ChartPointsBubbleLayer.swift in Sources */,
 				FA1B2A852236711300AC271D /* ChartAxisLabel.swift in Sources */,
@@ -758,6 +780,7 @@
 				FA1B28AC2236658E00AC271D /* TView.swift in Sources */,
 				FA1B2A4F2236711300AC271D /* LineChart.swift in Sources */,
 				FA1B2A992236711300AC271D /* ChartViewSelector.swift in Sources */,
+				FAE042832237D42A007F972E /* ChartData.swift in Sources */,
 				FA1B2A472236711300AC271D /* ChartPoint.swift in Sources */,
 				FA1B2A532236711300AC271D /* ChartAxisValueDouble.swift in Sources */,
 				FA1B2A6F2236711300AC271D /* GroupedBarsCompanionsLayer.swift in Sources */,
@@ -829,6 +852,7 @@
 				FA1B2ABB22367E6600AC271D /* ChrtViewPresenter.swift in Sources */,
 				FA1B2A982236711300AC271D /* ChartNiceNumberCalculator.swift in Sources */,
 				FA1B2A4C2236711300AC271D /* ChartCoordsSpace.swift in Sources */,
+				FAE0427F2237CE28007F972E /* JSONParser.swift in Sources */,
 				FA1B2AB82236711300AC271D /* Globals.swift in Sources */,
 				FA1B2ABD2236800900AC271D /* ChartBuilder.swift in Sources */,
 				FA1B2A522236711300AC271D /* NSDate.swift in Sources */,

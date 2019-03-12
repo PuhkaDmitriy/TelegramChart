@@ -18,6 +18,7 @@ open class LineChart: Chart {
     }
     
     // Initializer for multiple lines
+
     public init(frame: CGRect,
                 chartConfig: ChartConfigXY,
                 xTitle: String,

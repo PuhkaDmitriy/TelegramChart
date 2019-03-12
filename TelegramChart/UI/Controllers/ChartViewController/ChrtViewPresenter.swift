@@ -10,29 +10,37 @@ import Foundation
 import UIKit
 
 final class ChartViewPresenter {
-    
+
     // MARK: - properties
-    
+
     private weak var controller: ChartViewController!
     private var chartBuilder: ChartBuilder?
 
     init(controller: ChartViewController) {
         self.controller = controller
     }
-    
+
     // MARK: - chart
     //
     func loadChartData() {
+
+
+        // TODO - удалить
+        JSONParser(fileName: Constants.JSONFileName, fileExtension: Constants.JSONExtension).parse()
+        // TODO - удалить
+
+
+
         chartBuilder = ChartBuilder(frame: CGRect(x: 0, y: 0, width: controller.chartView.frame.width, height: controller.chartView.frame.height), chartLines: getChartLines())
-        
+
         // add chart subview
         guard let chartView = chartBuilder?.chartView?.view else {return}
         controller.chartView.addSubview(chartView)
     }
-    
+
     func getChartLines() -> [LineChart.ChartLine] {
         var lines = [LineChart.ChartLine]()
-        
+
         let lineJoined = LineChart.ChartLine(chartPoints: [
             (0, 30),
             (1, 40),
@@ -70,13 +78,13 @@ final class ChartViewPresenter {
             (14, 55),
             (15, 30)
         ], color: UIColor.red)
-        
+
         lines.append(lineJoined)
         lines.append(lineLeft)
-        
+
         return lines
     }
-    
+
     // MARK: - theme
     //
     func changeTheme() {

@@ -41,7 +41,7 @@ final class ChartBuilder {
         let yAxis = ChartAxisConfig(from: 0, to: 250, by: 50)
 
         // guidelines
-        let guidelines = GuidelinesConfig(dotted: false, lineWidth: 0.5, lineColor: Constants.chartGuidelineColor)
+        let guidelines = GuidelinesConfig(dotted: false, lineWidth: 0.5, lineColor: Constants.chartGuidelineColor ?? .black)
 
         let chartConfig = ChartConfigXY(xAxisConfig: xAxis, yAxisConfig: yAxis, guidelinesConfig: guidelines)
 
@@ -50,7 +50,7 @@ final class ChartBuilder {
                 xTitle: xTitle,
                 yTitle: yTitle,
                 lines: self.chartLines,
-                xAxisColor: Constants.chartGuidelineColor,
+                xAxisColor: Constants.chartGuidelineColor ?? .black,
                 yAxisColor: .clear)
     }
 }
