@@ -19,8 +19,7 @@ final class ChartViewController: BaseViewController {
 
     // MARK: - properties
 
-    private var presenter: ChrtViewPresenter?
-    private var chartBuilder: ChartBuilder?
+    private var presenter: ChartViewPresenter?
     private var themeControls = [ThemeProtocol]()
 
     // MARK: - life cycle
@@ -42,7 +41,7 @@ final class ChartViewController: BaseViewController {
             themeControls.append(selfView)
         }
 
-        presenter = ChrtViewPresenter(controller: self)
+        presenter = ChartViewPresenter(controller: self)
 
         // labels
         navigationItem.title = NSLocalizedString("mainScreen.title.statistics", comment: "")

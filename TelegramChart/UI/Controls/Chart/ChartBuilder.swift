@@ -10,36 +10,47 @@ import Foundation
 import UIKit
 
 final class ChartBuilder {
-    
+
     // MARK: - propertyes
-    
-    private var parentView: UIView
+
+    private var frame: CGRect
     private var chartLines = [LineChart.ChartLine]()
     private var xTitle = ""
     private var yTitle = ""
-    
+
     var chartView: LineChart?
-    
+
     // MARK: - life cycle
-    
-    init(parentView: UIView,
+
+    init(frame: CGRect,
          chartLines: [LineChart.ChartLine],
          xTitle: String = "",
          yTitle: String = "") {
-        self.parentView = parentView
+        self.frame = frame
         self.chartLines = chartLines
         self.xTitle = xTitle
         self.yTitle = yTitle
+
+        setupChart()
     }
-    
-    func displayChart() {
-        let chartConfig = ChartConfigXY(xAxisConfig: ChartAxisConfig(from: 1, to: 12, by: 1),
-                                        yAxisConfig: ChartAxisConfig(from: 0, to: 100, by: 10))
-        
-        chartView = LineChart(frame: parentView.frame,
-                                  chartConfig: chartConfig,
-                                  xTitle: xTitle,
-                                  yTitle: yTitle,
-                                  lines: self.chartLines)
+
+    func setupChart() {
+
+        // axis
+        let xAxis = ChartAxisConfig(from: 1, to: 20, by: 1)
+        let yAxis = ChartAxisConfig(from: 0, to: 250, by: 50)
+
+        // guidelines
+        let guidelines = GuidelinesConfig(dotted: false, lineWidth: 0.5, lineColor: Constants.chartGuidelineColor)
+
+        let chartConfig = ChartConfigXY(xAxisConfig: xAxis, yAxisConfig: yAxis, guidelinesConfig: guidelines)
+
+        chartView = LineChart(frame: frame,
+                chartConfig: chartConfig,
+                xTitle: xTitle,
+                yTitle: yTitle,
+                lines: self.chartLines,
+                xAxisColor: Constants.chartGuidelineColor,
+                yAxisColor: .clear)
     }
 }

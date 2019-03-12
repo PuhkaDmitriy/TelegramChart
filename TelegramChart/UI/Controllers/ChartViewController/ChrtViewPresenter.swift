@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-final class ChrtViewPresenter {
+final class ChartViewPresenter {
     
-    // MARK: - propertyes
+    // MARK: - properties
     
     private weak var controller: ChartViewController!
     private var chartBuilder: ChartBuilder?
@@ -23,7 +23,7 @@ final class ChrtViewPresenter {
     // MARK: - chart
     //
     func loadChartData() {
-        chartBuilder = ChartBuilder(parentView: controller.chartView, chartLines: getChartLines())
+        chartBuilder = ChartBuilder(frame: CGRect(x: 0, y: 0, width: controller.chartView.frame.width, height: controller.chartView.frame.height), chartLines: getChartLines())
         
         // add chart subview
         guard let chartView = chartBuilder?.chartView?.view else {return}
@@ -33,11 +33,45 @@ final class ChrtViewPresenter {
     func getChartLines() -> [LineChart.ChartLine] {
         var lines = [LineChart.ChartLine]()
         
-        let lineJoned = LineChart.ChartLine(chartPoints: [(1, 11.6), (2, 15.1), (2, 15.1), (2, 15.1), (2, 15.1), (2, 15.1), (2, 15.1), (2, 15.1), (2, 15.1), (2, 15.1), (2, 15.1), (2, 15.1)], color: UIColor.green)
+        let lineJoined = LineChart.ChartLine(chartPoints: [
+            (0, 30),
+            (1, 40),
+            (2, 55),
+            (3, 49),
+            (4, 175),
+            (5, 70),
+            (6, 90),
+            (7, 200),
+            (8, 250),
+            (9, 260),
+            (10, 130),
+            (11, 120),
+            (12, 90),
+            (13, 80),
+            (14, 70),
+            (15, 70)
+        ], color: UIColor.green)
+
+        let lineLeft = LineChart.ChartLine(chartPoints: [
+            (0, 40),
+            (1, 36),
+            (2, 49),
+            (3, 55),
+            (4, 60),
+            (5, 61),
+            (6, 55),
+            (7, 30),
+            (8, 45),
+            (9, 55),
+            (10, 55),
+            (11, 50),
+            (12, 49),
+            (13, 60),
+            (14, 55),
+            (15, 30)
+        ], color: UIColor.red)
         
-        let lineLeft = LineChart.ChartLine(chartPoints: [(2, 5.6), (3, 6.1), (4, 7.1), (5, 8.1), (6, 9.1), (7, 10.1), (8, 11.1), (2, 12.1), (2, 13.1), (2, 14.1), (2, 15.1), (2, 15.1)], color: UIColor.red)
-        
-        lines.append(lineJoned)
+        lines.append(lineJoined)
         lines.append(lineLeft)
         
         return lines

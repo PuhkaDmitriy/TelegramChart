@@ -9,7 +9,11 @@
 import UIKit
 
 final class Constants {
-    
+
+    // navigation bar
     static let dayNavigationBarColor = UIColor.hexStringToUIColor(hex:"#FEFEFE")
     static let nightNavigationBarColor = UIColor.hexStringToUIColor(hex:"222F3F")
+
+    // chart
+    static let chartGuidelineColor = UIColor.hexStringToUIColor(hex:"18222D")
 }

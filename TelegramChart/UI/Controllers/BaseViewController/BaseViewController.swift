@@ -6,7 +6,6 @@
 //  Copyright © 2019 DmitriyPuchka. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class BaseViewController: UIViewController {
@@ -26,7 +25,7 @@ class BaseViewController: UIViewController {
         if(animate) {
             UIView.animate(withDuration: 0.5, delay: 0.0, options:[], animations: {
                 self.navigationController?.navigationBar.barTintColor = backgroundColor
-                self.navigationController?.navigationBar.tintColor = titleColor
+//                self.navigationController?.navigationBar.tintColor = titleColor
                 self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : titleColor]
             }, completion:nil)
         } else {

@@ -148,7 +148,6 @@ open class ChartGuideLinesForValuesLayerAbstract<T: ChartGuideLinesLayerSettings
             let x2 = originScreenLoc.x + chart.containerFrame.width
             let y2 = y1
             drawGuideline(context, p1: CGPoint(x: x1, y: y1), p2: CGPoint(x: x2, y: y2))
-
         }
     }
 }

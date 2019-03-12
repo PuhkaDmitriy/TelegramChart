@@ -9,7 +9,9 @@
 import UIKit
 
 public enum ChartLabelTextAlignment {
-    case left, right, `default`
+    case left, 
+         right,
+         `default`
 }
 
 public struct ChartLabelSettings {
