@@ -10,7 +10,7 @@ import UIKit
 
 open class LineChart: Chart {
     
-    public typealias ChartLine = (chartPoints: [(Double, Double)], color: UIColor)
+    public typealias ChartLine = (chartPoints: [(Double, Double)], color: UIColor, name: String)
     
     // Initializer for single line
     public convenience init(frame: CGRect, chartConfig: ChartConfigXY, xTitle: String, yTitle: String, line: ChartLine) {

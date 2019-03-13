@@ -13,6 +13,7 @@ class JSONParser {
     
     private var fileName: String
     private var fileExtension: String
+    private var completion: ((PreparingChartData?, Error?) -> Void)?
     
     init(fileName: String,
          fileExtension: String) {
@@ -20,22 +21,27 @@ class JSONParser {
         self.fileExtension = fileExtension
     }
 
-    @discardableResult
-    func parse() -> Decodable? {
+    func parse(withCompletion: ((PreparingChartData?, Error?) -> Void)? = nil) {
+
+        var chartPreparingData: [PreparingChartData]?
+
         if let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension) {
             do {
                 let data = try Data(contentsOf: url)
-
-                let decodableResult = try JSONDecoder().decode([ChartData].self, from: data)
-
-                return decodableResult
-
+                chartPreparingData = try JSONDecoder().decode([PreparingChartData].self, from: data)
             }catch {
                 print("Error: " + error.localizedDescription)
-                return nil
             }
         } else {
-            return nil
+            print("Error: incorrect JSON url")
         }
+
+        guard let preparingData = chartPreparingData else { return }
+
+        var charts = [ChartDataSource]()
+        preparingData.forEach {
+            charts.append(ChartDataSource($0))
+        }
+
     }
 }

@@ -9,29 +9,12 @@
 import Foundation
 import UIKit
 
-struct ChartData: Codable {
+struct PreparingChartData: Codable {
 
     let columns: [Column]?
     let types: AxisType?
-    var names: AxisNames?
-    var colors: AxisColors?
-
-    enum CodingKeys: String, CodingKey {
-        case columns
-        case types
-        case names
-        case colors
-
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        columns = try values.decodeIfPresent([Column].self, forKey: .columns)
-        types = try values.decodeIfPresent(AxisType.self, forKey: .types)
-        names = try values.decodeIfPresent(AxisNames.self, forKey: .names)
-        colors = try values.decodeIfPresent(AxisColors.self, forKey: .colors)
-    }
+    let names: AxisNames?
+    let colors: AxisColors?
 
 }
 
@@ -75,7 +58,7 @@ struct AxisNames: Codable {
     var y1: String?
 }
 
-struct AxisColors: Codable {
+class AxisColors: NSObject, Codable {
     var y0: String?
     var y1: String?
 }

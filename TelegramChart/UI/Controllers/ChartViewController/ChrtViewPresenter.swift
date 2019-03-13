@@ -24,12 +24,9 @@ final class ChartViewPresenter {
     //
     func loadChartData() {
 
-
         // TODO - удалить
         JSONParser(fileName: Constants.JSONFileName, fileExtension: Constants.JSONExtension).parse()
         // TODO - удалить
-
-
 
         chartBuilder = ChartBuilder(frame: CGRect(x: 0, y: 0, width: controller.chartView.frame.width, height: controller.chartView.frame.height), chartLines: getChartLines())
 
@@ -58,7 +55,8 @@ final class ChartViewPresenter {
             (13, 80),
             (14, 70),
             (15, 70)
-        ], color: UIColor.green)
+        ], color: UIColor.green,
+                name: "")
 
         let lineLeft = LineChart.ChartLine(chartPoints: [
             (0, 40),
@@ -77,7 +75,8 @@ final class ChartViewPresenter {
             (13, 60),
             (14, 55),
             (15, 30)
-        ], color: UIColor.red)
+        ], color: UIColor.red,
+                name: "")
 
         lines.append(lineJoined)
         lines.append(lineLeft)

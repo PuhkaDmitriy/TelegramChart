@@ -20,4 +20,7 @@ final class Constants {
     // JSON
     static let JSONFileName = "chart_data"
     static let JSONExtension = "json"
+    static let x = "x"
+    static let y0 = "y0"
+    static let y1 = "y1"
 }
