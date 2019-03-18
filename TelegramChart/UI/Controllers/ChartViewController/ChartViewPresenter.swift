@@ -29,11 +29,11 @@ final class ChartViewPresenter {
             self?.buildRangeSelector()
         })
     }
-    
+
     func buildRangeSelector() {
 
         guard let lineChart = controller.rangeSelectorChart,
-                let chartData = self.charts.first else { return }
+              let chartData = self.charts.first else { return }
 
         let xAxis: [CGFloat] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112]
         let yAxis: [CGFloat] = [6706,7579,7798,8307,7866, 7736,7816,7630,7536,7105,7178,7619,7917,7483,5772,5700,5435,4837,4716,4890,4753,4820,4538,12162,39444,25765,18012,14421,13249,11310,10377,9399,8917,8259,7902,9442,47596,36160,23866,18500,15488,13722,12270,13413,10574,7092,7159,7880,8821,8306,7780,7963,7837,7611,7334,7413,7015,6742,6557,6593,6680,6725,6345,5988,6365,9911,28833,19694,14873,11911,10498,9708,8893,8365,7960,7694,45529,42858,31508,23289,19147,15874,14551,13124,11778,10809,10522,9918,9436,8617,8765,8194,8035,7865,7573,7422,7047,7147,6861,6669,6363,12073,32381,21390,15311,12819,11655,10696,9678,9143,8296,7852]
@@ -54,6 +54,8 @@ final class ChartViewPresenter {
 
         lineChart.animation.enabled = false // animate line drawing
         lineChart.area = false
+        lineChart.lineWidth = 0.5
+
 
         lineChart.x.labels.visible = false
 
@@ -89,11 +91,11 @@ final class ChartViewPresenter {
     // Input
     //
     func setVisibleJoinedChannel(_ isVisible: Bool) {
-         // TODO -
+        controller.rangeSelectorChart.needShowYLayer(lineIndex: 1, needShow: isVisible)
     }
 
     func setVisibleLeftChannel(_ isVisible: Bool) {
-        // TODO -
+        controller.rangeSelectorChart.needShowYLayer(lineIndex: 2, needShow: isVisible)
     }
 
     // MARK: - theme
@@ -106,7 +108,7 @@ final class ChartViewPresenter {
 extension ChartViewPresenter: LineChartDelegate {
 
     func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat]) {
-
+        print("x: \(x)     y: \(yValues)")
     }
 
 }

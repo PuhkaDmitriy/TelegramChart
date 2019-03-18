@@ -102,8 +102,9 @@ extension ChartViewController {
     override func themeDidChange(_ animation: Bool = true) {
 
         super.themeDidChange(false)
-// TODO - удалить
-        demoChartImageView.image =  UIImage(named: Settings.shared.currentTheme == .day ? "chartDemoDay" : "chartDemoNight")
+
+        demoChartImageView.image =  UIImage(named: Settings.shared.currentTheme == .day ? "chartDemoDay" : "chartDemoNight") // TODO - удалить
+
         themeSwitchButton.setTitle(getSwitchThemeButtonTitle(Settings.shared.currentTheme), for: .normal)
         setupNavigationBar(false)
         themeControls.forEach {

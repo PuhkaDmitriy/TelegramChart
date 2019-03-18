@@ -243,8 +243,6 @@ open class LineChart: UIView {
         delegate?.didSelectDataPoint(self, CGFloat(rounded), yValues: yValues)
     }
 
-
-
 /**
  * Listen on touch end event.
  */
@@ -652,9 +650,7 @@ class DotCALayer: CALayer {
         innerDotLayer.cornerRadius = innerRadius / 2
         self.addSublayer(innerDotLayer)
     }
-
 }
-
 
 
 /**
