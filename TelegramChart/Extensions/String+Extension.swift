@@ -11,7 +11,7 @@ import UIKit
 
 extension String {
     
-    func hexToColor() -> UIColor? {
+    func hexToColor() -> UIColor {
         var cString:String = trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {
@@ -30,6 +30,6 @@ extension String {
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
-        )
+        ) ?? .green
     }
 }

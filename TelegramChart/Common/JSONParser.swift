@@ -21,7 +21,7 @@ class JSONParser {
         self.fileExtension = fileExtension
     }
 
-    func parse(withCompletion: ((PreparingChartData?, Error?) -> Void)? = nil) {
+    func parse(withCompletion: (([ChartDataSource]) -> Void)? = nil) {
 
         var chartPreparingData: [PreparingChartData]?
 
@@ -42,6 +42,6 @@ class JSONParser {
         preparingData.forEach {
             charts.append(ChartDataSource($0))
         }
-
+        withCompletion?(charts)
     }
 }

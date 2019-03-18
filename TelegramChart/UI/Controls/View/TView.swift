@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TView: UIView {
+class TView: UIView {
 
     // MARK: - properties
 

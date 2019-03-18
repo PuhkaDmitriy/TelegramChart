@@ -55,8 +55,29 @@
                                 <rect key="frame" x="0.0" y="146" width="414" height="556"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4w-tu-EKj" userLabel="Chart View" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="394" height="426"/>
+                                        <rect key="frame" x="0.0" y="10" width="414" height="456"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chartDemoDay" translatesAutoresizingMaskIntoConstraints="NO" id="6Z3-RY-IJX" userLabel="demo">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="456"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbd-hB-TB2" userLabel="rangeSelectorChart" customClass="LineChart" customModule="TelegramChart" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="390" width="374" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="5ft-po-DP0"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hbd-hB-TB2" secondAttribute="trailing" constant="20" id="2ea-Qf-ibu"/>
+                                            <constraint firstItem="6Z3-RY-IJX" firstAttribute="top" secondItem="k4w-tu-EKj" secondAttribute="top" id="6bh-qf-7B2"/>
+                                            <constraint firstAttribute="bottom" secondItem="hbd-hB-TB2" secondAttribute="bottom" constant="10" id="N6P-od-ipY"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Z3-RY-IJX" secondAttribute="bottom" id="cfb-6s-gIX"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Z3-RY-IJX" secondAttribute="trailing" id="ihG-wB-Nnq"/>
+                                            <constraint firstItem="hbd-hB-TB2" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" constant="20" id="s0C-s9-0tL"/>
+                                            <constraint firstItem="6Z3-RY-IJX" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" id="zZA-kl-aAl"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
                                                 <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,13 +87,59 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqn-rO-oSR" userLabel="checkboxView">
+                                        <rect key="frame" x="0.0" y="466" width="414" height="90"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YG4-Ea-Vsn" userLabel="JoinedView" customClass="ChannelView" customModule="TelegramChart" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="0.0" width="394" height="45"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHg-pG-pHH" userLabel="divider" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="45" width="374" height="0.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.5" id="yUJ-L0-J3S"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                                        <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                                                        <color key="value" red="0.094117647060000004" green="0.1333333333" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88e-ZD-DSq" userLabel="JoinedView" customClass="ChannelView" customModule="TelegramChart" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="45.5" width="394" height="44.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="4A9-pK-2MJ"/>
+                                            <constraint firstItem="YG4-Ea-Vsn" firstAttribute="top" secondItem="mqn-rO-oSR" secondAttribute="top" id="6Na-wL-1H8"/>
+                                            <constraint firstItem="88e-ZD-DSq" firstAttribute="top" secondItem="gHg-pG-pHH" secondAttribute="bottom" id="7ME-Fj-yfQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="88e-ZD-DSq" secondAttribute="trailing" constant="10" id="Fd5-KL-2uh"/>
+                                            <constraint firstItem="gHg-pG-pHH" firstAttribute="top" secondItem="YG4-Ea-Vsn" secondAttribute="bottom" id="HWa-da-BgY"/>
+                                            <constraint firstItem="88e-ZD-DSq" firstAttribute="leading" secondItem="mqn-rO-oSR" secondAttribute="leading" constant="10" id="MWL-0z-GRP"/>
+                                            <constraint firstItem="YG4-Ea-Vsn" firstAttribute="leading" secondItem="mqn-rO-oSR" secondAttribute="leading" constant="10" id="OQ5-fK-5TB"/>
+                                            <constraint firstItem="gHg-pG-pHH" firstAttribute="centerY" secondItem="mqn-rO-oSR" secondAttribute="centerY" id="TU8-bm-bTf"/>
+                                            <constraint firstAttribute="trailing" secondItem="YG4-Ea-Vsn" secondAttribute="trailing" constant="10" id="Ynt-5g-oZf"/>
+                                            <constraint firstAttribute="trailing" secondItem="gHg-pG-pHH" secondAttribute="trailing" id="bQe-Do-np7"/>
+                                            <constraint firstAttribute="bottom" secondItem="88e-ZD-DSq" secondAttribute="bottom" id="hqC-w6-vko"/>
+                                            <constraint firstItem="gHg-pG-pHH" firstAttribute="leading" secondItem="mqn-rO-oSR" secondAttribute="leading" constant="40" id="mb4-8p-jnA"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="k4w-tu-EKj" secondAttribute="trailing" constant="10" id="FHu-Us-q7M"/>
-                                    <constraint firstAttribute="bottom" secondItem="k4w-tu-EKj" secondAttribute="bottom" constant="120" id="aPG-XG-Olk"/>
+                                    <constraint firstAttribute="bottom" secondItem="mqn-rO-oSR" secondAttribute="bottom" id="7r0-ks-Xx9"/>
+                                    <constraint firstItem="mqn-rO-oSR" firstAttribute="top" secondItem="k4w-tu-EKj" secondAttribute="bottom" id="8cC-tf-fcD"/>
+                                    <constraint firstAttribute="trailing" secondItem="k4w-tu-EKj" secondAttribute="trailing" id="FHu-Us-q7M"/>
+                                    <constraint firstAttribute="trailing" secondItem="mqn-rO-oSR" secondAttribute="trailing" id="Xmw-DB-eNU"/>
+                                    <constraint firstItem="mqn-rO-oSR" firstAttribute="leading" secondItem="G8x-8D-28c" secondAttribute="leading" id="r33-te-uIF"/>
                                     <constraint firstItem="k4w-tu-EKj" firstAttribute="top" secondItem="G8x-8D-28c" secondAttribute="top" constant="10" id="s9i-HE-xJY"/>
-                                    <constraint firstItem="k4w-tu-EKj" firstAttribute="leading" secondItem="G8x-8D-28c" secondAttribute="leading" constant="10" id="yJT-RD-0Bu"/>
+                                    <constraint firstItem="k4w-tu-EKj" firstAttribute="leading" secondItem="G8x-8D-28c" secondAttribute="leading" id="yJT-RD-0Bu"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
@@ -88,7 +155,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="wAT-wq-dUx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Switch to Day Mode"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
@@ -125,7 +192,7 @@
                         <viewLayoutGuide key="safeArea" id="2cs-xc-fQc"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
-                                <color key="value" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
                                 <color key="value" red="0.094117647058823528" green="0.13333333333333333" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,8 +202,13 @@
                     <navigationItem key="navigationItem" id="5fN-Cl-OSa"/>
                     <connections>
                         <outlet property="chartView" destination="k4w-tu-EKj" id="5qd-uq-Wbm"/>
+                        <outlet property="demoChartImageView" destination="6Z3-RY-IJX" id="m1q-E2-vo4"/>
+                        <outlet property="dividerView" destination="gHg-pG-pHH" id="0l4-9K-9tb"/>
                         <outlet property="followersLabel" destination="cx3-FN-HTg" id="JdG-dL-Ryl"/>
+                        <outlet property="joinedChannelView" destination="YG4-Ea-Vsn" id="jaa-63-HZm"/>
+                        <outlet property="leftChannelView" destination="88e-ZD-DSq" id="gbD-Ka-lbd"/>
                         <outlet property="mainView" destination="G8x-8D-28c" id="WqL-Fc-3fv"/>
+                        <outlet property="rangeSelectorChart" destination="hbd-hB-TB2" id="9XY-XY-NQl"/>
                         <outlet property="themeSwitchButton" destination="NTL-q6-JAZ" id="gNS-fI-q1l"/>
                     </connections>
                 </viewController>
@@ -145,4 +217,7 @@
             <point key="canvasLocation" x="-202.89855072463769" y="328.125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chartDemoDay" width="326" height="326"/>
+    </resources>
 </document>
