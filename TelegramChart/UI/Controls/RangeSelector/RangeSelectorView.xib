@@ -39,43 +39,58 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKt-2d-h5F">
                     <rect key="frame" x="0.0" y="0.0" width="251" height="47"/>
                     <color key="backgroundColor" white="0.0" alpha="0.34993043664383561" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                    </accessibility>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="At4-ze-DyZ">
-                    <rect key="frame" x="251" y="0.0" width="104" height="47"/>
+                    <rect key="frame" x="251" y="0.0" width="124" height="47"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tun-eQ-QNE">
-                            <rect key="frame" x="0.0" y="0.0" width="10" height="47"/>
+                            <rect key="frame" x="0.0" y="0.0" width="12" height="47"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftAnchor" translatesAutoresizingMaskIntoConstraints="NO" id="8NF-5Q-m5u">
-                                    <rect key="frame" x="1" y="18.5" width="8" height="10"/>
+                                    <rect key="frame" x="2" y="17.5" width="8" height="12"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                    </accessibility>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="Kcn-Yv-k0u"/>
-                                        <constraint firstAttribute="height" constant="10" id="l7u-nK-X9H"/>
+                                        <constraint firstAttribute="height" constant="12" id="l7u-nK-X9H"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                            </accessibility>
                             <constraints>
-                                <constraint firstAttribute="width" constant="10" id="0KZ-sa-Vue"/>
+                                <constraint firstAttribute="width" constant="12" id="0KZ-sa-Vue"/>
                                 <constraint firstItem="8NF-5Q-m5u" firstAttribute="centerY" secondItem="tun-eQ-QNE" secondAttribute="centerY" id="FK8-rz-036"/>
                                 <constraint firstItem="8NF-5Q-m5u" firstAttribute="centerX" secondItem="tun-eQ-QNE" secondAttribute="centerX" id="ars-Dv-2DD"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQG-cq-3ec">
-                            <rect key="frame" x="94" y="0.0" width="10" height="47"/>
+                            <rect key="frame" x="112" y="0.0" width="12" height="47"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightAnchor" translatesAutoresizingMaskIntoConstraints="NO" id="gSU-o1-e2l">
-                                    <rect key="frame" x="1" y="18.5" width="8" height="10"/>
+                                    <rect key="frame" x="2" y="17.5" width="8" height="12"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                    </accessibility>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="Fch-QZ-vJg"/>
-                                        <constraint firstAttribute="height" constant="10" id="qqg-fn-uuz"/>
+                                        <constraint firstAttribute="height" constant="12" id="qqg-fn-uuz"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                            </accessibility>
                             <constraints>
                                 <constraint firstItem="gSU-o1-e2l" firstAttribute="centerX" secondItem="aQG-cq-3ec" secondAttribute="centerX" id="76E-bU-b7L"/>
-                                <constraint firstAttribute="width" constant="10" id="U5R-xq-bPO"/>
+                                <constraint firstAttribute="width" constant="12" id="U5R-xq-bPO"/>
                                 <constraint firstItem="gSU-o1-e2l" firstAttribute="centerY" secondItem="aQG-cq-3ec" secondAttribute="centerY" id="zLY-oU-JS0"/>
                             </constraints>
                         </view>
@@ -100,8 +115,11 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRM-VU-jkL">
-                    <rect key="frame" x="355" y="0.0" width="20" height="47"/>
+                    <rect key="frame" x="375" y="0.0" width="0.0" height="47"/>
                     <color key="backgroundColor" white="0.0" alpha="0.3478702910958904" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                    </accessibility>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,7 +130,7 @@
                 <constraint firstItem="At4-ze-DyZ" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="AVe-cJ-2xe"/>
                 <constraint firstItem="kRM-VU-jkL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Avk-Ce-vH8"/>
                 <constraint firstItem="At4-ze-DyZ" firstAttribute="leading" secondItem="xKt-2d-h5F" secondAttribute="trailing" id="BRA-1l-Bhi"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="At4-ze-DyZ" secondAttribute="trailing" constant="20" id="Nbw-zm-X5y"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="At4-ze-DyZ" secondAttribute="trailing" id="Nbw-zm-X5y"/>
                 <constraint firstItem="kRM-VU-jkL" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="WeM-22-Ehu"/>
                 <constraint firstItem="At4-ze-DyZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="251" id="bAg-Rx-THN"/>
                 <constraint firstItem="xKt-2d-h5F" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="c17-zv-HVc"/>

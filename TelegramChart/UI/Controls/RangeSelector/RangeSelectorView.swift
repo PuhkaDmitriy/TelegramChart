@@ -123,6 +123,10 @@ class RangeSelectorView: UIView {
             let currentTouchPoint = touch.location(in: self)
             let previousTouchPoint = touch.previousLocation(in: self)
 
+            if (currentTouchPoint.x < 0 || currentTouchPoint.x > frame.size.width) {
+                return
+            }
+
             let deltaX = currentTouchPoint.x - previousTouchPoint.x
 
             if resizeRect.middleTouch {
@@ -141,10 +145,10 @@ class RangeSelectorView: UIView {
             }
 
             if resizeRect.leftTouch {
-                if(widthConstraint.constant - deltaX >= minimumRange) {
+//                if(widthConstraint.constant - deltaX >= minimumRange) {
                     leftConstraint.constant += deltaX
                     widthConstraint.constant -= deltaX
-                }
+//                }
             }
 
             if resizeRect.rightTouch {

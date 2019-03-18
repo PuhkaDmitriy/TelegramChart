@@ -70,7 +70,7 @@ final class ChartViewPresenter {
 
         simpleChart.animation.enabled = false // animate line drawing
         simpleChart.area = false
-        simpleChart.lineWidth = 0.6
+        simpleChart.lineWidth = 0.7
 
 
         simpleChart.x.labels.visible = false
@@ -108,7 +108,7 @@ final class ChartViewPresenter {
 
         // insert simple chart
         simpleChart.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        controller.rangeSelector.layer.insertSublayer(simpleChart.layer, at: 0)
+        simpleChart.isUserInteractionEnabled = false
         controller.rangeSelector.insertSubview(simpleChart, at: 0)
     }
 
