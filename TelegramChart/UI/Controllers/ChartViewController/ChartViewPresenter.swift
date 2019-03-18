@@ -14,6 +14,7 @@ final class ChartViewPresenter {
     // MARK: - properties
 
     private weak var controller: ChartViewController!
+    private var simpleChart: LineChart?
     var charts = [ChartDataSource]()
 
     init(controller: ChartViewController) {
@@ -26,14 +27,20 @@ final class ChartViewPresenter {
         JSONParser(fileName: Constants.JSONFileName, fileExtension: Constants.JSONExtension).parse(withCompletion: {[weak self] charts in
             self?.charts = charts
 
-            self?.buildRangeSelector()
+            self?.addSimpleChartToRangeSelector()
         })
     }
 
-    func buildRangeSelector() {
-       
-        guard let lineChart = controller.rangeSelectorChart,
-              let chartData = self.charts.first else { return }
+    func addSimpleChartToRangeSelector() {
+
+        self.simpleChart = LineChart(frame:
+        CGRect(x: 0.0,
+                y: 0.0,
+                width: controller.rangeSelector.bounds.size.width,
+                height: controller.rangeSelector.bounds.size.height))
+
+        guard let chartData = self.charts.first,
+              let simpleChart = self.simpleChart else { return }
 
         var xAxis = [CGFloat]()
         var y0Axis = [CGFloat]()
@@ -61,53 +68,58 @@ final class ChartViewPresenter {
         // simple line with custom x axis labels // TODO - for example
         //        let xLabels: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
 
-        lineChart.animation.enabled = false // animate line drawing
-        lineChart.area = false
-        lineChart.lineWidth = 0.6
+        simpleChart.animation.enabled = false // animate line drawing
+        simpleChart.area = false
+        simpleChart.lineWidth = 0.6
 
 
-        lineChart.x.labels.visible = false
+        simpleChart.x.labels.visible = false
 
-        lineChart.x.grid.count = 1
-        lineChart.y.grid.count = 1
+        simpleChart.x.grid.count = 1
+        simpleChart.y.grid.count = 1
 
-        lineChart.x.grid.visible = false
-        lineChart.y.grid.visible = false
+        simpleChart.x.grid.visible = false
+        simpleChart.y.grid.visible = false
 
-        lineChart.x.labels.values = xLabels
-        lineChart.y.labels.values = yLabels
+        simpleChart.x.labels.values = xLabels
+        simpleChart.y.labels.values = yLabels
 
-        lineChart.x.labels.visible = false
-        lineChart.y.labels.visible = false
+        simpleChart.x.labels.visible = false
+        simpleChart.y.labels.visible = false
 
-        lineChart.x.axis.visible = false
-        lineChart.y.axis.visible = false
+        simpleChart.x.axis.visible = false
+        simpleChart.y.axis.visible = false
 
-        lineChart.x.axis.inset = 0
-        lineChart.y.axis.inset = 10
+        simpleChart.x.axis.inset = 0
+        simpleChart.y.axis.inset = 10
 
-        lineChart.addLine(xAxis)
-        lineChart.addLine(y0Axis)
-        lineChart.addLine(y1Axis)
+        simpleChart.addLine(xAxis)
+        simpleChart.addLine(y0Axis)
+        simpleChart.addLine(y1Axis)
 
-        lineChart.colors.append(xColor)
-        lineChart.colors.append(y0Color)
-        lineChart.colors.append(y1Color)
+        simpleChart.colors.append(xColor)
+        simpleChart.colors.append(y0Color)
+        simpleChart.colors.append(y1Color)
 
-        lineChart.translatesAutoresizingMaskIntoConstraints = false
-        lineChart.delegate = self
+        simpleChart.translatesAutoresizingMaskIntoConstraints = false
+        simpleChart.delegate = self
 
-        lineChart.dots.visible = false
+        simpleChart.dots.visible = false
+
+        // insert simple chart
+        simpleChart.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        controller.rangeSelector.layer.insertSublayer(simpleChart.layer, at: 0)
+        controller.rangeSelector.insertSubview(simpleChart, at: 0)
     }
 
     // Input
     //
     func setVisibleJoinedChannel(_ isVisible: Bool) {
-        controller.rangeSelectorChart.needShowYLayer(lineIndex: 1, needShow: isVisible)
+        simpleChart?.needShowYLayer(lineIndex: 1, needShow: isVisible)
     }
 
     func setVisibleLeftChannel(_ isVisible: Bool) {
-        controller.rangeSelectorChart.needShowYLayer(lineIndex: 2, needShow: isVisible)
+        simpleChart?.needShowYLayer(lineIndex: 2, needShow: isVisible)
     }
 
     // MARK: - theme
@@ -120,7 +132,13 @@ final class ChartViewPresenter {
 extension ChartViewPresenter: LineChartDelegate {
 
     func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat]) {
-        print("x: \(x)     y: \(yValues)")
+        if (chart == simpleChart) {
+
+        } else {
+            // TODO = обработать работу курсора
+            print("x: \(x)     y: \(yValues)")
+        }
+
     }
 
 }

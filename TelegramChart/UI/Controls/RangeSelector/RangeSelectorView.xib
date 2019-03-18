@@ -90,13 +90,21 @@
                         <constraint firstAttribute="trailing" secondItem="aQG-cq-3ec" secondAttribute="trailing" id="wwT-ts-MPm"/>
                         <constraint firstItem="tun-eQ-QNE" firstAttribute="leading" secondItem="At4-ze-DyZ" secondAttribute="leading" id="zvc-hV-Yvc"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRM-VU-jkL">
                     <rect key="frame" x="355" y="0.0" width="20" height="47"/>
                     <color key="backgroundColor" white="0.0" alpha="0.3478702910958904" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.54117647059999996" green="0.98785316779999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="kRM-VU-jkL" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5a7-6x-moq"/>
                 <constraint firstItem="xKt-2d-h5F" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5v2-U8-De2"/>

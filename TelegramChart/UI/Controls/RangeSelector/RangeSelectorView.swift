@@ -10,17 +10,8 @@ import UIKit
 
 class RangeSelectorView: UIView {
 
-    @IBInspectable var dayColor: UIColor = UIColor.white {
-        didSet {
-            setup()
-        }
-    }
-    
-    @IBInspectable var nightColor: UIColor = UIColor.black {
-        didSet {
-            setup()
-        }
-    }
+    @IBInspectable var dayColor: UIColor = UIColor.white
+    @IBInspectable var nightColor: UIColor = UIColor.black
     
     // MARK: - outlets
     @IBOutlet weak var contentView: UIView!
@@ -43,7 +34,7 @@ class RangeSelectorView: UIView {
         var leftTouch = false
         var rightTouch = false
         var bottomTouch = false
-        var middelTouch = false
+        var middleTouch = false
     }
 
     var touchStart = CGPoint.zero
@@ -55,24 +46,28 @@ class RangeSelectorView: UIView {
 
     // MARK: - life cycle
 
+/// This method is used when creating an `ApexView` with code.
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        initView()
     }
 
+/// This method is called when instantiated from a XIB.
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setup()
+        initView()
     }
 
-    private func setup() {
+    private func initView() {
         Bundle.main.loadNibNamed("RangeSelectorView", owner: self, options: nil)
         addSubview(contentView)
+
         contentView.frame = self.bounds
+
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         minimumRange = rect.frame.size.width
-        
+
         themeDidChange(false)
     }
 
@@ -97,13 +92,13 @@ class RangeSelectorView: UIView {
             resizeRect.leftTouch = false
             resizeRect.rightTouch = false
             resizeRect.bottomTouch = false
-            resizeRect.middelTouch = false
+            resizeRect.middleTouch = false
 
             if  touchStart.y > rect.frame.minY + (proxyFactor*2) &&
                         touchStart.y < rect.frame.maxY - (proxyFactor*2) &&
                         touchStart.x > rect.frame.minX + (proxyFactor*2) &&
                         touchStart.x < rect.frame.maxX - (proxyFactor*2) {
-                resizeRect.middelTouch = true
+                resizeRect.middleTouch = true
                 print("middle")
                 return
             }
@@ -130,7 +125,7 @@ class RangeSelectorView: UIView {
 
             let deltaX = currentTouchPoint.x - previousTouchPoint.x
 
-            if resizeRect.middelTouch {
+            if resizeRect.middleTouch {
                 if (deltaX < 0){
                     if (leftConstraint.constant + deltaX >= 0) {
                         leftConstraint.constant += deltaX

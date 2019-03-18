@@ -26,8 +26,8 @@
 		FA1B2AC622369A2D00AC271D /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2AC522369A2D00AC271D /* ThemeProtocol.swift */; };
 		FA1B2AC92236A58000AC271D /* chart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = FA1B2AC82236A57F00AC271D /* chart_data.json */; };
 		FA1B2ACF2236A66A00AC271D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2ACE2236A66A00AC271D /* Constants.swift */; };
-		FAC2FBE0223F2E5100B66347 /* RangeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2FBDE223F2E5100B66347 /* RangeSelectorView.swift */; };
-		FAC2FBE1223F2E5100B66347 /* RangeSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC2FBDF223F2E5100B66347 /* RangeSelectorView.xib */; };
+		FA6F693D224029F900A92988 /* RangeSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6F693B224029F900A92988 /* RangeSelectorView.xib */; };
+		FA6F693E224029F900A92988 /* RangeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F693C224029F900A92988 /* RangeSelectorView.swift */; };
 		FAC2FBE3223F2E6E00B66347 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2FBE2223F2E6E00B66347 /* LineChart.swift */; };
 		FAE0427F2237CE28007F972E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0427E2237CE28007F972E /* JSONParser.swift */; };
 		FAE042832237D42A007F972E /* PreparingChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE042822237D42A007F972E /* PreparingChartData.swift */; };
@@ -56,8 +56,8 @@
 		FA1B2AC522369A2D00AC271D /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		FA1B2AC82236A57F00AC271D /* chart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chart_data.json; sourceTree = "<group>"; };
 		FA1B2ACE2236A66A00AC271D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FAC2FBDE223F2E5100B66347 /* RangeSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSelectorView.swift; sourceTree = "<group>"; };
-		FAC2FBDF223F2E5100B66347 /* RangeSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RangeSelectorView.xib; sourceTree = "<group>"; };
+		FA6F693B224029F900A92988 /* RangeSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RangeSelectorView.xib; sourceTree = "<group>"; };
+		FA6F693C224029F900A92988 /* RangeSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSelectorView.swift; sourceTree = "<group>"; };
 		FAC2FBE2223F2E6E00B66347 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		FAE0427E2237CE28007F972E /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		FAE042822237D42A007F972E /* PreparingChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparingChartData.swift; sourceTree = "<group>"; };
@@ -277,8 +277,8 @@
 		FAC2FBDD223F2E5100B66347 /* RangeSelector */ = {
 			isa = PBXGroup;
 			children = (
-				FAC2FBDE223F2E5100B66347 /* RangeSelectorView.swift */,
-				FAC2FBDF223F2E5100B66347 /* RangeSelectorView.xib */,
+				FA6F693C224029F900A92988 /* RangeSelectorView.swift */,
+				FA6F693B224029F900A92988 /* RangeSelectorView.xib */,
 			);
 			path = RangeSelector;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				FA1B27C52235699C00AC271D /* LaunchScreen.storyboard in Resources */,
 				FA1B28B022366BE100AC271D /* Localizable.strings in Resources */,
 				FA1B27C22235699C00AC271D /* Assets.xcassets in Resources */,
-				FAC2FBE1223F2E5100B66347 /* RangeSelectorView.xib in Resources */,
+				FA6F693D224029F900A92988 /* RangeSelectorView.xib in Resources */,
 				FA1B27C02235699800AC271D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,13 +386,13 @@
 				FA02683F22392A47009238E6 /* ChannelView.swift in Sources */,
 				FA026830223900EB009238E6 /* ChartDataSourse.swift in Sources */,
 				FA1B27BD2235699800AC271D /* ChartViewController.swift in Sources */,
+				FA6F693E224029F900A92988 /* RangeSelectorView.swift in Sources */,
 				FA1B28A82236625600AC271D /* Settings.swift in Sources */,
 				FA02683222391FD5009238E6 /* Date+Extension.swift in Sources */,
 				FA1B2ABB22367E6600AC271D /* ChartViewPresenter.swift in Sources */,
 				FAE0427F2237CE28007F972E /* JSONParser.swift in Sources */,
 				FA1B2AC3223690A800AC271D /* BaseViewController.swift in Sources */,
 				FA1B27BB2235699800AC271D /* AppDelegate.swift in Sources */,
-				FAC2FBE0223F2E5100B66347 /* RangeSelectorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

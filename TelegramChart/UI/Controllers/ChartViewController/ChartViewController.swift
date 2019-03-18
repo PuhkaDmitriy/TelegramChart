@@ -17,8 +17,8 @@ final class ChartViewController: BaseViewController {
     @IBOutlet weak var mainView: TView!
 
     @IBOutlet weak var chartView: TView!
-
-    @IBOutlet weak var rangeSelectorChart: LineChart!
+    
+    
     
     @IBOutlet weak var joinedChannelView: ChannelView!
     @IBOutlet weak var dividerView: TView!
@@ -26,6 +26,8 @@ final class ChartViewController: BaseViewController {
 
     @IBOutlet weak var themeSwitchButton: TButton!
 
+    @IBOutlet weak var rangeSelector: RangeSelectorView!
+    
     @IBOutlet weak var demoChartImageView: UIImageView! // TODO - удалить
     
     // MARK: - properties
@@ -38,6 +40,8 @@ final class ChartViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.rangeSelector.setParentView(self.view)
+        
         presenter = ChartViewPresenter(controller: self)
         presenter?.loadChartData()
 
@@ -103,7 +107,7 @@ extension ChartViewController {
 
         super.themeDidChange(false)
 
-        demoChartImageView.image =  UIImage(named: Settings.shared.currentTheme == .day ? "chartDemoDay" : "chartDemoNight") // TODO - удалить
+        demoChartImageView.image =  UIImage(named: Settings.shared.currentTheme == .day ? "mainChartDay" : "mainChartNight") // TODO - удалить
 
         themeSwitchButton.setTitle(getSwitchThemeButtonTitle(Settings.shared.currentTheme), for: .normal)
         setupNavigationBar(false)

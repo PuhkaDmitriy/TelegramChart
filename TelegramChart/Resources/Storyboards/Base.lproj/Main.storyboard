@@ -57,11 +57,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4w-tu-EKj" userLabel="Chart View" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="414" height="456"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chartDemoDay" translatesAutoresizingMaskIntoConstraints="NO" id="6Z3-RY-IJX" userLabel="demo">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="456"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainChartDay" translatesAutoresizingMaskIntoConstraints="NO" id="6Z3-RY-IJX" userLabel="demo">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="356"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbd-hB-TB2" userLabel="rangeSelectorChart" customClass="LineChart" customModule="TelegramChart" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="390" width="374" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbd-hB-TB2" userLabel="rangeSelector" customClass="RangeSelectorView" customModule="TelegramChart" customModuleProvider="target">
+                                                <rect key="frame" x="17" y="396" width="380" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="5ft-po-DP0"/>
@@ -70,12 +70,12 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="hbd-hB-TB2" secondAttribute="trailing" constant="20" id="2ea-Qf-ibu"/>
+                                            <constraint firstAttribute="trailing" secondItem="hbd-hB-TB2" secondAttribute="trailing" constant="17" id="2ea-Qf-ibu"/>
                                             <constraint firstItem="6Z3-RY-IJX" firstAttribute="top" secondItem="k4w-tu-EKj" secondAttribute="top" id="6bh-qf-7B2"/>
                                             <constraint firstAttribute="bottom" secondItem="hbd-hB-TB2" secondAttribute="bottom" constant="10" id="N6P-od-ipY"/>
-                                            <constraint firstAttribute="bottom" secondItem="6Z3-RY-IJX" secondAttribute="bottom" id="cfb-6s-gIX"/>
+                                            <constraint firstItem="hbd-hB-TB2" firstAttribute="top" secondItem="6Z3-RY-IJX" secondAttribute="bottom" id="eu4-js-XLL"/>
                                             <constraint firstAttribute="trailing" secondItem="6Z3-RY-IJX" secondAttribute="trailing" id="ihG-wB-Nnq"/>
-                                            <constraint firstItem="hbd-hB-TB2" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" constant="20" id="s0C-s9-0tL"/>
+                                            <constraint firstItem="hbd-hB-TB2" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" constant="17" id="s0C-s9-0tL"/>
                                             <constraint firstItem="6Z3-RY-IJX" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" id="zZA-kl-aAl"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -208,7 +208,7 @@
                         <outlet property="joinedChannelView" destination="YG4-Ea-Vsn" id="jaa-63-HZm"/>
                         <outlet property="leftChannelView" destination="88e-ZD-DSq" id="gbD-Ka-lbd"/>
                         <outlet property="mainView" destination="G8x-8D-28c" id="WqL-Fc-3fv"/>
-                        <outlet property="rangeSelectorChart" destination="hbd-hB-TB2" id="9XY-XY-NQl"/>
+                        <outlet property="rangeSelector" destination="hbd-hB-TB2" id="Kt9-SH-PIx"/>
                         <outlet property="themeSwitchButton" destination="NTL-q6-JAZ" id="gNS-fI-q1l"/>
                     </connections>
                 </viewController>
@@ -218,6 +218,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chartDemoDay" width="326" height="326"/>
+        <image name="mainChartDay" width="326" height="326"/>
     </resources>
 </document>
