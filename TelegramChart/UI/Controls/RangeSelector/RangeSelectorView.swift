@@ -12,7 +12,7 @@ class RangeSelectorView: UIView {
 
     @IBInspectable var dayColor: UIColor = UIColor.white
     @IBInspectable var nightColor: UIColor = UIColor.black
-    
+
     // MARK: - outlets
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
@@ -20,10 +20,10 @@ class RangeSelectorView: UIView {
     @IBOutlet weak var leftConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
-    
+
     @IBOutlet weak var leftBorder: UIView!
     @IBOutlet weak var rightBorder: UIView!
-    
+
     @IBOutlet weak var rect: UIView!
 
 
@@ -40,7 +40,7 @@ class RangeSelectorView: UIView {
     var touchStart = CGPoint.zero
     var proxyFactor = CGFloat(10)
     var resizeRect = ResizeRect()
-    var minimumRange: CGFloat = 0
+    var minimumRange: CGFloat?
 
     weak var parentView: UIView?
 
@@ -61,14 +61,11 @@ class RangeSelectorView: UIView {
     private func initView() {
         Bundle.main.loadNibNamed("RangeSelectorView", owner: self, options: nil)
         addSubview(contentView)
-
         contentView.frame = self.bounds
-
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
-        minimumRange = rect.frame.size.width
-
         themeDidChange(false)
+
+        minimumRange = widthConstraint.constant
     }
 
     // MARK: - methods
@@ -83,8 +80,8 @@ class RangeSelectorView: UIView {
         if let touch = touches.first,
            let parentView = self.parentView {
 
-            let touchInParentStart = touch.location(in: parentView)
-            print(touchInParentStart)
+//          let touchInParentStart = touch.location(in: parentView)
+//          print("touchInParentStart: " + touchInParentStart)
 
             let touchStart = touch.location(in: self)
 
@@ -94,10 +91,10 @@ class RangeSelectorView: UIView {
             resizeRect.bottomTouch = false
             resizeRect.middleTouch = false
 
-            if  touchStart.y > rect.frame.minY + (proxyFactor*2) &&
-                        touchStart.y < rect.frame.maxY - (proxyFactor*2) &&
-                        touchStart.x > rect.frame.minX + (proxyFactor*2) &&
-                        touchStart.x < rect.frame.maxX - (proxyFactor*2) {
+            if touchStart.y > rect.frame.minY + (proxyFactor) &&
+                       touchStart.y < rect.frame.maxY - (proxyFactor) &&
+                       touchStart.x > rect.frame.minX + (proxyFactor) &&
+                       touchStart.x < rect.frame.maxX - (proxyFactor) {
                 resizeRect.middleTouch = true
                 print("middle")
                 return
@@ -118,19 +115,33 @@ class RangeSelectorView: UIView {
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        guard let minimumRange = self.minimumRange else {
+            self.minimumRange = widthConstraint.constant
+            return
+        }
+
         if let touch = touches.first {
 
             let currentTouchPoint = touch.location(in: self)
             let previousTouchPoint = touch.previousLocation(in: self)
 
-            if (currentTouchPoint.x < 0 || currentTouchPoint.x > frame.size.width) {
+            // обработка выхода за пределы parent view
+            if (currentTouchPoint.x < 0) {
+                leftConstraint.constant = 0
+                return
+            }
+
+            if (currentTouchPoint.x > frame.size.width) {
+                rightConstraint.constant = 0
                 return
             }
 
             let deltaX = currentTouchPoint.x - previousTouchPoint.x
 
+            // middle
             if resizeRect.middleTouch {
-                if (deltaX < 0){
+                if (deltaX < 0) {
                     if (leftConstraint.constant + deltaX >= 0) {
                         leftConstraint.constant += deltaX
                         rightConstraint.constant -= deltaX
@@ -144,21 +155,30 @@ class RangeSelectorView: UIView {
                 }
             }
 
+            // left
             if resizeRect.leftTouch {
-//                if(widthConstraint.constant - deltaX >= minimumRange) {
-                    leftConstraint.constant += deltaX
-                    widthConstraint.constant -= deltaX
-//                }
-            }
 
-            if resizeRect.rightTouch {
-                if(widthConstraint.constant + deltaX >= minimumRange) {
-                    rightConstraint.constant -= deltaX
-                    widthConstraint.constant += deltaX
+                if widthConstraint.constant - deltaX < minimumRange {
+                    return
                 }
+
+                leftConstraint.constant += deltaX
+                widthConstraint.constant -= deltaX
             }
 
-            UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseIn, animations: {
+            // right
+            if resizeRect.rightTouch {
+
+                if((widthConstraint.constant + deltaX) < minimumRange) {
+                    return
+                }
+
+                rightConstraint.constant -= deltaX
+                widthConstraint.constant += deltaX
+            }
+
+            // .curveEaseIn
+            UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
                 self.layoutIfNeeded()
             }, completion: { (ended) in
 
@@ -170,11 +190,11 @@ class RangeSelectorView: UIView {
 // MARK: - theme
 
 extension RangeSelectorView: ThemeProtocol {
-    
+
     func themeDidChange(_ animation: Bool = true) {
-        
+
         let borderColor = Settings.shared.currentTheme == .day ? dayColor : nightColor
-        
+
         if(animation) {
             UIView.animate(withDuration: 0.5, delay: 0.0, options:[], animations: {
                 self.rect.layer.borderColor = borderColor.cgColor

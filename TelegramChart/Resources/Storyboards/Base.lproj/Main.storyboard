@@ -57,7 +57,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4w-tu-EKj" userLabel="Chart View" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="414" height="456"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainChartDay" translatesAutoresizingMaskIntoConstraints="NO" id="6Z3-RY-IJX" userLabel="demo">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainChartDay" translatesAutoresizingMaskIntoConstraints="NO" id="6Z3-RY-IJX" userLabel="demo">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="388"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbd-hB-TB2" userLabel="rangeSelector" customClass="RangeSelectorView" customModule="TelegramChart" customModuleProvider="target">
@@ -82,7 +82,7 @@
                                             <constraint firstAttribute="trailing" secondItem="6Z3-RY-IJX" secondAttribute="trailing" id="Ce3-qa-U0z"/>
                                             <constraint firstItem="hbd-hB-TB2" firstAttribute="top" secondItem="6Z3-RY-IJX" secondAttribute="bottom" constant="5" id="Lte-AF-nZy"/>
                                             <constraint firstAttribute="bottom" secondItem="hbd-hB-TB2" secondAttribute="bottom" constant="10" id="N6P-od-ipY"/>
-                                            <constraint firstItem="6Z3-RY-IJX" firstAttribute="top" secondItem="k4w-tu-EKj" secondAttribute="top" id="jKy-4G-mv8"/>
+                                            <constraint firstItem="6Z3-RY-IJX" firstAttribute="top" secondItem="k4w-tu-EKj" secondAttribute="top" constant="10" id="jKy-4G-mv8"/>
                                             <constraint firstItem="hbd-hB-TB2" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" constant="17" id="s0C-s9-0tL"/>
                                             <constraint firstItem="6Z3-RY-IJX" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" id="yrl-Wg-Wbp"/>
                                         </constraints>
