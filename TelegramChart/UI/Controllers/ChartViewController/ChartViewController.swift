@@ -14,21 +14,16 @@ final class ChartViewController: BaseViewController {
 
     @IBOutlet weak var followersLabel: TLabel!
 
-    @IBOutlet weak var mainView: TView!
-
-    @IBOutlet weak var chartView: TView!
-    
-    
+    @IBOutlet weak var mainContainer: TView!
+    @IBOutlet weak var chartContainer: TView!
     
     @IBOutlet weak var joinedChannelView: ChannelView!
     @IBOutlet weak var dividerView: TView!
     @IBOutlet weak var leftChannelView: ChannelView!
-
     @IBOutlet weak var themeSwitchButton: TButton!
-
-    @IBOutlet weak var rangeSelector: RangeSelectorView!
     
-    @IBOutlet weak var demoChartImageView: UIImageView! // TODO - удалить
+    @IBOutlet weak var mainChart: LineChart!
+    @IBOutlet weak var rangeSelector: RangeSelectorView!
     
     // MARK: - properties
 
@@ -55,7 +50,7 @@ final class ChartViewController: BaseViewController {
 
     func setupContent() {
 
-        themeControls = [followersLabel, mainView, chartView, joinedChannelView, dividerView, leftChannelView, themeSwitchButton]
+        themeControls = [followersLabel, mainContainer, chartContainer, joinedChannelView, dividerView, leftChannelView, themeSwitchButton]
         if let selfView = self.view as? TView {
             themeControls.append(selfView)
         }
@@ -106,8 +101,6 @@ extension ChartViewController {
     override func themeDidChange(_ animation: Bool = true) {
 
         super.themeDidChange(false)
-
-        demoChartImageView.image =  UIImage(named: Settings.shared.currentTheme == .day ? "mainChartDay" : "mainChartNight") // TODO - удалить
 
         themeSwitchButton.setTitle(getSwitchThemeButtonTitle(Settings.shared.currentTheme), for: .normal)
         setupNavigationBar(false)

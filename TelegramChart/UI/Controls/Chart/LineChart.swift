@@ -150,9 +150,7 @@ open class LineChart: UIView {
 
     override open func draw(_ rect: CGRect) {
 
-//        guard
-//                !dataStore.isEmpty
-//                else { return }
+        guard !dataStore.isEmpty else { return }
 
         if removeAll {
             let context = UIGraphicsGetCurrentContext()

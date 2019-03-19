@@ -109,7 +109,9 @@ final class ChartViewPresenter {
         // insert simple chart
         simpleChart.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         simpleChart.isUserInteractionEnabled = false
+
         controller.rangeSelector.insertSubview(simpleChart, at: 0)
+        controller.rangeSelector.delegate = self
     }
 
     // Input
@@ -127,6 +129,14 @@ final class ChartViewPresenter {
     func changeTheme() {
         Settings.shared.setTheme(Settings.shared.currentTheme == .day ? .night : .day)
     }
+}
+
+extension ChartViewPresenter: RangeSelectorProtocol {
+
+    func didSelectRange(_ range: Range<CGFloat>) {
+        print("range: " + "\(range.lowerBound) " + " \(range.upperBound)")
+    }
+
 }
 
 extension ChartViewPresenter: LineChartDelegate {

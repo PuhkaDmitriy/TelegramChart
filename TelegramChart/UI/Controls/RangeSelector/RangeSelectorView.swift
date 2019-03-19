@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RangeSelectorProtocol: class {
+    func didSelectRange(_ range: Range<CGFloat>)
+}
+
 class RangeSelectorView: UIView {
 
     @IBInspectable var dayColor: UIColor = UIColor.white
@@ -37,6 +41,7 @@ class RangeSelectorView: UIView {
         var middleTouch = false
     }
 
+    weak var delegate: RangeSelectorProtocol?
     var touchStart = CGPoint.zero
     var proxyFactor = CGFloat(10)
     var resizeRect = ResizeRect()
@@ -77,9 +82,9 @@ class RangeSelectorView: UIView {
     // MARK: - touch handling
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first,
-           let parentView = self.parentView {
+        if let touch = touches.first {
 
+//          let parentView = self.parentView {
 //          let touchInParentStart = touch.location(in: parentView)
 //          print("touchInParentStart: " + touchInParentStart)
 
@@ -180,8 +185,8 @@ class RangeSelectorView: UIView {
             // .curveEaseIn
             UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
                 self.layoutIfNeeded()
-            }, completion: { (ended) in
-
+            }, completion: { _ in
+                self.delegate?.didSelectRange(Range<CGFloat>(uncheckedBounds: (self.rect.frame.minX, self.rect.frame.maxX)))
             })
         }
     }
