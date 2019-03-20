@@ -7,6 +7,7 @@ import QuartzCore
 // delegate method
 public protocol LineChartDelegate {
     func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat])
+    func drawIsFinished(_ chart: LineChart)
 }
 
 /**
@@ -82,11 +83,18 @@ open class LineChart: UIView {
     open var area: Bool = true
     open var animation: Animation = Animation()
     open var dots: Dots = Dots()
+
     open var lineWidth: CGFloat = 2
 
     open var x: Coordinate = Coordinate()
     open var y: Coordinate = Coordinate()
 
+    open var rangeToShow: Range<Int>? {
+        didSet {
+            guard let old = oldValue else { return }
+            draw(self.frame)
+        }
+    }
 
     // values calculated on init
     fileprivate var drawingHeight: CGFloat = 0 {
@@ -111,7 +119,25 @@ open class LineChart: UIView {
     open var delegate: LineChartDelegate?
 
     // data stores
-    lazy fileprivate var dataStore = [[CGFloat]]()
+    fileprivate var tmpDataStore = [[CGFloat]]()
+    fileprivate var dataStore: [[CGFloat]] {
+        set {
+
+        }
+        get {
+            guard let range = self.rangeToShow else { return tmpDataStore }
+            var rangeDataStore = [[CGFloat]]()
+
+            tmpDataStore.forEach { dataLine in
+                let rangedLine = dataLine[range.lowerBound...range.upperBound]
+                rangeDataStore.append(Array(rangedLine))
+
+            }
+// 81...111 = 31
+            return rangeDataStore
+
+        }
+    }
     lazy fileprivate var dotsDataStore = [[DotCALayer]]()
     lazy fileprivate var lineLayerStore = [Int : CAShapeLayer]() // [Line index : Layer]
 
@@ -202,6 +228,7 @@ open class LineChart: UIView {
             if area { drawAreaBeneathLineChart(lineIndex) }
         }
 
+        delegate?.drawIsFinished(self)
     }
 
 
@@ -243,6 +270,27 @@ open class LineChart: UIView {
         let yValues: [CGFloat] = getYValuesForXValue(rounded)
         highlightDataPoints(rounded)
         delegate?.didSelectDataPoint(self, CGFloat(rounded), yValues: yValues)
+    }
+
+    func getIndexesRangeByPoints(_ pointsRange: Range<CGFloat>) -> Range<Int>? {
+        if (self.dataStore.isEmpty) {
+            return nil
+        }
+
+        let start = self.x.invert(pointsRange.lowerBound - x.axis.inset)
+        let end = self.x.invert(pointsRange.upperBound - x.axis.inset)
+
+        var roundedStart = Int(round(Double(start)))
+        if (roundedStart < 0) {
+            roundedStart = 0
+        }
+
+        var roundedEnd = Int(round(Double(end)))
+        if (roundedEnd > dataStore[0].count) {
+            roundedEnd = dataStore[0].count
+        }
+
+        return Range<Int>(uncheckedBounds: (roundedStart, roundedEnd))
     }
 
 /**
@@ -593,7 +641,7 @@ open class LineChart: UIView {
  * Add line chart
  */
     open func addLine(_ data: [CGFloat]) {
-        self.dataStore.append(data)
+        self.tmpDataStore.append(data)
         self.setNeedsDisplay()
     }
 
@@ -616,7 +664,7 @@ open class LineChart: UIView {
  */
     open func clear() {
         // clear data
-        dataStore.removeAll()
+        tmpDataStore.removeAll()
         self.setNeedsDisplay()
     }
 }

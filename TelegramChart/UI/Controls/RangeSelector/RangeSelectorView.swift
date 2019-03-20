@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RangeSelectorProtocol: class {
-    func didSelectRange(_ range: Range<CGFloat>)
+    func didSelectPointsRange(_ range: Range<CGFloat>)
 }
 
 class RangeSelectorView: UIView {
@@ -42,12 +42,11 @@ class RangeSelectorView: UIView {
     }
 
     weak var delegate: RangeSelectorProtocol?
+
     var touchStart = CGPoint.zero
     var proxyFactor = CGFloat(10)
     var resizeRect = ResizeRect()
     var minimumRange: CGFloat?
-
-    weak var parentView: UIView?
 
     // MARK: - life cycle
 
@@ -73,20 +72,10 @@ class RangeSelectorView: UIView {
         minimumRange = widthConstraint.constant
     }
 
-    // MARK: - methods
-
-    func setParentView(_ parentView: UIView) {
-        self.parentView = parentView
-    }
-
     // MARK: - touch handling
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-
-//          let parentView = self.parentView {
-//          let touchInParentStart = touch.location(in: parentView)
-//          print("touchInParentStart: " + touchInParentStart)
 
             let touchStart = touch.location(in: self)
 
@@ -186,9 +175,13 @@ class RangeSelectorView: UIView {
             UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
                 self.layoutIfNeeded()
             }, completion: { _ in
-                self.delegate?.didSelectRange(Range<CGFloat>(uncheckedBounds: (self.rect.frame.minX, self.rect.frame.maxX)))
+                self.didChangeRange()
             })
         }
+    }
+
+    func didChangeRange() {
+        delegate?.didSelectPointsRange(Range<CGFloat>(uncheckedBounds: (self.rect.frame.minX, self.rect.frame.maxX)))
     }
 }
 

@@ -34,8 +34,6 @@ final class ChartViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.rangeSelector.setParentView(self.view)
         
         presenter = ChartViewPresenter(controller: self)
         presenter?.loadChartData()

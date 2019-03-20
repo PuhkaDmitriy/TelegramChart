@@ -26,7 +26,6 @@ final class ChartViewPresenter {
     func loadChartData() {
         JSONParser(fileName: Constants.JSONFileName, fileExtension: Constants.JSONExtension).parse(withCompletion: {[weak self] charts in
             self?.charts = charts
-
             self?.addSimpleChartToRangeSelector()
         })
     }
@@ -114,14 +113,92 @@ final class ChartViewPresenter {
         controller.rangeSelector.delegate = self
     }
 
+    func buildMainChart(_ range: Range<Int>? = nil) {
+        guard let chartData = self.charts.first,
+              let mainChart = controller.mainChart else { return }
+
+        // если чарт уже построен, просто обновляем range
+        if let rangeToShow = mainChart.rangeToShow {
+            mainChart.rangeToShow = range
+            return
+        }
+
+        mainChart.rangeToShow = range
+
+        var xAxis = [CGFloat]()
+        var y0Axis = [CGFloat]()
+        var y1Axis = [CGFloat]()
+
+        let xColor: UIColor = .clear
+        var y0Color: UIColor = .clear
+        var y1Color: UIColor = .clear
+
+        chartData.lines.forEach {
+            if ($0.name == Constants.x) {
+                xAxis.append(contentsOf: $0.data)
+            } else if ($0.name == Constants.y0) {
+                y0Axis.append(contentsOf: $0.data)
+                y0Color = $0.color
+            } else if ($0.name == Constants.y1) {
+                y1Axis.append(contentsOf: $0.data)
+                y1Color = $0.color
+            }
+        }
+
+        let xLabels = [String]()
+        let yLabels = [String]()
+
+        // simple line with custom x axis labels // TODO - for example
+        //        let xLabels: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+
+        mainChart.animation.enabled = false // animate line drawing
+        mainChart.area = false
+        mainChart.lineWidth = 2.0
+
+        mainChart.x.labels.visible = false
+
+        mainChart.x.grid.count = 1
+        mainChart.y.grid.count = 1
+
+        mainChart.x.grid.visible = false
+        mainChart.y.grid.visible = false
+
+        mainChart.x.labels.values = xLabels
+        mainChart.y.labels.values = yLabels
+
+        mainChart.x.labels.visible = false
+        mainChart.y.labels.visible = false
+
+        mainChart.x.axis.visible = false
+        mainChart.y.axis.visible = false
+
+        mainChart.x.axis.inset = 0
+        mainChart.y.axis.inset = 10
+
+        mainChart.addLine(xAxis)
+        mainChart.addLine(y0Axis)
+        mainChart.addLine(y1Axis)
+
+        mainChart.colors.append(xColor)
+        mainChart.colors.append(y0Color)
+        mainChart.colors.append(y1Color)
+
+        mainChart.translatesAutoresizingMaskIntoConstraints = false
+        mainChart.delegate = self
+
+        mainChart.dots.visible = false
+    }
+
     // Input
     //
     func setVisibleJoinedChannel(_ isVisible: Bool) {
         simpleChart?.needShowYLayer(lineIndex: 1, needShow: isVisible)
+        controller.mainChart.needShowYLayer(lineIndex: 1, needShow: isVisible)
     }
 
     func setVisibleLeftChannel(_ isVisible: Bool) {
         simpleChart?.needShowYLayer(lineIndex: 2, needShow: isVisible)
+        controller.mainChart.needShowYLayer(lineIndex: 1, needShow: isVisible)
     }
 
     // MARK: - theme
@@ -133,8 +210,11 @@ final class ChartViewPresenter {
 
 extension ChartViewPresenter: RangeSelectorProtocol {
 
-    func didSelectRange(_ range: Range<CGFloat>) {
-        print("range: " + "\(range.lowerBound) " + " \(range.upperBound)")
+    func didSelectPointsRange(_ pointsRange: Range<CGFloat>) {
+        print("pointsRange: ")
+        print(pointsRange)
+        guard let indexesRange = simpleChart?.getIndexesRangeByPoints(pointsRange) else { return }
+        buildMainChart(indexesRange)
     }
 
 }
@@ -142,13 +222,16 @@ extension ChartViewPresenter: RangeSelectorProtocol {
 extension ChartViewPresenter: LineChartDelegate {
 
     func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat]) {
-        if (chart == simpleChart) {
+        if (chart == controller.mainChart) {
 
-        } else {
-            // TODO = обработать работу курсора
             print("x: \(x)     y: \(yValues)")
         }
+    }
 
+    func drawIsFinished(_ chart: LineChart) {
+        if (chart == simpleChart) {
+            self.controller.rangeSelector.didChangeRange()
+        }
     }
 
 }
