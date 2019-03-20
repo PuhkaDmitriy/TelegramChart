@@ -129,6 +129,9 @@ open class LineChart: UIView {
             var rangeDataStore = [[CGFloat]]()
 
             tmpDataStore.forEach { dataLine in
+
+
+
                 let rangedLine = dataLine[range.lowerBound...range.upperBound]
                 rangeDataStore.append(Array(rangedLine))
 
@@ -286,8 +289,8 @@ open class LineChart: UIView {
         }
 
         var roundedEnd = Int(round(Double(end)))
-        if (roundedEnd > dataStore[0].count) {
-            roundedEnd = dataStore[0].count
+        if (roundedEnd > dataStore[0].count - 1) {
+            roundedEnd = dataStore[0].count - 1
         }
 
         return Range<Int>(uncheckedBounds: (roundedStart, roundedEnd))
