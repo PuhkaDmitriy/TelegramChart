@@ -8,7 +8,5 @@
 
 "mainScreen.title.statistics" = "Statistics";
 "mainScreen.label.followers" = "FOLLOWERS";
-"mainScreen.label.joinedChannel" = "Joined Channel";
-"mainScreen.label.leftChannel" = "Left Channel";
 "mainScreen.label.themeSwitchButton.day" = "Switch to Day Mode";
 "mainScreen.label.themeSwitchButton.night" = "Switch to Night Mode";

@@ -12,6 +12,7 @@ import UIKit
 struct Line {
 
     var name = ""
+    var nameForShow = ""
     var data = [CGFloat]()
     var color = UIColor.black
 
@@ -41,6 +42,7 @@ final class ChartDataSource {
 
         if (!xColumn.isEmpty) {
             let xLine = Line(name: Constants.x,
+                    nameForShow: "",
                     data: xColumn.map({CGFloat($0)}),
                     color: .black)
             lines.append(xLine)
@@ -48,6 +50,7 @@ final class ChartDataSource {
 
         if (!y0Column.isEmpty) {
             let y0line = Line(name: Constants.y0,
+                    nameForShow: preparingData.names?.y0 ?? "",
                     data: y0Column.map({CGFloat($0)}),
                     color: preparingData.colors?.y0?.hexToColor() ?? .white)
             lines.append(y0line)
@@ -55,6 +58,7 @@ final class ChartDataSource {
 
         if (!y1Column.isEmpty) {
             let y1line = Line(name: Constants.y1,
+                    nameForShow: preparingData.names?.y1 ?? "",
                     data: y1Column.map({CGFloat($0)}),
                     color: preparingData.colors?.y1?.hexToColor() ?? .white)
             lines.append(y1line)

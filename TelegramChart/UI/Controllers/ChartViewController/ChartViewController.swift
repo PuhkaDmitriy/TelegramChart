@@ -16,15 +16,15 @@ final class ChartViewController: BaseViewController {
 
     @IBOutlet weak var mainContainer: TView!
     @IBOutlet weak var chartContainer: TView!
-    
+
     @IBOutlet weak var joinedChannelView: ChannelView!
     @IBOutlet weak var dividerView: TView!
     @IBOutlet weak var leftChannelView: ChannelView!
     @IBOutlet weak var themeSwitchButton: TButton!
-    
+
     @IBOutlet weak var mainChart: LineChart!
     @IBOutlet weak var rangeSelector: RangeSelectorView!
-    
+
     // MARK: - properties
 
     private var presenter: ChartViewPresenter?
@@ -34,7 +34,7 @@ final class ChartViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         presenter = ChartViewPresenter(controller: self)
         presenter?.loadChartData()
 
@@ -60,14 +60,19 @@ final class ChartViewController: BaseViewController {
 
         // line buttons
         // joined
-        joinedChannelView.setupWith(NSLocalizedString("mainScreen.label.joinedChannel", comment: ""),
-                presenter?.charts.first?.lines.filter({$0.name == Constants.y0}).first?.color ?? .black, {[weak self] isVisible in
+
+        let y0Lines = presenter?.charts.first?.lines.filter({$0.name == Constants.y0}).first
+        let y1Lines = presenter?.charts.first?.lines.filter({$0.name == Constants.y1}).first
+
+
+        joinedChannelView.setupWith(y0Lines?.nameForShow ?? "",
+                y0Lines?.color ?? .black, {[weak self] isVisible in
             self?.presenter?.setVisibleJoinedChannel(isVisible)
         })
 
         // left
-        leftChannelView.setupWith(NSLocalizedString("mainScreen.label.leftChannel", comment: ""),
-                presenter?.charts.first?.lines.filter({$0.name == Constants.y1}).first?.color ?? .black, {[weak self] isVisible in
+        leftChannelView.setupWith(y1Lines?.nameForShow ?? "",
+                y1Lines?.color ?? .black, {[weak self] isVisible in
             self?.presenter?.setVisibleLeftChannel(isVisible)
         })
 

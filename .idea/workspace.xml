@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="- complete X Axis">
+    <list default="true" id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controls/RangeSelector/RangeSelectorView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/RangeSelector/RangeSelectorView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/Models/ChartData/ChartDataSourse.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/Models/ChartData/ChartDataSourse.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,14 +13,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_9C59E04B-CCC5-4E42-B1FF-FDB518B32AAE" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_87aff230e3685628dcc6a93d5e5318f29dbb4e40" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2490">
-              <caret line="167" column="100" selection-start-line="167" selection-start-column="100" selection-end-line="167" selection-end-column="100" />
+            <state relative-caret-position="2400">
+              <caret line="161" column="91" selection-start-line="161" selection-start-column="91" selection-end-line="161" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -27,8 +28,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelegramChart/Common/Constants.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="29" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="29" />
+            <state relative-caret-position="315">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/Common/JSONParser.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/Models/ChartData/PreparingChartData.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-124">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -36,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelegramChart/Models/ChartData/ChartDataSourse.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+            <state relative-caret-position="57">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="e#152#169#0" expanded="true" />
               </folding>
@@ -45,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="666" lean-forward="true" selection-start-line="666" selection-end-line="666" />
+            <state relative-caret-position="10095">
+              <caret line="674" column="28" selection-start-line="674" selection-start-column="28" selection-end-line="674" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -58,9 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>subla</find>
-      <find>leftTouch</find>
-      <find>print</find>
       <find>proxyFactor</find>
       <find>widthConstraint</find>
       <find>minimumRange</find>
@@ -88,6 +122,9 @@
       <find>invert</find>
       <find>dataS</find>
       <find>height</find>
+      <find>Joined</find>
+      <find>mainScreen.label.joinedChannel</find>
+      <find>name</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -122,15 +159,16 @@
         <option value="$PROJECT_DIR$/TelegramChart/Common/JSONParser.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChrtViewPresenter.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/Resources/ChartData/chart_data.json" />
-        <option value="$PROJECT_DIR$/TelegramChart/Models/ChartData/ChartDataSourse.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/Extensions/String+Extension.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/ChannelView/ChannelView.swift" />
-        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/Extensions/Date+Extension.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/Common/Constants.swift" />
-        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/RangeSelector/RangeSelectorView.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings" />
+        <option value="$PROJECT_DIR$/TelegramChart/Models/ChartData/ChartDataSourse.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" />
       </list>
     </option>
   </component>
@@ -280,7 +318,8 @@
       <workItem from="1553108853511" duration="459000" />
       <workItem from="1553109629084" duration="1787000" />
       <workItem from="1553111469771" duration="1779000" />
-      <workItem from="1553113384696" duration="1375000" />
+      <workItem from="1553113384696" duration="1781000" />
+      <workItem from="1553115197829" duration="1192000" />
     </task>
     <task id="LOCAL-00001" summary="- fix constraints">
       <created>1552389760600</created>
@@ -373,11 +412,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553111730307</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="- complete Y Axis">
+      <created>1553114968151</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1553114968151</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109973000" />
+    <option name="totallyTimeSpent" value="111571000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -390,6 +436,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="384" y="23" width="1053" height="785" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2646593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -431,7 +478,8 @@
     <MESSAGE value="- add main chart" />
     <MESSAGE value="- fix out of bound exception" />
     <MESSAGE value="- complete X Axis" />
-    <option name="LAST_COMMIT_MESSAGE" value="- complete X Axis" />
+    <MESSAGE value="- complete Y Axis" />
+    <option name="LAST_COMMIT_MESSAGE" value="- complete Y Axis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -456,11 +504,41 @@
           <line>42</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/TelegramChart/Common/JSONParser.swift</url>
+          <line>44</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>columns.filter { $0.name == Constants.x }.first</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>preparingData</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>columns</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>columns.filter { $0.name == Constants.y0 }.first</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>charts</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>yValue</expression-string>
         <language-id>Swift</language-id>
@@ -478,36 +556,6 @@
       </expression>
       <expression>
         <expression-string>self.range</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>range</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>visibleCount</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>getIndexByXCoordinate(xValue - CGFloat(width / 2))</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>x.axis.inset</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>self.bounds.height - x.axis.inset</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>x.linear.ticks(xAxisData.count).2</expression-string>
         <language-id>Swift</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -603,20 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/Models/ChartData/PreparingChartData.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="11" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChrtViewPresenter.swift" />
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Convenience/LineChart.swift" />
     <entry file="file://$PROJECT_DIR$/TelegramChart/Resources/ChartData/chart_data.json">
@@ -671,20 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/Common/JSONParser.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/Extensions/Date+Extension.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -696,30 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="308" column="12" selection-start-line="308" selection-start-column="12" selection-end-line="308" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2490">
-          <caret line="167" column="100" selection-start-line="167" selection-start-column="100" selection-end-line="167" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/Common/Constants.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/Models/ChartData/ChartDataSourse.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-          <folding>
-            <element signature="e#152#169#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -737,10 +733,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="161" column="91" selection-start-line="161" selection-start-column="91" selection-end-line="161" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Common/Constants.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Resources/Localizations/en.lproj/Localizable.strings">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="666" lean-forward="true" selection-start-line="666" selection-end-line="666" />
+        <state relative-caret-position="10095">
+          <caret line="674" column="28" selection-start-line="674" selection-start-column="28" selection-end-line="674" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Models/ChartData/PreparingChartData.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-124">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Models/ChartData/ChartDataSourse.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#152#169#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Common/JSONParser.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
     </entry>
