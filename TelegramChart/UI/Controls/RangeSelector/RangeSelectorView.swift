@@ -171,12 +171,8 @@ class RangeSelectorView: UIView {
                 widthConstraint.constant += deltaX
             }
 
-            // .curveEaseIn
-            UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
-                self.layoutIfNeeded()
-            }, completion: { _ in
-                self.didChangeRange()
-            })
+            self.layoutIfNeeded()
+            self.didChangeRange()
         }
     }
 

@@ -159,7 +159,7 @@ final class ChartViewPresenter {
         mainChart.lineWidth = 2.0
 
         mainChart.x.grid = LineChart.Grid(visible: false, count: 1, color: Constants.chartGridColor)
-        mainChart.y.grid = LineChart.Grid(visible: false, count: 1, color: Constants.chartGridColor)
+        mainChart.y.grid = LineChart.Grid(visible: true, count: 6, color: Constants.chartGridColor)
 
         mainChart.x.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: xLabels)
         mainChart.y.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: yLabels)

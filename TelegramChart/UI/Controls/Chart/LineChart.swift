@@ -203,6 +203,7 @@ open class LineChart: UIView {
                 dot.removeFromSuperlayer()
             }
         }
+
         dotsDataStore.removeAll()
 
         // draw grid
@@ -589,9 +590,9 @@ open class LineChart: UIView {
         drawYGrid()
     }
 
-/**
- * Draw x labels.
- */
+    /**
+     * Draw x labels.
+     */
     fileprivate func drawXLabels() {
 
         let visibleCount = x.labels.visibleCount
@@ -607,9 +608,7 @@ open class LineChart: UIView {
 
         let width = frame.width / CGFloat(visibleCount)
         let height = width / 4
-
         var xValue: CGFloat = 0
-
         let yValue = self.bounds.height - x.axis.inset
 
         for index in 1...visibleCount {
@@ -639,19 +638,43 @@ open class LineChart: UIView {
         return Int(round(Double(index)))
     }
 
-/**
- * Draw y labels.
- */
+    /**
+     * Draw y labels.
+     */
     fileprivate func drawYLabels() {
-        var yValue: CGFloat
-        let (start, stop, step) = self.y.ticks
-        for i in stride(from: start, through: stop, by: step){
-            yValue = self.bounds.height - self.y.scale(i) - (y.axis.inset * 1.5)
-            let label = UILabel(frame: CGRect(x: 0, y: yValue, width: y.axis.inset, height: y.axis.inset))
+
+        let visibleCount = y.labels.visibleCount
+        let maxValue = getMaximumYvalue()
+        let delta = getMaximumYvalue() - getMinimumYvalue()
+        let tick = delta / CGFloat(visibleCount)
+
+        print("min: " + "\(getMinimumYvalue())" + " max: " + "\(getMaximumYvalue())" + " delta: " + "\(delta)")
+
+        let yLabels = y.labels.values
+
+        guard visibleCount > 0,
+              delta > 0 else {return}
+
+        let height = frame.height / CGFloat(visibleCount)
+        let width = height / 2
+
+        var yValue: CGFloat = 0.0
+        let xValue: CGFloat = 0.0
+
+
+        for index in 1...visibleCount {
+
+            let value = (index == 1) ? maxValue : (maxValue - tick * CGFloat(index))
+
+            let label = UILabel(frame: CGRect(x: xValue, y: yValue, width: width, height: height))
             label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption2)
-            label.textAlignment = .center
-            label.text = String(Int(round(i)))
-            self.addSubview(label)
+            label.textColor = y.labels.textColor
+            label.textAlignment = .left
+            label.text = String(Int(value))
+
+            yValue += height
+
+            addSubview(label)
         }
     }
 
