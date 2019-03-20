@@ -13,7 +13,7 @@ extension Date {
     func simpleChartFormat() -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        formatter.dateFormat = "MM/dd/yyyy"
+        formatter.dateFormat = "MMM dd"
         return formatter.string(from: self)
     }
     

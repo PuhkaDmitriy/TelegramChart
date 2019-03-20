@@ -34,8 +34,8 @@ final class ChartViewPresenter {
 
         self.simpleChart = LineChart(frame:
         CGRect(x: 0.0,
-                y: 0.0,
-                width: controller.rangeSelector.bounds.size.width,
+               y: 0.0,
+               width: controller.rangeSelector.bounds.size.width,
                 height: controller.rangeSelector.bounds.size.height))
 
         guard let chartData = self.charts.first,
@@ -133,9 +133,18 @@ final class ChartViewPresenter {
         var y0Color: UIColor = .clear
         var y1Color: UIColor = .clear
 
+        var xLabels = [String]()
+        var yLabels = [String]()
+
         chartData.lines.forEach {
             if ($0.name == Constants.x) {
                 xAxis.append(contentsOf: $0.data)
+
+                // set title labels
+                xLabels = $0.data.map { (timestamp) -> String in
+                    return Date(timeIntervalSince1970: Double(timestamp / 1000)).simpleChartFormat()
+                }
+
             } else if ($0.name == Constants.y0) {
                 y0Axis.append(contentsOf: $0.data)
                 y0Color = $0.color
@@ -145,35 +154,18 @@ final class ChartViewPresenter {
             }
         }
 
-        let xLabels = [String]()
-        let yLabels = [String]()
-
-        // simple line with custom x axis labels // TODO - for example
-        //        let xLabels: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-
         mainChart.animation.enabled = false // animate line drawing
         mainChart.area = false
         mainChart.lineWidth = 2.0
 
-        mainChart.x.labels.visible = false
+        mainChart.x.grid = LineChart.Grid(visible: false, count: 1, color: Constants.chartGridColor)
+        mainChart.y.grid = LineChart.Grid(visible: false, count: 1, color: Constants.chartGridColor)
 
-        mainChart.x.grid.count = 1
-        mainChart.y.grid.count = 1
+        mainChart.x.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: xLabels)
+        mainChart.y.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: yLabels)
 
-        mainChart.x.grid.visible = false
-        mainChart.y.grid.visible = false
-
-        mainChart.x.labels.values = xLabels
-        mainChart.y.labels.values = yLabels
-
-        mainChart.x.labels.visible = false
-        mainChart.y.labels.visible = false
-
-        mainChart.x.axis.visible = false
-        mainChart.y.axis.visible = false
-
-        mainChart.x.axis.inset = 0
-        mainChart.y.axis.inset = 10
+        mainChart.x.axis = LineChart.Axis(visible: true, color: Constants.chartAxisColor, inset: 0.0)
+        mainChart.y.axis = LineChart.Axis(visible: false, color: Constants.chartAxisColor, inset: 10)
 
         mainChart.addLine(xAxis)
         mainChart.addLine(y0Axis)
@@ -198,7 +190,7 @@ final class ChartViewPresenter {
 
     func setVisibleLeftChannel(_ isVisible: Bool) {
         simpleChart?.needShowYLayer(lineIndex: 2, needShow: isVisible)
-        controller.mainChart.needShowYLayer(lineIndex: 1, needShow: isVisible)
+        controller.mainChart.needShowYLayer(lineIndex: 2, needShow: isVisible)
     }
 
     // MARK: - theme
@@ -211,8 +203,8 @@ final class ChartViewPresenter {
 extension ChartViewPresenter: RangeSelectorProtocol {
 
     func didSelectPointsRange(_ pointsRange: Range<CGFloat>) {
-        print("pointsRange: ")
-        print(pointsRange)
+//        print("pointsRange: ")
+//        print(pointsRange)
         guard let indexesRange = simpleChart?.getIndexesRangeByPoints(pointsRange) else { return }
         buildMainChart(indexesRange)
     }

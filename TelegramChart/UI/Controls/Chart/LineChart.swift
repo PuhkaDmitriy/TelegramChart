@@ -35,6 +35,8 @@ open class LineChart: UIView {
 
     public struct Labels {
         public var visible: Bool = true
+        public var visibleCount = 10
+        public var textColor = UIColor.white
         public var values: [String] = []
     }
 
@@ -91,7 +93,7 @@ open class LineChart: UIView {
 
     open var rangeToShow: Range<Int>? {
         didSet {
-            guard let old = oldValue else { return }
+            guard let _ = oldValue else { return }
             draw(self.frame)
         }
     }
@@ -121,22 +123,16 @@ open class LineChart: UIView {
     // data stores
     fileprivate var tmpDataStore = [[CGFloat]]()
     fileprivate var dataStore: [[CGFloat]] {
-        set {
-
-        }
+        set {}
         get {
             guard let range = self.rangeToShow else { return tmpDataStore }
             var rangeDataStore = [[CGFloat]]()
 
             tmpDataStore.forEach { dataLine in
-
-
-
                 let rangedLine = dataLine[range.lowerBound...range.upperBound]
                 rangeDataStore.append(Array(rangedLine))
-
             }
-// 81...111 = 31
+
             return rangeDataStore
 
         }
@@ -593,34 +589,55 @@ open class LineChart: UIView {
         drawYGrid()
     }
 
-
-
 /**
  * Draw x labels.
  */
     fileprivate func drawXLabels() {
-        let xAxisData = self.dataStore[0]
-        let y = self.bounds.height - x.axis.inset
-        let (_, _, step) = x.linear.ticks(xAxisData.count)
-        let width = x.scale(step)
 
-        var text: String
-        for (index, _) in xAxisData.enumerated() {
-            let xValue = self.x.scale(CGFloat(index)) + x.axis.inset - (width / 2)
-            let label = UILabel(frame: CGRect(x: xValue, y: y, width: width, height: x.axis.inset))
-            label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption2)
-            label.textAlignment = .center
-            if (x.labels.values.count != 0) {
-                text = x.labels.values[index]
-            } else {
-                text = String(index)
+        let visibleCount = x.labels.visibleCount
+        var xLabels = x.labels.values
+
+        guard visibleCount > 0,
+              !xLabels.isEmpty else {return}
+
+        if let range = self.rangeToShow {
+            let rangedLabels = xLabels[range.lowerBound...range.upperBound]
+            xLabels = Array(rangedLabels)
+        }
+
+        let width = frame.width / CGFloat(visibleCount)
+        let height = width / 4
+
+        var xValue: CGFloat = 0
+
+        let yValue = self.bounds.height - x.axis.inset
+
+        for index in 1...visibleCount {
+
+            if index != 1 {
+                xValue += width
             }
-            label.text = text
-            self.addSubview(label)
+
+            let label = UILabel(frame: CGRect(x: xValue, y: yValue, width: width, height: height))
+            label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption2)
+            label.textColor = x.labels.textColor
+            label.textAlignment = .center
+
+            let labelCenterX = (index == 1 ? width : xValue) - CGFloat(width / 2)
+            let xLabelIndex = getIndexByXCoordinate(labelCenterX)
+            label.text = xLabels[xLabelIndex]
+
+            addSubview(label)
         }
     }
 
-
+    fileprivate func getIndexByXCoordinate(_ x: CGFloat) -> Int {
+        if (self.dataStore.isEmpty) {
+            return 0
+        }
+        let index = self.x.invert(x)
+        return Int(round(Double(index)))
+    }
 
 /**
  * Draw y labels.
