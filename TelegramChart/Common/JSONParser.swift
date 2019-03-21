@@ -29,7 +29,7 @@ class JSONParser {
             do {
                 let data = try Data(contentsOf: url)
                 chartPreparingData = try JSONDecoder().decode([PreparingChartData].self, from: data)
-            }catch {
+            } catch {
                 print("Error: " + error.localizedDescription)
             }
         } else {

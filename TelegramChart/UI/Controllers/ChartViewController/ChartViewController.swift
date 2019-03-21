@@ -75,7 +75,6 @@ final class ChartViewController: BaseViewController {
                 y1Lines?.color ?? .black, {[weak self] isVisible in
             self?.presenter?.setVisibleLeftChannel(isVisible)
         })
-
     }
 
     func getSwitchThemeButtonTitle(_ theme: Theme) -> String {

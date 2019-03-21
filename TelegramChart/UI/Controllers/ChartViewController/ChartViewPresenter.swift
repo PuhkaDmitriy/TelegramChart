@@ -61,36 +61,19 @@ final class ChartViewPresenter {
             }
         }
 
-        let xLabels = [String]()
-        let yLabels = [String]()
-
-        // simple line with custom x axis labels // TODO - for example
-        //        let xLabels: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-
         simpleChart.animation.enabled = false // animate line drawing
         simpleChart.area = false
         simpleChart.lineWidth = 0.7
 
 
-        simpleChart.x.labels.visible = false
+        simpleChart.x.labels = LineChart.Labels(visible: false, visibleCount: 0, textColor: .clear, values: [String]())
+        simpleChart.y.labels = LineChart.Labels(visible: false, visibleCount: 0, textColor: .clear, values: [String]())
 
-        simpleChart.x.grid.count = 1
-        simpleChart.y.grid.count = 1
+        simpleChart.x.grid = LineChart.Grid(visible: false, count: 1, color: .clear)
+        simpleChart.y.grid = LineChart.Grid(visible: false, count: 1, color: .clear)
 
-        simpleChart.x.grid.visible = false
-        simpleChart.y.grid.visible = false
-
-        simpleChart.x.labels.values = xLabels
-        simpleChart.y.labels.values = yLabels
-
-        simpleChart.x.labels.visible = false
-        simpleChart.y.labels.visible = false
-
-        simpleChart.x.axis.visible = false
-        simpleChart.y.axis.visible = false
-
-        simpleChart.x.axis.inset = 0
-        simpleChart.y.axis.inset = 10
+        simpleChart.x.axis = LineChart.Axis(visible: false, color: .clear, inset: 0)
+        simpleChart.y.axis = LineChart.Axis(visible: false, color: .clear, inset: 10)
 
         simpleChart.addLine(xAxis)
         simpleChart.addLine(y0Axis)
@@ -101,9 +84,9 @@ final class ChartViewPresenter {
         simpleChart.colors.append(y1Color)
 
         simpleChart.translatesAutoresizingMaskIntoConstraints = false
-        simpleChart.delegate = self
-
         simpleChart.dots.visible = false
+
+        simpleChart.delegate = self
 
         // insert simple chart
         simpleChart.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -118,7 +101,7 @@ final class ChartViewPresenter {
               let mainChart = controller.mainChart else { return }
 
         // если чарт уже построен, просто обновляем range
-        if let rangeToShow = mainChart.rangeToShow {
+        if let _ = mainChart.rangeToShow {
             mainChart.rangeToShow = range
             return
         }
@@ -134,7 +117,6 @@ final class ChartViewPresenter {
         var y1Color: UIColor = .clear
 
         var xLabels = [String]()
-        var yLabels = [String]()
 
         chartData.lines.forEach {
             if ($0.name == Constants.x) {
@@ -158,11 +140,11 @@ final class ChartViewPresenter {
         mainChart.area = false
         mainChart.lineWidth = 2.0
 
-        mainChart.x.grid = LineChart.Grid(visible: false, count: 1, color: Constants.chartGridColor)
+        mainChart.x.grid = LineChart.Grid(visible: false, count: 6, color: Constants.chartGridColor)
         mainChart.y.grid = LineChart.Grid(visible: true, count: 6, color: Constants.chartGridColor)
 
         mainChart.x.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: xLabels)
-        mainChart.y.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: yLabels)
+        mainChart.y.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: [String]())
 
         mainChart.x.axis = LineChart.Axis(visible: true, color: Constants.chartAxisColor, inset: 0.0)
         mainChart.y.axis = LineChart.Axis(visible: false, color: Constants.chartAxisColor, inset: 10)
