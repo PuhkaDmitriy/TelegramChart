@@ -45,7 +45,9 @@ final class InfoView: UIView {
         self.leftLabel.textColor = leftColor
     }
 
-    func setValues(_ dateString: String, _ joinedString: String, _ leftString: String ) {
+    func setValues(_ dateString: String,
+                   _ joinedString: String,
+                   _ leftString: String ) {
         self.dateLabel.text = dateString
         self.joinedLabel.text = joinedString
         self.leftLabel.text = leftString

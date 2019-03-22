@@ -129,6 +129,7 @@ open class LineChart: UIView {
     open var delegate: LineChartDelegate?
 
     // data stores
+    fileprivate var hidingLinesIndexes = [Int]()
     fileprivate var tmpDataStore = [[CGFloat]]()
     fileprivate var dataStore: [[CGFloat]] {
         set {}
@@ -246,7 +247,12 @@ open class LineChart: UIView {
  */
     fileprivate func getYValuesForXValue(_ x: Int) -> [CGFloat] {
         var result: [CGFloat] = []
-        for lineData in dataStore {
+
+        for (index, lineData) in dataStore.enumerated() {
+            if (index == 0) {
+                continue // 0 это шкала X
+            }
+
             if x < 0 {
                 result.append(lineData[0])
             } else if x > lineData.count - 1 {

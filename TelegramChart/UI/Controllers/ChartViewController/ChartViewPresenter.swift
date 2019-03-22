@@ -16,7 +16,9 @@ final class ChartViewPresenter {
     public var themeControls = [ThemeProtocol]()
     private weak var controller: ChartViewController!
     private var simpleChart: LineChart?
+
     var charts = [ChartDataSource]()
+    var currentChart: ChartDataSource?
 
     init(controller: ChartViewController) {
         self.controller = controller
@@ -26,7 +28,10 @@ final class ChartViewPresenter {
     //
     func loadChartData() {
         JSONParser(fileName: Constants.JSONFileName, fileExtension: Constants.JSONExtension).parse(withCompletion: {[weak self] charts in
+
             self?.charts = charts
+
+            self?.currentChart = charts.first // TODO - Сделать возможным переключение
 
             self?.setupContent()
             self?.addSimpleChartToRangeSelector()
@@ -57,8 +62,8 @@ final class ChartViewPresenter {
 
 
 
-        let y0Lines = charts.first?.lines.filter({$0.name == Constants.y0}).first
-        let y1Lines = charts.first?.lines.filter({$0.name == Constants.y1}).first
+        let y0Lines = currentChart?.lines.filter({$0.name == Constants.y0}).first
+        let y1Lines = currentChart?.lines.filter({$0.name == Constants.y1}).first
 
         // line buttons
         // joined
@@ -94,7 +99,7 @@ final class ChartViewPresenter {
                 width: controller.rangeSelector.bounds.size.width,
                 height: controller.rangeSelector.bounds.size.height))
 
-        guard let chartData = self.charts.first,
+        guard let chartData = currentChart,
               let simpleChart = self.simpleChart else { return }
 
         var xAxis = [CGFloat]()
@@ -153,7 +158,7 @@ final class ChartViewPresenter {
     }
 
     func buildMainChart(_ range: Range<Int>? = nil) {
-        guard let chartData = self.charts.first,
+        guard let chartData = currentChart,
               let mainChart = controller.mainChart else { return }
 
         // если чарт уже построен, просто обновляем range
@@ -240,8 +245,25 @@ final class ChartViewPresenter {
     // Chart cursor info
     //
     func showInfo(_ xIndex: Int,
-                  _ yValues: [CGFloat],
+                  _ yValues: [String],
                   _ needShow: Bool) {
+
+        guard let xValues = self.currentChart?.lines.filter( { $0.name == Constants.x } ).first?.data,
+              !xValues.isEmpty else { return }
+
+        var index = (controller.mainChart.rangeToShow?.lowerBound ?? 0) + xIndex
+
+        // check range
+        if (index < 0) { index = 0 }
+        if (index > xValues.count - 1) {index = xValues.count - 1}
+        let xValue = Date(timeIntervalSince1970: Double(xValues[index] / 1000)).infoViewDateFormat()
+
+        print("x: " + xValue + "y: \(yValues)")
+
+        // set value
+        controller.infoView.setValues(xValue, yValues.first ?? "-", yValues.last ?? "-")
+
+        // show info view
         if needShow {
             if controller.infoView.isHidden {
                 self.controller.infoView.isHidden = false
@@ -251,9 +273,6 @@ final class ChartViewPresenter {
                 self.controller.infoView.isHidden = true
             }
         }
-
-        // TODO - обработать данные перед показом
-        print("x: \(xIndex)     y: \(yValues)")
     }
 
     // MARK: - theme
@@ -278,7 +297,11 @@ extension ChartViewPresenter: LineChartDelegate {
 
     func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool) {
         if (chart == controller.mainChart) {
-            showInfo(Int(x), yValues, needShow)
+            var stringYValues = [String]()
+            yValues.forEach {
+                stringYValues.append( $0 < 0 ? "-" : String(Int($0)) ) // значение -1 приходит в случае если линия скрыта
+            }
+            showInfo(Int(x), stringYValues, needShow)
         }
     }
 

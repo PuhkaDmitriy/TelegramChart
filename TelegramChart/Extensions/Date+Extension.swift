@@ -16,5 +16,12 @@ extension Date {
         formatter.dateFormat = "MMM dd"
         return formatter.string(from: self)
     }
+
+    func infoViewDateFormat() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.dateFormat = "MMM dd \n yyyy"
+        return formatter.string(from: self)
+    }
     
 }
