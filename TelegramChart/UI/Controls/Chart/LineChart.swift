@@ -230,7 +230,7 @@ open class LineChart: UIView {
             drawLine(lineIndex)
 
             // draw dots
-            if dots.visible { drawDataDots(lineIndex) }
+            if dots.visible { createDotsDataSource(lineIndex) }
 
             // draw area under line chart
             if area { drawAreaBeneathLineChart(lineIndex) }
@@ -260,15 +260,14 @@ open class LineChart: UIView {
 
 
 
-/**
- * Handle touch events.
- */
-    fileprivate func handleTouchEvents(_ touches: NSSet, event: UIEvent?) {
+    /**
+     * Handle touch events.
+     */
+
+    fileprivate func handleTouchEvents(_ touches: NSSet, touchEnded: Bool = false) {
         if (self.dataStore.isEmpty) {
             return
         }
-
-        print("Event type: " + "\(event?.type.rawValue ?? -1)")
 
         guard let point = touches.anyObject() as? UITouch else { return }
 
@@ -277,7 +276,7 @@ open class LineChart: UIView {
         let rounded = Int(round(Double(inverted)))
         let yValues: [CGFloat] = getYValuesForXValue(rounded)
 
-        drawDotsAt(rounded)
+        addPoint(rounded, touchEnded)
 
         delegate?.didSelectDataPoint(self, CGFloat(rounded), yValues: yValues)
     }
@@ -303,26 +302,26 @@ open class LineChart: UIView {
         return Range<Int>(uncheckedBounds: (roundedStart, roundedEnd))
     }
 
-/**
- * Listen on touch end event.
- */
+    // touch ended
+    //
+    //
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        handleTouchEvents(touches as NSSet, event: event)
+        handleTouchEvents(touches as NSSet, touchEnded: true)
     }
 
 
 
-/**
- * Listen on touch move event
- */
+    // touch moved
+    //
+    //
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        handleTouchEvents(touches as NSSet, event: event)
+        handleTouchEvents(touches as NSSet)
     }
 
-/**
- * Draw small dot at every data point.
- */
-    fileprivate func drawDataDots(_ lineIndex: Int) {
+    // create points data source
+    //
+    //
+    fileprivate func createDotsDataSource(_ lineIndex: Int) {
 
         var dotLayers: [DotCALayer] = []
         var data = self.dataStore[lineIndex]
@@ -333,25 +332,44 @@ open class LineChart: UIView {
 
             // draw custom layer with another layer in the center
             let dotLayer = DotCALayer()
-            dotLayer.dotInnerColor = getColor(byIndex: index)
+            dotLayer.dotInnerColor = (Settings.shared.currentTheme == .day ? dots.colorDay : dots.colorNight)
+            dotLayer.backgroundColor = getColor(byIndex: lineIndex).cgColor
+
             dotLayer.innerRadius = dots.innerRadius
-            dotLayer.backgroundColor = (Settings.shared.currentTheme == .day ? dots.colorDay : dots.colorNight).cgColor
             dotLayer.cornerRadius = dots.outerRadius / 2
             dotLayer.frame = CGRect(x: xValue, y: yValue, width: dots.outerRadius, height: dots.outerRadius)
-            self.layer.addSublayer(dotLayer)
             dotLayers.append(dotLayer)
-
-            // animate opacity
-            if animation.enabled {
-                let anim = CABasicAnimation(keyPath: "opacity")
-                anim.duration = animation.duration
-                anim.fromValue = 0
-                anim.toValue = 1
-                dotLayer.add(anim, forKey: "opacity")
-            }
-
         }
         dotsDataStore.append(dotLayers)
+    }
+
+    // add point
+    //
+    //
+    fileprivate func addPoint(_ index: Int, _ needRemoveAll: Bool = false) {
+        dotsDataStore.forEach {
+
+            // make all dots white again
+            $0.forEach {
+                $0.removeFromSuperlayer()
+            }
+
+            if needRemoveAll {
+                return
+            }
+
+            // add dot from dotsData
+            var dot: DotCALayer
+            if index < 0 {
+                dot = $0[0]
+            } else if index > $0.count - 1 {
+                dot = $0[$0.count - 1]
+            } else {
+                dot = $0[index]
+            }
+
+            self.layer.addSublayer(dot)
+        }
     }
 
     fileprivate func drawDotsAt(_ index: Int) {
@@ -487,9 +505,9 @@ open class LineChart: UIView {
     }
 
 
-/**
- * Draw line.
- */
+    /**
+     * Draw line.
+     */
     fileprivate func drawLine(_ lineIndex: Int) {
 
         var data = self.dataStore[lineIndex]
@@ -676,8 +694,6 @@ open class LineChart: UIView {
         let delta = getMaximumYvalue() - getMinimumYvalue()
         let tick = delta / CGFloat(visibleCount)
 
-        let yLabels = y.labels.values
-
         guard visibleCount > 0,
               delta > 0 else {return}
 
@@ -746,7 +762,7 @@ open class LineChart: UIView {
 class DotCALayer: CALayer {
 
     var innerRadius: CGFloat = 8
-    var dotInnerColor = UIColor.black
+    var dotInnerColor = UIColor.clear
 
     override init() {
         super.init()
@@ -763,10 +779,12 @@ class DotCALayer: CALayer {
     override func layoutSublayers() {
         super.layoutSublayers()
         let inset = self.bounds.size.width - innerRadius
+
         let innerDotLayer = CALayer()
         innerDotLayer.frame = self.bounds.insetBy(dx: inset/2, dy: inset/2)
-        innerDotLayer.backgroundColor = dotInnerColor.cgColor
         innerDotLayer.cornerRadius = innerRadius / 2
+        innerDotLayer.backgroundColor = dotInnerColor.cgColor
+
         self.addSublayer(innerDotLayer)
     }
 }

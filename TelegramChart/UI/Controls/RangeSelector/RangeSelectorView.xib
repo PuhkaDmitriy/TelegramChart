@@ -24,9 +24,11 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="74T-w7-cSX"/>
                 <outlet property="leftBorder" destination="tun-eQ-QNE" id="iWj-b4-FsM"/>
                 <outlet property="leftConstraint" destination="bAg-Rx-THN" id="EBy-zr-FwU"/>
+                <outlet property="leftOpacityView" destination="xKt-2d-h5F" id="4lZ-Sp-Zc6"/>
                 <outlet property="rect" destination="At4-ze-DyZ" id="T27-GX-lmK"/>
                 <outlet property="rightBorder" destination="aQG-cq-3ec" id="Sh8-wo-C94"/>
                 <outlet property="rightConstraint" destination="Nbw-zm-X5y" id="ecL-Yf-Ae8"/>
+                <outlet property="rightOpacityView" destination="kRM-VU-jkL" id="iAe-eh-Cgu"/>
                 <outlet property="topConstraint" destination="A0u-Ve-lhC" id="cHU-tq-pVT"/>
                 <outlet property="widthConstraint" destination="VCw-XA-qw4" id="fGr-LY-UGT"/>
             </connections>
@@ -36,12 +38,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKt-2d-h5F">
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKt-2d-h5F" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="47"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.34993043664383561" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" notEnabled="YES"/>
                     </accessibility>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                            <color key="value" white="0.0" alpha="0.55110231164383561" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                            <color key="value" white="0.85440746289954328" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="At4-ze-DyZ">
                     <rect key="frame" x="250" y="0.0" width="125" height="47"/>
@@ -114,12 +124,20 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRM-VU-jkL">
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRM-VU-jkL" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
                     <rect key="frame" x="375" y="0.0" width="0.0" height="47"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.3478702910958904" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" notEnabled="YES"/>
                     </accessibility>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                            <color key="value" white="0.85440746289954328" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                            <color key="value" white="0.0" alpha="0.55110231164383561" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

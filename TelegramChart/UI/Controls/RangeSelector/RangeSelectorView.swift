@@ -28,6 +28,10 @@ class RangeSelectorView: UIView {
     @IBOutlet weak var leftBorder: UIView!
     @IBOutlet weak var rightBorder: UIView!
 
+    
+    @IBOutlet weak var leftOpacityView: TView!
+    @IBOutlet weak var rightOpacityView: TView!
+    
     @IBOutlet weak var rect: UIView!
 
 
@@ -194,11 +198,17 @@ extension RangeSelectorView: ThemeProtocol {
                 self.rect.layer.borderColor = borderColor.cgColor
                 self.leftBorder.backgroundColor = borderColor
                 self.rightBorder.backgroundColor = borderColor
+
+                self.leftOpacityView.themeDidChange(animation)
+                self.rightOpacityView.themeDidChange(animation)
             }, completion:nil)
         }else {
             self.rect.layer.borderColor = borderColor.cgColor
             self.leftBorder.backgroundColor = borderColor
             self.rightBorder.backgroundColor = borderColor
+
+            self.leftOpacityView.themeDidChange(animation)
+            self.rightOpacityView.themeDidChange(animation)
         }
     }
 }

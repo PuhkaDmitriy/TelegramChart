@@ -164,7 +164,7 @@ final class ChartViewPresenter {
         mainChart.translatesAutoresizingMaskIntoConstraints = false
         mainChart.delegate = self
 
-        mainChart.dots.visible = false
+        mainChart.dots.visible = true
         mainChart.dots.colorDay = Constants.dayNavigationBarColor
         mainChart.dots.colorNight = Constants.nightNavigationBarColor
     }
