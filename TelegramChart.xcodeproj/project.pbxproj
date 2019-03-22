@@ -26,6 +26,8 @@
 		FA1B2AC622369A2D00AC271D /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2AC522369A2D00AC271D /* ThemeProtocol.swift */; };
 		FA1B2AC92236A58000AC271D /* chart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = FA1B2AC82236A57F00AC271D /* chart_data.json */; };
 		FA1B2ACF2236A66A00AC271D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2ACE2236A66A00AC271D /* Constants.swift */; };
+		FA478901224517940090AACF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA478900224517940090AACF /* InfoView.swift */; };
+		FA478903224518D20090AACF /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA478902224518D20090AACF /* InfoView.xib */; };
 		FA6F693D224029F900A92988 /* RangeSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6F693B224029F900A92988 /* RangeSelectorView.xib */; };
 		FA6F693E224029F900A92988 /* RangeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F693C224029F900A92988 /* RangeSelectorView.swift */; };
 		FAC2FBE3223F2E6E00B66347 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2FBE2223F2E6E00B66347 /* LineChart.swift */; };
@@ -56,6 +58,8 @@
 		FA1B2AC522369A2D00AC271D /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		FA1B2AC82236A57F00AC271D /* chart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chart_data.json; sourceTree = "<group>"; };
 		FA1B2ACE2236A66A00AC271D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA478900224517940090AACF /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		FA478902224518D20090AACF /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		FA6F693B224029F900A92988 /* RangeSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RangeSelectorView.xib; sourceTree = "<group>"; };
 		FA6F693C224029F900A92988 /* RangeSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSelectorView.swift; sourceTree = "<group>"; };
 		FAC2FBE2223F2E6E00B66347 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
@@ -165,9 +169,10 @@
 		FA1B289E2236611000AC271D /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				FA4788FF224516FD0090AACF /* InfoView */,
+				FA02683322392559009238E6 /* ChannelView */,
 				FAC2FBDD223F2E5100B66347 /* RangeSelector */,
 				FAC2FBDC223F2E3D00B66347 /* Chart */,
-				FA02683322392559009238E6 /* ChannelView */,
 				FA1B28A1223661C300AC271D /* Label */,
 				FA1B28A0223661BD00AC271D /* View */,
 				FA1B289F2236613C00AC271D /* Button */,
@@ -266,6 +271,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		FA4788FF224516FD0090AACF /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+				FA478900224517940090AACF /* InfoView.swift */,
+				FA478902224518D20090AACF /* InfoView.xib */,
+			);
+			path = InfoView;
+			sourceTree = "<group>";
+		};
 		FAC2FBDC223F2E3D00B66347 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +376,7 @@
 				FA1B2AC92236A58000AC271D /* chart_data.json in Resources */,
 				FA1B27C52235699C00AC271D /* LaunchScreen.storyboard in Resources */,
 				FA1B28B022366BE100AC271D /* Localizable.strings in Resources */,
+				FA478903224518D20090AACF /* InfoView.xib in Resources */,
 				FA1B27C22235699C00AC271D /* Assets.xcassets in Resources */,
 				FA6F693D224029F900A92988 /* RangeSelectorView.xib in Resources */,
 				FA1B27C02235699800AC271D /* Main.storyboard in Resources */,
@@ -381,6 +396,7 @@
 				FA1B28AC2236658E00AC271D /* TView.swift in Sources */,
 				FAE042832237D42A007F972E /* PreparingChartData.swift in Sources */,
 				FA1B2AC622369A2D00AC271D /* ThemeProtocol.swift in Sources */,
+				FA478901224517940090AACF /* InfoView.swift in Sources */,
 				FA1B28AA2236656A00AC271D /* TLabel.swift in Sources */,
 				FA1B2ACF2236A66A00AC271D /* Constants.swift in Sources */,
 				FA02683F22392A47009238E6 /* ChannelView.swift in Sources */,

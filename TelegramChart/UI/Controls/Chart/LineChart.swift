@@ -6,7 +6,7 @@ import QuartzCore
 
 // delegate method
 public protocol LineChartDelegate {
-    func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat])
+    func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool)
     func drawIsFinished(_ chart: LineChart)
 }
 
@@ -278,7 +278,7 @@ open class LineChart: UIView {
 
         addPoint(rounded, touchEnded)
 
-        delegate?.didSelectDataPoint(self, CGFloat(rounded), yValues: yValues)
+        delegate?.didSelectDataPoint(self, CGFloat(rounded), yValues: yValues, !touchEnded)
     }
 
     func getIndexesRangeByPoints(_ pointsRange: Range<CGFloat>) -> Range<Int>? {

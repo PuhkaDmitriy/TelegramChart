@@ -17,6 +17,7 @@ final class ChartViewController: BaseViewController {
     @IBOutlet weak var mainContainer: TView!
     @IBOutlet weak var chartContainer: TView!
 
+    @IBOutlet weak var infoView: InfoView!
     @IBOutlet weak var joinedChannelView: ChannelView!
     @IBOutlet weak var dividerView: TView!
     @IBOutlet weak var leftChannelView: ChannelView!
@@ -28,7 +29,7 @@ final class ChartViewController: BaseViewController {
     // MARK: - properties
 
     private var presenter: ChartViewPresenter?
-    private var themeControls = [ThemeProtocol]()
+
 
     // MARK: - life cycle
 
@@ -38,7 +39,7 @@ final class ChartViewController: BaseViewController {
         presenter = ChartViewPresenter(controller: self)
         presenter?.loadChartData()
 
-        setupContent()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,53 +47,12 @@ final class ChartViewController: BaseViewController {
 
     }
 
-    func setupContent() {
-
-        themeControls = [followersLabel, mainContainer, chartContainer, joinedChannelView, dividerView, leftChannelView, themeSwitchButton, rangeSelector, mainChart]
-
-        if let selfView = self.view as? TView {
-            themeControls.append(selfView)
-        }
-
-        // labels
-        navigationItem.title = NSLocalizedString("mainScreen.title.statistics", comment: "")
-        followersLabel.text = NSLocalizedString("mainScreen.label.followers", comment: "")
-        themeSwitchButton.setTitle(getSwitchThemeButtonTitle(Settings.shared.currentTheme), for: .normal)
-
-        // line buttons
-        // joined
-
-        let y0Lines = presenter?.charts.first?.lines.filter({$0.name == Constants.y0}).first
-        let y1Lines = presenter?.charts.first?.lines.filter({$0.name == Constants.y1}).first
-
-
-        joinedChannelView.setupWith(y0Lines?.nameForShow ?? "",
-                y0Lines?.color ?? .black, {[weak self] isVisible in
-            self?.presenter?.setVisibleJoinedChannel(isVisible)
-        })
-
-        // left
-        leftChannelView.setupWith(y1Lines?.nameForShow ?? "",
-                y1Lines?.color ?? .black, {[weak self] isVisible in
-            self?.presenter?.setVisibleLeftChannel(isVisible)
-        })
-    }
-
-    func getSwitchThemeButtonTitle(_ theme: Theme) -> String {
-        switch theme {
-        case .day:
-            return NSLocalizedString("mainScreen.label.themeSwitchButton.night", comment: "")
-        case .night:
-            return NSLocalizedString("mainScreen.label.themeSwitchButton.day", comment: "")
-        }
-    }
-
     // MARK: - actions
 
     @IBAction func ThemeSwitchButtonAction(_ sender: Any) {
         presenter?.changeTheme()
 
-        themeSwitchButton.titleLabel?.text = getSwitchThemeButtonTitle(Settings.shared.currentTheme)
+        themeSwitchButton.titleLabel?.text = presenter?.getSwitchThemeButtonTitle(Settings.shared.currentTheme)
         themeDidChange()
     }
 }
@@ -105,9 +65,9 @@ extension ChartViewController {
 
         super.themeDidChange(false)
 
-        themeSwitchButton.setTitle(getSwitchThemeButtonTitle(Settings.shared.currentTheme), for: .normal)
+        themeSwitchButton.setTitle(presenter?.getSwitchThemeButtonTitle(Settings.shared.currentTheme), for: .normal)
         setupNavigationBar(false)
-        themeControls.forEach {
+        presenter?.themeControls.forEach {
             $0.themeDidChange(false)
         }
 

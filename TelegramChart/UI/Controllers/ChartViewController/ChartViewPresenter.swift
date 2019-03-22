@@ -13,6 +13,7 @@ final class ChartViewPresenter {
 
     // MARK: - properties
 
+    public var themeControls = [ThemeProtocol]()
     private weak var controller: ChartViewController!
     private var simpleChart: LineChart?
     var charts = [ChartDataSource]()
@@ -26,16 +27,71 @@ final class ChartViewPresenter {
     func loadChartData() {
         JSONParser(fileName: Constants.JSONFileName, fileExtension: Constants.JSONExtension).parse(withCompletion: {[weak self] charts in
             self?.charts = charts
+
+            self?.setupContent()
             self?.addSimpleChartToRangeSelector()
         })
+    }
+
+    func setupContent() {
+
+        themeControls = [ controller.followersLabel,
+                          controller.mainContainer,
+                          controller.chartContainer,
+                          controller.joinedChannelView,
+                          controller.dividerView,
+                          controller.leftChannelView,
+                          controller.themeSwitchButton,
+                          controller.rangeSelector,
+                          controller.mainChart,
+                          controller.infoView ]
+
+        if let selfView = controller.view as? TView {
+            themeControls.append(selfView)
+        }
+
+        // labels
+        controller.navigationItem.title = NSLocalizedString("mainScreen.title.statistics", comment: "")
+        controller.followersLabel.text = NSLocalizedString("mainScreen.label.followers", comment: "")
+        controller.themeSwitchButton.setTitle(getSwitchThemeButtonTitle(Settings.shared.currentTheme), for: .normal)
+
+
+
+        let y0Lines = charts.first?.lines.filter({$0.name == Constants.y0}).first
+        let y1Lines = charts.first?.lines.filter({$0.name == Constants.y1}).first
+
+        // line buttons
+        // joined
+        controller.joinedChannelView.setupWith(y0Lines?.nameForShow ?? "",
+                y0Lines?.color ?? .black, {[weak self] isVisible in
+            self?.setVisibleJoinedChannel(isVisible)
+        })
+
+        // left
+        controller.leftChannelView.setupWith(y1Lines?.nameForShow ?? "",
+                y1Lines?.color ?? .black, {[weak self] isVisible in
+            self?.setVisibleLeftChannel(isVisible)
+        })
+
+        // info view
+        controller.infoView.setColors(y0Lines?.color ?? .white, y1Lines?.color ?? .white)
+    }
+
+    func getSwitchThemeButtonTitle(_ theme: Theme) -> String {
+        switch theme {
+        case .day:
+            return NSLocalizedString("mainScreen.label.themeSwitchButton.night", comment: "")
+        case .night:
+            return NSLocalizedString("mainScreen.label.themeSwitchButton.day", comment: "")
+        }
     }
 
     func addSimpleChartToRangeSelector() {
 
         self.simpleChart = LineChart(frame:
         CGRect(x: 0.0,
-               y: 0.0,
-               width: controller.rangeSelector.bounds.size.width,
+                y: 0.0,
+                width: controller.rangeSelector.bounds.size.width,
                 height: controller.rangeSelector.bounds.size.height))
 
         guard let chartData = self.charts.first,
@@ -181,6 +237,25 @@ final class ChartViewPresenter {
         controller.mainChart.needShowYLayer(lineIndex: 2, needShow: isVisible)
     }
 
+    // Chart cursor info
+    //
+    func showInfo(_ xIndex: Int,
+                  _ yValues: [CGFloat],
+                  _ needShow: Bool) {
+        if needShow {
+            if controller.infoView.isHidden {
+                self.controller.infoView.isHidden = false
+            }
+        } else {
+            if !controller.infoView.isHidden {
+                self.controller.infoView.isHidden = true
+            }
+        }
+
+        // TODO - обработать данные перед показом
+        print("x: \(xIndex)     y: \(yValues)")
+    }
+
     // MARK: - theme
     //
     func changeTheme() {
@@ -201,10 +276,9 @@ extension ChartViewPresenter: RangeSelectorProtocol {
 
 extension ChartViewPresenter: LineChartDelegate {
 
-    func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat]) {
+    func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool) {
         if (chart == controller.mainChart) {
-
-            print("x: \(x)     y: \(yValues)")
+            showInfo(Int(x), yValues, needShow)
         }
     }
 

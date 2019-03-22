@@ -73,17 +73,38 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfT-hn-v4y" userLabel="mainChart" customClass="LineChart" customModule="TelegramChart" customModuleProvider="target">
-                                                <rect key="frame" x="17" y="16" width="380" height="366"/>
+                                                <rect key="frame" x="17" y="15" width="380" height="366"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bI-fS-y8d" customClass="InfoView" customModule="TelegramChart" customModuleProvider="target">
+                                                <rect key="frame" x="157" y="40" width="100" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="TuV-GN-yg5"/>
+                                                    <constraint firstAttribute="height" constant="45" id="blz-DT-l3Z"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                                                        <color key="value" red="0.094117647058823528" green="0.13333333333333333" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                                        <color key="value" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="hbd-hB-TB2" secondAttribute="trailing" constant="17" id="2ea-Qf-ibu"/>
+                                            <constraint firstItem="5bI-fS-y8d" firstAttribute="centerX" secondItem="k4w-tu-EKj" secondAttribute="centerX" id="8Yf-Ud-WsV"/>
                                             <constraint firstItem="CfT-hn-v4y" firstAttribute="top" secondItem="k4w-tu-EKj" secondAttribute="top" constant="15" id="AsR-at-T3S"/>
                                             <constraint firstAttribute="bottom" secondItem="hbd-hB-TB2" secondAttribute="bottom" constant="10" id="N6P-od-ipY"/>
                                             <constraint firstItem="CfT-hn-v4y" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" constant="17" id="Owe-Gy-DvI"/>
                                             <constraint firstItem="hbd-hB-TB2" firstAttribute="top" secondItem="CfT-hn-v4y" secondAttribute="bottom" constant="20" id="nOg-DV-CiO"/>
+                                            <constraint firstItem="5bI-fS-y8d" firstAttribute="top" secondItem="k4w-tu-EKj" secondAttribute="top" constant="5" id="oQw-qH-d0r"/>
                                             <constraint firstItem="hbd-hB-TB2" firstAttribute="leading" secondItem="k4w-tu-EKj" secondAttribute="leading" constant="17" id="s0C-s9-0tL"/>
                                             <constraint firstAttribute="trailing" secondItem="CfT-hn-v4y" secondAttribute="trailing" constant="17" id="tHL-rU-SG3"/>
                                         </constraints>
@@ -213,6 +234,7 @@
                         <outlet property="chartContainer" destination="k4w-tu-EKj" id="5qd-uq-Wbm"/>
                         <outlet property="dividerView" destination="gHg-pG-pHH" id="0l4-9K-9tb"/>
                         <outlet property="followersLabel" destination="cx3-FN-HTg" id="JdG-dL-Ryl"/>
+                        <outlet property="infoView" destination="5bI-fS-y8d" id="8GY-LS-Fb3"/>
                         <outlet property="joinedChannelView" destination="YG4-Ea-Vsn" id="jaa-63-HZm"/>
                         <outlet property="leftChannelView" destination="88e-ZD-DSq" id="gbD-Ka-lbd"/>
                         <outlet property="mainChart" destination="CfT-hn-v4y" id="esz-4h-qoW"/>

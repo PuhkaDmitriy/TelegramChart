@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoView" customModule="TelegramChart" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="54v-ed-cyo"/>
+                <outlet property="dateLabel" destination="QVA-Aq-9tW" id="r0d-4I-YOj"/>
+                <outlet property="joinedLabel" destination="O4e-xw-QEV" id="12i-4u-Hss"/>
+                <outlet property="leftLabel" destination="V8A-XW-NWu" id="FUK-Fk-Op9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TView" customModule="TelegramChart" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="152" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 12 2019" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVA-Aq-9tW" customClass="TLabel" customModule="TelegramChart" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="76" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lightTxtColor">
+                            <color key="value" red="0.094117647060000004" green="0.1333333333" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="darkTxtColor">
+                            <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="148" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4e-xw-QEV">
+                    <rect key="frame" x="76" y="0.0" width="76" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8A-XW-NWu">
+                    <rect key="frame" x="76" y="30" width="76" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V8A-XW-NWu" secondAttribute="trailing" id="1UC-WH-N5d"/>
+                <constraint firstItem="V8A-XW-NWu" firstAttribute="height" secondItem="O4e-xw-QEV" secondAttribute="height" id="EEM-ua-1u1"/>
+                <constraint firstItem="V8A-XW-NWu" firstAttribute="width" secondItem="QVA-Aq-9tW" secondAttribute="width" id="Hlm-BJ-bDK"/>
+                <constraint firstItem="V8A-XW-NWu" firstAttribute="top" secondItem="O4e-xw-QEV" secondAttribute="bottom" id="N0K-dS-0eZ"/>
+                <constraint firstItem="QVA-Aq-9tW" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Niv-jr-2gH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="O4e-xw-QEV" secondAttribute="trailing" id="Unm-Nu-EG4"/>
+                <constraint firstItem="QVA-Aq-9tW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ei6-ke-DvA"/>
+                <constraint firstItem="O4e-xw-QEV" firstAttribute="width" secondItem="QVA-Aq-9tW" secondAttribute="width" id="gJL-Cm-GwY"/>
+                <constraint firstItem="V8A-XW-NWu" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="k4A-BB-U8n"/>
+                <constraint firstItem="O4e-xw-QEV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qmJ-js-X0n"/>
+                <constraint firstItem="V8A-XW-NWu" firstAttribute="leading" secondItem="QVA-Aq-9tW" secondAttribute="trailing" id="rFu-Yp-V7B"/>
+                <constraint firstItem="QVA-Aq-9tW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="zrl-M2-oup"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-44.799999999999997" y="-161.01949025487258"/>
+        </view>
+    </objects>
+</document>

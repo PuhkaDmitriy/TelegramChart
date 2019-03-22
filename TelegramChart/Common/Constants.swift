@@ -24,6 +24,7 @@ final class Constants {
 
     // chart.grid
     static let chartGridColor = UIColor(red: 238/255.0, green: 238/255.0, blue: 238/255.0, alpha: 0.8)
+
     // JSON
     static let JSONFileName = "chart_data"
     static let JSONExtension = "json"
