@@ -136,15 +136,19 @@ final class ChartViewPresenter {
             }
         }
 
+        let gridAndLabelsCount = 6
+
         mainChart.animation.enabled = false // animate line drawing
         mainChart.area = false
         mainChart.lineWidth = 2.0
 
-        mainChart.x.grid = LineChart.Grid(visible: false, count: 6, color: Constants.chartGridColor)
-        mainChart.y.grid = LineChart.Grid(visible: true, count: 6, color: Constants.chartGridColor)
+        // grid
+        mainChart.x.grid = LineChart.Grid(visible: true, count: 1, color: .clear)
+        mainChart.y.grid = LineChart.Grid(visible: true, count: CGFloat(gridAndLabelsCount), color: Constants.chartGridColor)
 
-        mainChart.x.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: xLabels)
-        mainChart.y.labels = LineChart.Labels(visible: true, visibleCount: 6, textColor: Constants.chartAxisLabelColor, values: [String]())
+        // labels
+        mainChart.x.labels = LineChart.Labels(visible: true, visibleCount: gridAndLabelsCount, textColor: Constants.chartAxisLabelColor, values: xLabels)
+        mainChart.y.labels = LineChart.Labels(visible: true, visibleCount: gridAndLabelsCount, textColor: Constants.chartAxisLabelColor, values: [String]())
 
         mainChart.x.axis = LineChart.Axis(visible: true, color: Constants.chartAxisColor, inset: 0.0)
         mainChart.y.axis = LineChart.Axis(visible: false, color: Constants.chartAxisColor, inset: 10)
@@ -161,6 +165,8 @@ final class ChartViewPresenter {
         mainChart.delegate = self
 
         mainChart.dots.visible = false
+        mainChart.dots.colorDay = Constants.dayNavigationBarColor
+        mainChart.dots.colorNight = Constants.nightNavigationBarColor
     }
 
     // Input

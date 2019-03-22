@@ -48,7 +48,7 @@ final class ChartViewController: BaseViewController {
 
     func setupContent() {
 
-        themeControls = [followersLabel, mainContainer, chartContainer, joinedChannelView, dividerView, leftChannelView, themeSwitchButton]
+        themeControls = [followersLabel, mainContainer, chartContainer, joinedChannelView, dividerView, leftChannelView, themeSwitchButton, mainChart]
         if let selfView = self.view as? TView {
             themeControls.append(selfView)
         }

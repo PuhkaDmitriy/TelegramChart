@@ -43,8 +43,7 @@ open class LineChart: UIView {
     public struct Grid {
         public var visible: Bool = true
         public var count: CGFloat = 10
-        // #eeeeee
-        public var color: UIColor = UIColor(red: 238/255.0, green: 238/255.0, blue: 238/255.0, alpha: 1)
+        public var color: UIColor = .black
     }
 
     public struct Axis {
@@ -74,7 +73,16 @@ open class LineChart: UIView {
 
     public struct Dots {
         public var visible: Bool = true
-        public var color: UIColor = UIColor.white
+
+        public var colorDay: UIColor = UIColor.white
+        public var colorNight: UIColor = UIColor.white
+
+        public var innerColor: UIColor {
+            set {}
+            get {
+                return Settings.shared.currentTheme == .day ? colorDay : colorNight
+            }
+        }
         public var innerRadius: CGFloat = 8
         public var outerRadius: CGFloat = 12
         public var innerRadiusHighlighted: CGFloat = 8
@@ -268,7 +276,9 @@ open class LineChart: UIView {
         let inverted = self.x.invert(xValue - x.axis.inset)
         let rounded = Int(round(Double(inverted)))
         let yValues: [CGFloat] = getYValuesForXValue(rounded)
-        highlightDataPoints(rounded)
+
+        drawDotsAt(rounded)
+
         delegate?.didSelectDataPoint(self, CGFloat(rounded), yValues: yValues)
     }
 
@@ -309,32 +319,6 @@ open class LineChart: UIView {
         handleTouchEvents(touches as NSSet, event: event)
     }
 
-
-
-/**
- * Highlight data points at index.
- */
-    fileprivate func highlightDataPoints(_ index: Int) {
-        for (lineIndex, dotsData) in dotsDataStore.enumerated() {
-            // make all dots white again
-            for dot in dotsData {
-                dot.backgroundColor = dots.color.cgColor
-            }
-            // highlight current data point
-            var dot: DotCALayer
-            if index < 0 {
-                dot = dotsData[0]
-            } else if index > dotsData.count - 1 {
-                dot = dotsData[dotsData.count - 1]
-            } else {
-                dot = dotsData[index]
-            }
-            dot.backgroundColor = Helpers.lightenUIColor(getColor(byIndex: lineIndex)).cgColor
-        }
-    }
-
-
-
 /**
  * Draw small dot at every data point.
  */
@@ -351,7 +335,7 @@ open class LineChart: UIView {
             let dotLayer = DotCALayer()
             dotLayer.dotInnerColor = getColor(byIndex: index)
             dotLayer.innerRadius = dots.innerRadius
-            dotLayer.backgroundColor = dots.color.cgColor
+            dotLayer.backgroundColor = (Settings.shared.currentTheme == .day ? dots.colorDay : dots.colorNight).cgColor
             dotLayer.cornerRadius = dots.outerRadius / 2
             dotLayer.frame = CGRect(x: xValue, y: yValue, width: dots.outerRadius, height: dots.outerRadius)
             self.layer.addSublayer(dotLayer)
@@ -367,6 +351,39 @@ open class LineChart: UIView {
             }
 
         }
+        dotsDataStore.append(dotLayers)
+    }
+
+    fileprivate func drawDotsAt(_ index: Int) {
+
+        guard !dataStore.isEmpty else { return }
+
+        var dotLayers: [DotCALayer] = []
+
+        for (index, lineData) in dataStore.enumerated() {
+            if index == 0 { continue }
+
+
+            let xValue = self.x.scale(CGFloat(index)) + x.axis.inset - dots.outerRadius/2
+            let yValue = self.bounds.height - self.y.scale(lineData[index]) - y.axis.inset - dots.outerRadius/2
+
+            // draw custom layer with another layer in the center
+            let dotLayer = DotCALayer()
+            dotLayer.dotInnerColor = dots.innerColor
+            dotLayer.innerRadius = dots.innerRadius
+            dotLayer.backgroundColor = getColor(byIndex: index).cgColor//dots.color.cgColor
+            dotLayer.cornerRadius = dots.outerRadius / 2
+            dotLayer.frame = CGRect(x: xValue, y: yValue, width: dots.outerRadius, height: dots.outerRadius)
+            self.layer.addSublayer(dotLayer)
+            dotLayers.append(dotLayer)
+        }
+
+        dotsDataStore.forEach {
+            $0.forEach {
+                $0.removeFromSuperlayer()
+            }
+        }
+        dotsDataStore.removeAll()
         dotsDataStore.append(dotLayers)
     }
 
@@ -562,29 +579,40 @@ open class LineChart: UIView {
 
 
 
-/**
- * Draw y grid.
- */
+    /**
+     * Draw y grid.
+     */
     fileprivate func drawYGrid() {
+        let gridCount = Int(self.y.grid.count)
+        guard gridCount > 0 else { return }
+
         self.y.grid.color.setStroke()
+
         let path = UIBezierPath()
+
+        path.lineWidth = 0.5
+
         let x1: CGFloat = x.axis.inset
         let x2: CGFloat = self.bounds.width - x.axis.inset
-        var y1: CGFloat
-        let (start, stop, step) = self.y.ticks
-        for i in stride(from: start, through: stop, by: step){
-            y1 = self.bounds.height - self.y.scale(i) - y.axis.inset
+
+        let height = frame.height / CGFloat(gridCount)
+
+        var y1: CGFloat = height * 0.7 // 0.7 с учетом Label
+
+        for _ in 1...gridCount {
+
             path.move(to: CGPoint(x: x1, y: y1))
             path.addLine(to: CGPoint(x: x2, y: y1))
+
+            y1 += height
         }
+
         path.stroke()
     }
 
-
-
-/**
- * Draw grid.
- */
+    /**
+     * Draw grid.
+     */
     fileprivate func drawGrid() {
         drawXGrid()
         drawYGrid()
@@ -647,8 +675,6 @@ open class LineChart: UIView {
         let maxValue = getMaximumYvalue()
         let delta = getMaximumYvalue() - getMinimumYvalue()
         let tick = delta / CGFloat(visibleCount)
-
-        print("min: " + "\(getMinimumYvalue())" + " max: " + "\(getMaximumYvalue())" + " delta: " + "\(delta)")
 
         let yLabels = y.labels.values
 
@@ -827,6 +853,13 @@ open class LinearScale {
             return i(u(d))
         }
         return f
+    }
+}
+
+extension LineChart: ThemeProtocol {
+
+    func themeDidChange(_ animation: Bool = false) {
+        self.draw(self.frame)
     }
 
 }

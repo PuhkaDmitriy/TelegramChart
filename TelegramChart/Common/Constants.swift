@@ -13,13 +13,17 @@ final class Constants {
     // navigation bar
     static let dayNavigationBarColor: UIColor = "#FEFEFE".hexToColor()
     static let nightNavigationBarColor: UIColor = "222F3F".hexToColor()
-    static let chartAxisLabelColor: UIColor = "8F969B".hexToColor()
 
-    static let chartAxisColor: UIColor = UIColor(red: 96/255.0, green: 125/255.0, blue: 139/255.0, alpha: 1)
-    static let chartGridColor: UIColor = UIColor(red: 238/255.0, green: 238/255.0, blue: 238/255.0, alpha: 1)
+
     // chart
     static let chartGuidelineColor: UIColor? = "18222D".hexToColor()
 
+    // chart.axis
+    static let chartAxisLabelColor: UIColor = "8F969B".hexToColor()
+    static let chartAxisColor: UIColor = UIColor(red: 96/255.0, green: 125/255.0, blue: 139/255.0, alpha: 1)
+
+    // chart.grid
+    static let chartGridColor = UIColor(red: 238/255.0, green: 238/255.0, blue: 238/255.0, alpha: 0.8)
     // JSON
     static let JSONFileName = "chart_data"
     static let JSONExtension = "json"
