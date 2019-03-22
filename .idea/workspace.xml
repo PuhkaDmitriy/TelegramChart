@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="- complete InfoView">
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png" afterDir="false" />
+    <list default="true" id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="- add app icons &#10;- start animation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramChart.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/Resources/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramChart/Resources/Storyboards/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/Resources/Storyboards/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +17,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
+            <state relative-caret-position="2970">
               <caret line="199" selection-start-line="199" selection-end-line="199" />
             </state>
           </provider>
@@ -46,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="554" column="39" lean-forward="true" selection-start-line="554" selection-start-column="39" selection-end-line="554" selection-end-column="39" />
+            <state relative-caret-position="322">
+              <caret line="303" column="9" selection-start-line="303" selection-start-column="9" selection-end-line="303" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -65,7 +45,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>highlightDataPoints</find>
       <find>Highlight data points at index.</find>
       <find>drawin</find>
       <find>yLabels</find>
@@ -95,6 +74,7 @@
       <find>getMinimumYvalue</find>
       <find>hidingLinesIndexes</find>
       <find>animate</find>
+      <find>drawLine</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -328,7 +308,9 @@
       <workItem from="1553276778023" duration="1683000" />
       <workItem from="1553278807610" duration="1759000" />
       <workItem from="1553280937724" duration="1019000" />
-      <workItem from="1553287829293" duration="911000" />
+      <workItem from="1553287829293" duration="1627000" />
+      <workItem from="1553289672920" duration="1778000" />
+      <workItem from="1553291501977" duration="630000" />
     </task>
     <task id="LOCAL-00001" summary="- fix constraints">
       <created>1552389760600</created>
@@ -470,11 +452,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553274605402</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- add app icons &#10;- start animation">
+      <created>1553288953162</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1553288953162</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161157000" />
+    <option name="totallyTimeSpent" value="164281000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -496,7 +485,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3602837" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32756132" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.24680851" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.30212766" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
@@ -546,7 +535,8 @@
     <MESSAGE value="- add point drawing" />
     <MESSAGE value="- add info view" />
     <MESSAGE value="- complete InfoView" />
-    <option name="LAST_COMMIT_MESSAGE" value="- complete InfoView" />
+    <MESSAGE value="- add app icons &#10;- start animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add app icons &#10;- start animation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -576,6 +566,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>dotsDataStore</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>layer.bounds</expression-string>
         <language-id>Swift</language-id>
@@ -613,16 +608,6 @@
       </expression>
       <expression>
         <expression-string>hidingLinesIndexes.contains(index))</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>data.min()</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>data</expression-string>
         <language-id>Swift</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -859,10 +844,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift">
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift" />
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+        <state relative-caret-position="2970">
+          <caret line="199" selection-start-line="199" selection-end-line="199" />
         </state>
       </provider>
     </entry>
@@ -873,17 +859,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="199" selection-start-line="199" selection-end-line="199" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="554" column="39" lean-forward="true" selection-start-line="554" selection-start-column="39" selection-end-line="554" selection-end-column="39" />
+        <state relative-caret-position="322">
+          <caret line="303" column="9" selection-start-line="303" selection-start-column="9" selection-end-line="303" selection-end-column="9" />
         </state>
       </provider>
     </entry>

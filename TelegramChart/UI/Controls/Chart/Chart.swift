@@ -256,6 +256,11 @@ open class Chart: UIView {
                 continue // 0 это шкала X
             }
 
+            if hidingLinesIndexes.contains(index) { // линия скрыта
+                result.append(-1)
+                continue
+            }
+
             if x < 0 {
                 result.append(lineData[0])
             } else if x > lineData.count - 1 {
@@ -285,9 +290,18 @@ open class Chart: UIView {
         let rounded = Int(round(Double(inverted)))
         let yValues: [CGFloat] = getYValuesForXValue(rounded)
 
-        addPoint(rounded, touchEnded)
+        drawDot(rounded, touchEnded)
 
-        delegate?.didSelectDataPoint(self, CGFloat(rounded), yValues: yValues, !touchEnded)
+        var needShowInfoWindow = false
+        yValues.forEach { // если все Y значения -1 все линии скрыты
+            if ($0 > 0) {
+                needShowInfoWindow = true
+            }
+        }
+
+        if needShowInfoWindow {
+            delegate?.didSelectDataPoint(self, CGFloat(rounded), yValues: yValues, !touchEnded)
+        }
     }
 
     func getIndexesRangeByPoints(_ pointsRange: Range<CGFloat>) -> Range<Int>? {
@@ -327,7 +341,7 @@ open class Chart: UIView {
         handleTouchEvents(touches as NSSet)
     }
 
-    // create points data source
+    // create dots data source
     //
     //
     fileprivate func createDotsDataSource(_ lineIndex: Int) {
@@ -352,29 +366,32 @@ open class Chart: UIView {
         dotsDataStore.append(dotLayers)
     }
 
-    // add point
+    // draw dot
     //
     //
-    fileprivate func addPoint(_ index: Int, _ needRemoveAll: Bool = false) {
-        dotsDataStore.forEach {
+    fileprivate func drawDot(_ dotIndex: Int, _ needRemoveAll: Bool = false) {
+
+        for (index, dots) in dotsDataStore.enumerated() {
 
             // make all dots white again
-            $0.forEach {
+            dots.forEach {
                 $0.removeFromSuperlayer()
             }
 
-            if needRemoveAll {
-                return
+            if needRemoveAll ||
+                       index == 0 ||
+                       hidingLinesIndexes.contains(index) {
+                continue
             }
 
             // add dot from dotsData
             var dot: DotCALayer
-            if index < 0 {
-                dot = $0[0]
-            } else if index > $0.count - 1 {
-                dot = $0[$0.count - 1]
+            if dotIndex < 0 {
+                dot = dots[0]
+            } else if dotIndex > dots.count - 1 {
+                dot = dots[dots.count - 1]
             } else {
-                dot = $0[index]
+                dot = dots[dotIndex]
             }
 
             self.layer.addSublayer(dot)
