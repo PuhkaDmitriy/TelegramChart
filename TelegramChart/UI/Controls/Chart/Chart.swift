@@ -1,19 +1,24 @@
-
-
+//
+//  Chart.swift
+//  TelegramChart
+//
+//  Created by DmitriyPuchka on 3/11/19.
+//  Copyright © 2019 DmitriyPuchka. All rights reserved.
+//
 
 import UIKit
 import QuartzCore
 
 // delegate method
 public protocol LineChartDelegate {
-    func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool)
-    func drawIsFinished(_ chart: LineChart)
+    func didSelectDataPoint(_ chart: Chart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool)
+    func drawIsFinished(_ chart: Chart)
 }
 
 /**
  * LineChart
  */
-open class LineChart: UIView {
+open class Chart: UIView {
 
     /**
     * Helpers class
@@ -66,11 +71,6 @@ open class LineChart: UIView {
         fileprivate var ticks: (CGFloat, CGFloat, CGFloat)!
     }
 
-    public struct Animation {
-        public var enabled: Bool = true
-        public var duration: CFTimeInterval = 1
-    }
-
     public struct Dots {
         public var visible: Bool = true
 
@@ -83,15 +83,14 @@ open class LineChart: UIView {
                 return Settings.shared.currentTheme == .day ? colorDay : colorNight
             }
         }
-        public var innerRadius: CGFloat = 8
-        public var outerRadius: CGFloat = 12
-        public var innerRadiusHighlighted: CGFloat = 8
-        public var outerRadiusHighlighted: CGFloat = 12
+        public var innerRadius: CGFloat = 6
+        public var outerRadius: CGFloat = 10
+        public var innerRadiusHighlighted: CGFloat = 6
+        public var outerRadiusHighlighted: CGFloat = 10
     }
 
     // default configuration
     open var area: Bool = true
-    open var animation: Animation = Animation()
     open var dots: Dots = Dots()
 
     open var lineWidth: CGFloat = 2
@@ -109,8 +108,9 @@ open class LineChart: UIView {
     // values calculated on init
     fileprivate var drawingHeight: CGFloat = 0 {
         didSet {
-            let max = getMaximumYvalue()
-            let min = getMinimumYvalue()
+            guard let max = getMaximumYvalue(),
+                  let min = getMinimumYvalue() else {return}
+
             y.linear = LinearScale(domain: [min, max], range: [0, drawingHeight])
             y.scale = y.linear.scale()
             y.ticks = y.linear.ticks(Int(y.grid.count))
@@ -141,9 +141,7 @@ open class LineChart: UIView {
                 let rangedLine = dataLine[range.lowerBound...range.upperBound]
                 rangeDataStore.append(Array(rangedLine))
             }
-
             return rangeDataStore
-
         }
     }
     lazy fileprivate var dotsDataStore = [[DotCALayer]]()
@@ -170,9 +168,14 @@ open class LineChart: UIView {
         guard let layerToMove = lineLayerStore[lineIndex] else {return}
         if(needShow) {
             layer.addSublayer(layerToMove)
+            hidingLinesIndexes.removeAll(where: { $0 == lineIndex })
         } else {
             layerToMove.removeFromSuperlayer()
+            hidingLinesIndexes.append(lineIndex)
         }
+
+        self.draw(self.frame)
+
     }
 
     private func getColor(byIndex index: Int) -> UIColor {
@@ -472,10 +475,10 @@ open class LineChart: UIView {
 /**
 * Get maximum value in all 'Y' arrays in data store.
 */
-    fileprivate func getMaximumYvalue() -> CGFloat {
+    fileprivate func getMaximumYvalue() -> CGFloat? {
         var max: CGFloat?
         for (index, data) in dataStore.enumerated() {
-            if (index == 0) { continue }
+            if (index == 0 || hidingLinesIndexes.contains(index)) { continue }
             if (max == nil) {
                 max = data.max() ?? 0
                 continue
@@ -486,17 +489,17 @@ open class LineChart: UIView {
                 max = newMax
             }
         }
-        return max!
+        return max
     }
 
 /**
 * Get minimum value in all 'Y' arrays in data store.
 */
 
-    fileprivate func getMinimumYvalue() -> CGFloat {
+    fileprivate func getMinimumYvalue() -> CGFloat? {
         var min: CGFloat?
         for (index, data) in dataStore.enumerated() {
-            if (index == 0) { continue }
+            if (index == 0 || hidingLinesIndexes.contains(index)) { continue }
             if min == nil {
                 min = data.min() ?? 0
                 continue
@@ -507,14 +510,14 @@ open class LineChart: UIView {
                 min = newMin
             }
         }
-        return min!
+        return min
     }
 
 
     /**
      * Draw line.
      */
-    fileprivate func drawLine(_ lineIndex: Int) {
+    fileprivate func drawLine(_ lineIndex: Int) { // , animate: Bool = false
 
         var data = self.dataStore[lineIndex]
         let path = UIBezierPath()
@@ -538,22 +541,24 @@ open class LineChart: UIView {
 
         layer.fillColor = nil
         layer.lineWidth = lineWidth
-        self.layer.addSublayer(layer)
 
-        // animate line drawing
-        if animation.enabled {
-            let anim = CABasicAnimation(keyPath: "strokeEnd")
-            anim.duration = animation.duration
-            anim.fromValue = 0
-            anim.toValue = 1
-            layer.add(anim, forKey: "strokeEnd")
+        // отобржаем леер если его нет в списке скрытых
+        if !hidingLinesIndexes.contains(lineIndex) {
+            self.layer.addSublayer(layer)
         }
+
+//        if (animate) {
+//            let anim = CABasicAnimation(keyPath: "position");
+//            anim.fromValue = NSValue(cgPoint: CGPoint(x: layer.position.x, y: layer.position.y - layer.bounds.height / 2))
+//            anim.toValue = NSValue(cgPoint: CGPoint(x: layer.position.x, y: layer.position.y))
+//            anim.duration = 0.3;
+//            anim.autoreverses = false //true - возвращает в исходное значение либо плавно, либо нет
+//            layer.add(anim, forKey: "position");
+//        }
 
         // add line layer to store
         lineLayerStore[lineIndex] = layer
     }
-
-
 
 /**
  * Fill area between line chart and x-axis.
@@ -695,9 +700,12 @@ open class LineChart: UIView {
      */
     fileprivate func drawYLabels() {
 
+        guard let maxY = getMaximumYvalue(),
+              let minY = getMinimumYvalue() else { return }
+
         let visibleCount = y.labels.visibleCount
-        let maxValue = getMaximumYvalue()
-        let delta = getMaximumYvalue() - getMinimumYvalue()
+
+        let delta = maxY - minY
         let tick = delta / CGFloat(visibleCount)
 
         guard visibleCount > 0,
@@ -712,7 +720,7 @@ open class LineChart: UIView {
 
         for index in 1...visibleCount {
 
-            let value = (index == 1) ? maxValue : (maxValue - tick * CGFloat(index))
+            let value = (index == 1) ? maxY : (maxY - tick * CGFloat(index))
 
             let label = UILabel(frame: CGRect(x: xValue, y: yValue, width: width, height: height))
             label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption2)
@@ -735,8 +743,6 @@ open class LineChart: UIView {
         self.tmpDataStore.append(data)
         self.setNeedsDisplay()
     }
-
-
 
 /**
  * Make whole thing white again.
@@ -880,7 +886,7 @@ open class LinearScale {
     }
 }
 
-extension LineChart: ThemeProtocol {
+extension Chart: ThemeProtocol {
 
     func themeDidChange(_ animation: Bool = false) {
         self.draw(self.frame)

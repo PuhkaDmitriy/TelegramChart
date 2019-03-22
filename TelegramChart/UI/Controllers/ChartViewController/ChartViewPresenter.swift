@@ -15,7 +15,7 @@ final class ChartViewPresenter {
 
     public var themeControls = [ThemeProtocol]()
     private weak var controller: ChartViewController!
-    private var simpleChart: LineChart?
+    private var simpleChart: Chart?
 
     var charts = [ChartDataSource]()
     var currentChart: ChartDataSource?
@@ -67,15 +67,15 @@ final class ChartViewPresenter {
 
         // line buttons
         // joined
-        controller.joinedChannelView.setupWith(y0Lines?.nameForShow ?? "",
-                y0Lines?.color ?? .black, {[weak self] isVisible in
-            self?.setVisibleJoinedChannel(isVisible)
+        controller.joinedChannelView.setupWith(y0Lines?.nameForShow ?? "", y0Lines?.color ?? .black, {[weak self] isVisible in
+            self?.simpleChart?.needShowYLayer(lineIndex: 1, needShow: isVisible)
+            self?.controller.mainChart.needShowYLayer(lineIndex: 1, needShow: isVisible)
         })
 
         // left
-        controller.leftChannelView.setupWith(y1Lines?.nameForShow ?? "",
-                y1Lines?.color ?? .black, {[weak self] isVisible in
-            self?.setVisibleLeftChannel(isVisible)
+        controller.leftChannelView.setupWith(y1Lines?.nameForShow ?? "", y1Lines?.color ?? .black, {[weak self] isVisible in
+            self?.simpleChart?.needShowYLayer(lineIndex: 2, needShow: isVisible)
+            self?.controller.mainChart.needShowYLayer(lineIndex: 2, needShow: isVisible)
         })
 
         // info view
@@ -93,7 +93,7 @@ final class ChartViewPresenter {
 
     func addSimpleChartToRangeSelector() {
 
-        self.simpleChart = LineChart(frame:
+        self.simpleChart = Chart(frame:
         CGRect(x: 0.0,
                 y: 0.0,
                 width: controller.rangeSelector.bounds.size.width,
@@ -122,19 +122,18 @@ final class ChartViewPresenter {
             }
         }
 
-        simpleChart.animation.enabled = false // animate line drawing
         simpleChart.area = false
         simpleChart.lineWidth = 0.7
 
 
-        simpleChart.x.labels = LineChart.Labels(visible: false, visibleCount: 0, textColor: .clear, values: [String]())
-        simpleChart.y.labels = LineChart.Labels(visible: false, visibleCount: 0, textColor: .clear, values: [String]())
+        simpleChart.x.labels = Chart.Labels(visible: false, visibleCount: 0, textColor: .clear, values: [String]())
+        simpleChart.y.labels = Chart.Labels(visible: false, visibleCount: 0, textColor: .clear, values: [String]())
 
-        simpleChart.x.grid = LineChart.Grid(visible: false, count: 1, color: .clear)
-        simpleChart.y.grid = LineChart.Grid(visible: false, count: 1, color: .clear)
+        simpleChart.x.grid = Chart.Grid(visible: false, count: 1, color: .clear)
+        simpleChart.y.grid = Chart.Grid(visible: false, count: 1, color: .clear)
 
-        simpleChart.x.axis = LineChart.Axis(visible: false, color: .clear, inset: 0)
-        simpleChart.y.axis = LineChart.Axis(visible: false, color: .clear, inset: 10)
+        simpleChart.x.axis = Chart.Axis(visible: false, color: .clear, inset: 0)
+        simpleChart.y.axis = Chart.Axis(visible: false, color: .clear, inset: 10)
 
         simpleChart.addLine(xAxis)
         simpleChart.addLine(y0Axis)
@@ -199,20 +198,19 @@ final class ChartViewPresenter {
 
         let gridAndLabelsCount = 6
 
-        mainChart.animation.enabled = false // animate line drawing
         mainChart.area = false
         mainChart.lineWidth = 2.0
 
         // grid
-        mainChart.x.grid = LineChart.Grid(visible: true, count: 1, color: .clear)
-        mainChart.y.grid = LineChart.Grid(visible: true, count: CGFloat(gridAndLabelsCount), color: Constants.chartGridColor)
+        mainChart.x.grid = Chart.Grid(visible: true, count: 1, color: .clear)
+        mainChart.y.grid = Chart.Grid(visible: true, count: CGFloat(gridAndLabelsCount), color: Constants.chartGridColor)
 
         // labels
-        mainChart.x.labels = LineChart.Labels(visible: true, visibleCount: gridAndLabelsCount, textColor: Constants.chartAxisLabelColor, values: xLabels)
-        mainChart.y.labels = LineChart.Labels(visible: true, visibleCount: gridAndLabelsCount, textColor: Constants.chartAxisLabelColor, values: [String]())
+        mainChart.x.labels = Chart.Labels(visible: true, visibleCount: gridAndLabelsCount, textColor: Constants.chartAxisLabelColor, values: xLabels)
+        mainChart.y.labels = Chart.Labels(visible: true, visibleCount: gridAndLabelsCount, textColor: Constants.chartAxisLabelColor, values: [String]())
 
-        mainChart.x.axis = LineChart.Axis(visible: true, color: Constants.chartAxisColor, inset: 0.0)
-        mainChart.y.axis = LineChart.Axis(visible: false, color: Constants.chartAxisColor, inset: 10)
+        mainChart.x.axis = Chart.Axis(visible: true, color: Constants.chartAxisColor, inset: 0.0)
+        mainChart.y.axis = Chart.Axis(visible: false, color: Constants.chartAxisColor, inset: 10)
 
         mainChart.addLine(xAxis)
         mainChart.addLine(y0Axis)
@@ -228,18 +226,6 @@ final class ChartViewPresenter {
         mainChart.dots.visible = true
         mainChart.dots.colorDay = Constants.dayNavigationBarColor
         mainChart.dots.colorNight = Constants.nightNavigationBarColor
-    }
-
-    // Input
-    //
-    func setVisibleJoinedChannel(_ isVisible: Bool) {
-        simpleChart?.needShowYLayer(lineIndex: 1, needShow: isVisible)
-        controller.mainChart.needShowYLayer(lineIndex: 1, needShow: isVisible)
-    }
-
-    func setVisibleLeftChannel(_ isVisible: Bool) {
-        simpleChart?.needShowYLayer(lineIndex: 2, needShow: isVisible)
-        controller.mainChart.needShowYLayer(lineIndex: 2, needShow: isVisible)
     }
 
     // Chart cursor info
@@ -258,7 +244,7 @@ final class ChartViewPresenter {
         if (index > xValues.count - 1) {index = xValues.count - 1}
         let xValue = Date(timeIntervalSince1970: Double(xValues[index] / 1000)).infoViewDateFormat()
 
-        print("x: " + xValue + "y: \(yValues)")
+        //print("x: " + xValue + "y: \(yValues)")
 
         // set value
         controller.infoView.setValues(xValue, yValues.first ?? "-", yValues.last ?? "-")
@@ -295,7 +281,7 @@ extension ChartViewPresenter: RangeSelectorProtocol {
 
 extension ChartViewPresenter: LineChartDelegate {
 
-    func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool) {
+    func didSelectDataPoint(_ chart: Chart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool) {
         if (chart == controller.mainChart) {
             var stringYValues = [String]()
             yValues.forEach {
@@ -305,7 +291,7 @@ extension ChartViewPresenter: LineChartDelegate {
         }
     }
 
-    func drawIsFinished(_ chart: LineChart) {
+    func drawIsFinished(_ chart: Chart) {
         if (chart == simpleChart) {
             self.controller.rangeSelector.didChangeRange()
         }

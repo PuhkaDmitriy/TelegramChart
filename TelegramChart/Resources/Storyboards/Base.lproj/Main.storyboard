@@ -72,7 +72,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfT-hn-v4y" userLabel="mainChart" customClass="LineChart" customModule="TelegramChart" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfT-hn-v4y" userLabel="mainChart" customClass="Chart" customModule="TelegramChart" customModuleProvider="target">
                                                 <rect key="frame" x="17" y="15" width="380" height="366"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>

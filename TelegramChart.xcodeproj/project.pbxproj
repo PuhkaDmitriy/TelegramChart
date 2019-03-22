@@ -30,7 +30,7 @@
 		FA478903224518D20090AACF /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA478902224518D20090AACF /* InfoView.xib */; };
 		FA6F693D224029F900A92988 /* RangeSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6F693B224029F900A92988 /* RangeSelectorView.xib */; };
 		FA6F693E224029F900A92988 /* RangeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F693C224029F900A92988 /* RangeSelectorView.swift */; };
-		FAC2FBE3223F2E6E00B66347 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2FBE2223F2E6E00B66347 /* LineChart.swift */; };
+		FAC2FBE3223F2E6E00B66347 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2FBE2223F2E6E00B66347 /* Chart.swift */; };
 		FAE0427F2237CE28007F972E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0427E2237CE28007F972E /* JSONParser.swift */; };
 		FAE042832237D42A007F972E /* PreparingChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE042822237D42A007F972E /* PreparingChartData.swift */; };
 		FAE0428522385063007F972E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0428422385063007F972E /* String+Extension.swift */; };
@@ -62,7 +62,7 @@
 		FA478902224518D20090AACF /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		FA6F693B224029F900A92988 /* RangeSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RangeSelectorView.xib; sourceTree = "<group>"; };
 		FA6F693C224029F900A92988 /* RangeSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSelectorView.swift; sourceTree = "<group>"; };
-		FAC2FBE2223F2E6E00B66347 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		FAC2FBE2223F2E6E00B66347 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		FAE0427E2237CE28007F972E /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		FAE042822237D42A007F972E /* PreparingChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparingChartData.swift; sourceTree = "<group>"; };
 		FAE0428422385063007F972E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 		FAC2FBDC223F2E3D00B66347 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				FAC2FBE2223F2E6E00B66347 /* LineChart.swift */,
+				FAC2FBE2223F2E6E00B66347 /* Chart.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 			files = (
 				FAE0428522385063007F972E /* String+Extension.swift in Sources */,
 				FA1B28A4223661F300AC271D /* TButton.swift in Sources */,
-				FAC2FBE3223F2E6E00B66347 /* LineChart.swift in Sources */,
+				FAC2FBE3223F2E6E00B66347 /* Chart.swift in Sources */,
 				FA1B28AC2236658E00AC271D /* TView.swift in Sources */,
 				FAE042832237D42A007F972E /* PreparingChartData.swift in Sources */,
 				FA1B2AC622369A2D00AC271D /* ThemeProtocol.swift in Sources */,
@@ -570,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.autoxloo.ARTest.TelegramChart;
+				PRODUCT_BUNDLE_IDENTIFIER = com.autoxloo.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,7 +589,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.autoxloo.ARTest.TelegramChart;
+				PRODUCT_BUNDLE_IDENTIFIER = com.autoxloo.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
