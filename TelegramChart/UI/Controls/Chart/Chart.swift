@@ -105,7 +105,6 @@ open class Chart: UIView {
     // data stores
     fileprivate var hidingLinesIndexes = [Int]() // indexes of hiding lines
     fileprivate var linesAnimations = [Int : AnimationType]()
-    fileprivate lazy var cursorLineLayer = CALayer()
 
 
     fileprivate var tmpDataStore = [[CGFloat]]()
@@ -123,6 +122,8 @@ open class Chart: UIView {
         }
     }
     lazy fileprivate var dotsDataStore = [[DotCALayer]]()
+    lazy fileprivate var cursorLinesDataStore = [[CALayer]]()
+
     lazy fileprivate var lineLayerStore = [Int : CAShapeLayer]() // [Line index : Layer]
 
     fileprivate var removeAll: Bool = false
@@ -188,13 +189,21 @@ open class Chart: UIView {
         lineLayerStore.removeAll()
 
         // remove all dots on device rotation
-        for dotsData in dotsDataStore {
-            dotsData.forEach {
+        dotsDataStore.forEach {
+            $0.forEach {
+                $0.removeFromSuperlayer()
+            }
+        }
+
+        // remove cursor lines
+        cursorLinesDataStore.forEach {
+            $0.forEach {
                 $0.removeFromSuperlayer()
             }
         }
 
         dotsDataStore.removeAll()
+        cursorLinesDataStore.removeAll()
 
         // draw grid
         if x.grid.visible && y.grid.visible { drawGrid() }
@@ -320,6 +329,8 @@ open class Chart: UIView {
     fileprivate func createDotsDataSource(_ lineIndex: Int) {
 
         var dotLayers: [DotCALayer] = []
+        var lineLayers: [CALayer] = []
+
         var data = self.dataStore[lineIndex]
 
         for index in 0..<data.count {
@@ -328,6 +339,8 @@ open class Chart: UIView {
 
             // draw custom layer with another layer in the center
             let dotLayer = DotCALayer()
+            let lineLayer = CALayer()
+
             dotLayer.dotInnerColor = (Settings.shared.currentTheme == .day ? dots.colorDay : dots.colorNight)
             dotLayer.backgroundColor = getColor(byIndex: lineIndex).cgColor
 
@@ -335,16 +348,32 @@ open class Chart: UIView {
             dotLayer.cornerRadius = dots.outerRadius / 2
             dotLayer.frame = CGRect(x: xValue, y: yValue, width: dots.outerRadius, height: dots.outerRadius)
             dotLayers.append(dotLayer)
+
+            // create cursor line
+            lineLayer.frame = CGRect(x: dotLayer.frame.origin.x + dotLayer.frame.width / 2,
+                    y: 0,
+                    width: 1.0,
+                    height: frame.size.height - y.axis.inset)
+            lineLayer.backgroundColor = UIColor.lightGray.cgColor
+            lineLayers.append(lineLayer)
         }
+
+        cursorLinesDataStore.append(lineLayers)
         dotsDataStore.append(dotLayers)
+
     }
 
     // draw dot
     //
     //
     fileprivate func drawDot(_ dotIndex: Int, _ needRemoveAll: Bool = false) {
-        cursorLineLayer.removeFromSuperlayer()
         for (index, dots) in dotsDataStore.enumerated() {
+
+            // remove all cursor lines
+            let lineDataStore = cursorLinesDataStore[index]
+            lineDataStore.forEach {
+                $0.removeFromSuperlayer()
+            }
 
             // make all dots white again
             dots.forEach {
@@ -357,31 +386,30 @@ open class Chart: UIView {
 
             // add dot from dotsData
             var dot: DotCALayer
+            var line: CALayer?
+
             if dotIndex < 0 {
                 dot = dots[0]
+                line = lineDataStore[dotIndex]
             } else if dotIndex > dots.count - 1 {
                 dot = dots[dots.count - 1]
+                line = lineDataStore[dots.count - 1]
             } else {
                 dot = dots[dotIndex]
+                line = lineDataStore[dotIndex]
             }
 
-            self.drawCursorLine(dot)
+            // add line
+            if let lineLayer = line {self.layer.addSublayer(lineLayer)}
+
+            // add dot
             self.layer.addSublayer(dot)
         }
     }
 
-    fileprivate func drawCursorLine(_ dot: DotCALayer) {
-        cursorLineLayer.backgroundColor = (Settings.shared.currentTheme == .day ? UIColor.lightGray : UIColor.black).cgColor
-        cursorLineLayer.frame = CGRect(x: dot.frame.origin.x + dot.frame.width / 2,
-                y: 0,
-                width: 1.0,
-                height: frame.size.height)
-        self.layer.addSublayer(cursorLineLayer)
-    }
-
-    // draw Axes
-    //
-    //
+// draw Axes
+//
+//
     fileprivate func drawAxes() {
         let height = self.bounds.height
         let width = self.bounds.width
@@ -399,9 +427,9 @@ open class Chart: UIView {
         path.stroke()
     }
 
-    // get maximum value in all 'Y' arrays in data store.
-    //
-    //
+// get maximum value in all 'Y' arrays in data store.
+//
+//
     fileprivate func getMaximumYvalue() -> CGFloat? {
         var max: CGFloat?
         for (index, data) in dataStore.enumerated() {
@@ -441,9 +469,9 @@ open class Chart: UIView {
     }
 
 
-    // draw line
-    //
-    //
+// draw line
+//
+//
     fileprivate func drawLine(_ lineIndex: Int) {
 
         var data = self.dataStore[lineIndex]
@@ -531,9 +559,9 @@ open class Chart: UIView {
 
 
 
-    /**
-     * Draw y grid.
-     */
+/**
+ * Draw y grid.
+ */
     fileprivate func drawYGrid() {
         let gridCount = Int(self.y.grid.count)
         guard gridCount > 0 else { return }
@@ -556,17 +584,17 @@ open class Chart: UIView {
         path.stroke()
     }
 
-    /**
-     * Draw grid.
-     */
+/**
+ * Draw grid.
+ */
     fileprivate func drawGrid() {
         drawXGrid()
         drawYGrid()
     }
 
-    /**
-     * Draw x labels.
-     */
+/**
+ * Draw x labels.
+ */
     fileprivate func drawXLabels() {
 
         let visibleCount = x.labels.visibleCount
@@ -612,9 +640,9 @@ open class Chart: UIView {
         return Int(round(Double(index)))
     }
 
-    /**
-     * Draw y labels.
-     */
+/**
+ * Draw y labels.
+ */
     fileprivate func drawYLabels() {
 
         guard let maxY = getMaximumYvalue(),
