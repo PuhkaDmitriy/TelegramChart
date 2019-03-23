@@ -179,7 +179,7 @@ open class Chart: UIView {
         self.drawingHeight = self.bounds.height - (2 * y.axis.inset)
         self.drawingWidth = self.bounds.width - (2 * x.axis.inset)
 
-//        // remove all labels
+        // remove all labels
         for view: AnyObject in self.subviews {
             view.removeFromSuperview()
         }
@@ -392,7 +392,7 @@ open class Chart: UIView {
 
             if dotIndex < 0 {
                 dot = dots[0]
-                line = lineDataStore[dotIndex]
+                line = lineDataStore[0]
             } else if dotIndex > dots.count - 1 {
                 dot = dots[dots.count - 1]
                 line = lineDataStore[dots.count - 1]
