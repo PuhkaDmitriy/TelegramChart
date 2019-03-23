@@ -28,6 +28,7 @@
 		FA1B2ACF2236A66A00AC271D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B2ACE2236A66A00AC271D /* Constants.swift */; };
 		FA478901224517940090AACF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA478900224517940090AACF /* InfoView.swift */; };
 		FA478903224518D20090AACF /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA478902224518D20090AACF /* InfoView.xib */; };
+		FA478906224595650090AACF /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA478905224595650090AACF /* CALayer+Extension.swift */; };
 		FA6F693D224029F900A92988 /* RangeSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6F693B224029F900A92988 /* RangeSelectorView.xib */; };
 		FA6F693E224029F900A92988 /* RangeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F693C224029F900A92988 /* RangeSelectorView.swift */; };
 		FAC2FBE3223F2E6E00B66347 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2FBE2223F2E6E00B66347 /* Chart.swift */; };
@@ -60,6 +61,7 @@
 		FA1B2ACE2236A66A00AC271D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA478900224517940090AACF /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		FA478902224518D20090AACF /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		FA478905224595650090AACF /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		FA6F693B224029F900A92988 /* RangeSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RangeSelectorView.xib; sourceTree = "<group>"; };
 		FA6F693C224029F900A92988 /* RangeSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSelectorView.swift; sourceTree = "<group>"; };
 		FAC2FBE2223F2E6E00B66347 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		FA1B2ACA2236A62F00AC271D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FA478905224595650090AACF /* CALayer+Extension.swift */,
 				FAE0428422385063007F972E /* String+Extension.swift */,
 				FA02683122391FD5009238E6 /* Date+Extension.swift */,
 			);
@@ -408,6 +411,7 @@
 				FA1B2ABB22367E6600AC271D /* ChartViewPresenter.swift in Sources */,
 				FAE0427F2237CE28007F972E /* JSONParser.swift in Sources */,
 				FA1B2AC3223690A800AC271D /* BaseViewController.swift in Sources */,
+				FA478906224595650090AACF /* CALayer+Extension.swift in Sources */,
 				FA1B27BB2235699800AC271D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

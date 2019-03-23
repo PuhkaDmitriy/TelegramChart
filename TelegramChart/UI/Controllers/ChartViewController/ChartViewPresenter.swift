@@ -279,7 +279,7 @@ extension ChartViewPresenter: RangeSelectorProtocol {
 
 }
 
-extension ChartViewPresenter: LineChartDelegate {
+extension ChartViewPresenter: ChartDelegate {
 
     func didSelectDataPoint(_ chart: Chart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool) {
         if (chart == controller.mainChart) {

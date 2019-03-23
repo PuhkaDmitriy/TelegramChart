@@ -10,33 +10,12 @@ import UIKit
 import QuartzCore
 
 // delegate method
-public protocol LineChartDelegate {
+public protocol ChartDelegate {
     func didSelectDataPoint(_ chart: Chart, _ x: CGFloat, yValues: [CGFloat], _ needShow: Bool)
     func drawIsFinished(_ chart: Chart)
 }
 
-/**
- * LineChart
- */
 open class Chart: UIView {
-
-    /**
-    * Helpers class
-    */
-    fileprivate class Helpers {
-
-        /**
-        * Lighten color.
-        */
-        fileprivate class func lightenUIColor(_ color: UIColor) -> UIColor {
-            var h: CGFloat = 0
-            var s: CGFloat = 0
-            var b: CGFloat = 0
-            var a: CGFloat = 0
-            color.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
-            return UIColor(hue: h, saturation: s, brightness: b * 1.5, alpha: a)
-        }
-    }
 
     public struct Labels {
         public var visible: Bool = true
@@ -53,8 +32,7 @@ open class Chart: UIView {
 
     public struct Axis {
         public var visible: Bool = true
-        // #607d8b
-        public var color: UIColor = UIColor(red: 96/255.0, green: 125/255.0, blue: 139/255.0, alpha: 1)
+        public var color = UIColor.white
         public var inset: CGFloat = 15
     }
 
@@ -126,10 +104,13 @@ open class Chart: UIView {
         }
     }
 
-    open var delegate: LineChartDelegate?
+    open var delegate: ChartDelegate?
 
     // data stores
-    fileprivate var hidingLinesIndexes = [Int]()
+    fileprivate var hidingLinesIndexes = [Int]() // indexes of hiding lines
+    fileprivate var linesAnimations = [Int : AnimationType]()
+
+
     fileprivate var tmpDataStore = [[CGFloat]]()
     fileprivate var dataStore: [[CGFloat]] {
         set {}
@@ -165,17 +146,17 @@ open class Chart: UIView {
     }
 
     func needShowYLayer(lineIndex: Int, needShow: Bool) {
+
         guard let layerToMove = lineLayerStore[lineIndex] else {return}
+
         if(needShow) {
-            layer.addSublayer(layerToMove)
             hidingLinesIndexes.removeAll(where: { $0 == lineIndex })
+            linesAnimations[lineIndex] = AnimationType.upToCurrent
+            draw(frame)
         } else {
             layerToMove.removeFromSuperlayer()
             hidingLinesIndexes.append(lineIndex)
         }
-
-        self.draw(self.frame)
-
     }
 
     private func getColor(byIndex index: Int) -> UIColor {
@@ -272,12 +253,6 @@ open class Chart: UIView {
         return result
     }
 
-
-
-    /**
-     * Handle touch events.
-     */
-
     fileprivate func handleTouchEvents(_ touches: NSSet, touchEnded: Bool = false) {
         if (self.dataStore.isEmpty) {
             return
@@ -304,6 +279,9 @@ open class Chart: UIView {
         }
     }
 
+    // touch events
+    //
+    //
     func getIndexesRangeByPoints(_ pointsRange: Range<CGFloat>) -> Range<Int>? {
         if (self.dataStore.isEmpty) {
             return nil
@@ -331,8 +309,6 @@ open class Chart: UIView {
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         handleTouchEvents(touches as NSSet, touchEnded: true)
     }
-
-
 
     // touch moved
     //
@@ -378,9 +354,7 @@ open class Chart: UIView {
                 $0.removeFromSuperlayer()
             }
 
-            if needRemoveAll ||
-                       index == 0 ||
-                       hidingLinesIndexes.contains(index) {
+            if needRemoveAll || index == 0 || hidingLinesIndexes.contains(index) {
                 continue
             }
 
@@ -431,11 +405,9 @@ open class Chart: UIView {
         dotsDataStore.append(dotLayers)
     }
 
-
-
-/**
- * Draw x and y axis.
- */
+    // draw Axes
+    //
+    //
     fileprivate func drawAxes() {
         let height = self.bounds.height
         let width = self.bounds.width
@@ -452,7 +424,6 @@ open class Chart: UIView {
         path.addLine(to: CGPoint(x: x.axis.inset, y: y.axis.inset))
         path.stroke()
     }
-
 
 
 /**
@@ -531,10 +502,10 @@ open class Chart: UIView {
     }
 
 
-    /**
-     * Draw line.
-     */
-    fileprivate func drawLine(_ lineIndex: Int) { // , animate: Bool = false
+    // draw line
+    //
+    //
+    fileprivate func drawLine(_ lineIndex: Int) {
 
         var data = self.dataStore[lineIndex]
         let path = UIBezierPath()
@@ -564,14 +535,10 @@ open class Chart: UIView {
             self.layer.addSublayer(layer)
         }
 
-//        if (animate) {
-//            let anim = CABasicAnimation(keyPath: "position");
-//            anim.fromValue = NSValue(cgPoint: CGPoint(x: layer.position.x, y: layer.position.y - layer.bounds.height / 2))
-//            anim.toValue = NSValue(cgPoint: CGPoint(x: layer.position.x, y: layer.position.y))
-//            anim.duration = 0.3;
-//            anim.autoreverses = false //true - возвращает в исходное значение либо плавно, либо нет
-//            layer.add(anim, forKey: "position");
-//        }
+        if let animationType = linesAnimations[lineIndex] {
+            layer.addAnimation(animationType)
+            linesAnimations.removeValue(forKey: lineIndex)
+        }
 
         // add line layer to store
         lineLayerStore[lineIndex] = layer

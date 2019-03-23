@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="- add app icons &#10;- start animation">
+    <list default="true" id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TelegramChart/Extensions/CALayer+Extension.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,17 +20,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2970">
+            <state relative-caret-position="415">
               <caret line="199" selection-start-line="199" selection-end-line="199" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="303" column="9" selection-start-line="303" selection-start-column="9" selection-end-line="303" selection-end-column="9" />
+            <state relative-caret-position="-5">
+              <caret line="137" column="5" lean-forward="true" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/Extensions/CALayer+Extension.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -35,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="38" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="38" />
+            <state relative-caret-position="510">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -45,11 +57,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Highlight data points at index.</find>
-      <find>drawin</find>
-      <find>yLabels</find>
-      <find>hi</find>
-      <find>light</find>
       <find>draw do</find>
       <find>Animation</find>
       <find>draw line</find>
@@ -75,6 +82,11 @@
       <find>hidingLinesIndexes</find>
       <find>animate</find>
       <find>drawLine</find>
+      <find>hid</find>
+      <find>CASh</find>
+      <find>animat</find>
+      <find>CAShapeLayer</find>
+      <find>remove</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -120,7 +132,9 @@
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Animation/Animation.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/Extensions/CALayer+Extension.swift" />
       </list>
     </option>
   </component>
@@ -133,7 +147,21 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Cidr.FilesView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="TelegramChart" type="1d218c8b:XcodeProjectNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -310,7 +338,13 @@
       <workItem from="1553280937724" duration="1019000" />
       <workItem from="1553287829293" duration="1627000" />
       <workItem from="1553289672920" duration="1778000" />
-      <workItem from="1553291501977" duration="630000" />
+      <workItem from="1553291501977" duration="1058000" />
+      <workItem from="1553293400916" duration="372000" />
+      <workItem from="1553335320771" duration="1479000" />
+      <workItem from="1553337190055" duration="1784000" />
+      <workItem from="1553339015488" duration="1645000" />
+      <workItem from="1553340876396" duration="1727000" />
+      <workItem from="1553342744073" duration="467000" />
     </task>
     <task id="LOCAL-00001" summary="- fix constraints">
       <created>1552389760600</created>
@@ -459,11 +493,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553288953162</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="- fix empty values">
+      <created>1553292149716</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1553292149716</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164281000" />
+    <option name="totallyTimeSpent" value="172183000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -478,7 +519,7 @@
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.30069238" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18025751" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -536,7 +577,8 @@
     <MESSAGE value="- add info view" />
     <MESSAGE value="- complete InfoView" />
     <MESSAGE value="- add app icons &#10;- start animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add app icons &#10;- start animation" />
+    <MESSAGE value="- fix empty values" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix empty values" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -566,6 +608,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>self.animationKeys()</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>dotsDataStore</expression-string>
         <language-id>Swift</language-id>
@@ -606,15 +653,9 @@
         <language-id>Swift</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>hidingLinesIndexes.contains(index))</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Chart/ExpandableMenu/ChartMenuView.swift" />
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Chart/Colors/ColorManager.swift" />
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ViewController.swift" />
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/MainController/MainViewPresenter.swift" />
@@ -778,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/QuartzCore.CALayer/QuartzCore.CALayer.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7875">
-          <caret line="526" column="13" selection-start-line="526" selection-start-column="13" selection-end-line="526" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/BaseViewController/BaseViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -845,24 +879,53 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/LineChart.swift" />
-    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CAShapeLayer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2970">
-          <caret line="199" selection-start-line="199" selection-end-line="199" />
+        <state relative-caret-position="226">
+          <caret line="37" column="33" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Animation/Animation.swift" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/QuartzCore.CALayer/QuartzCore.CALayer.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="240" column="14" selection-start-line="240" selection-start-column="14" selection-end-line="240" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/QuartzCore.CATransaction/QuartzCore.CATransaction.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="38" />
+        <state relative-caret-position="510">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="199" selection-start-line="199" selection-end-line="199" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="303" column="9" selection-start-line="303" selection-start-column="9" selection-end-line="303" selection-end-column="9" />
+        <state relative-caret-position="-5">
+          <caret line="137" column="5" lean-forward="true" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/Extensions/CALayer+Extension.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
         </state>
       </provider>
     </entry>
