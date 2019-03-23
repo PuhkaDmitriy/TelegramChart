@@ -53,10 +53,10 @@ open class Chart: UIView {
         public var visible: Bool = true
         public var colorDay: UIColor = UIColor.white
         public var colorNight: UIColor = UIColor.white
-        public var innerRadius: CGFloat = 4
-        public var outerRadius: CGFloat = 8
-        public var innerRadiusHighlighted: CGFloat = 4
-        public var outerRadiusHighlighted: CGFloat = 8
+        public var innerRadius: CGFloat = 6
+        public var outerRadius: CGFloat = 10
+        public var innerRadiusHighlighted: CGFloat = 6
+        public var outerRadiusHighlighted: CGFloat = 10
         public var innerColor: UIColor {
             set {}
             get {
@@ -123,8 +123,7 @@ open class Chart: UIView {
     }
     lazy fileprivate var dotsDataStore = [[DotCALayer]]()
     lazy fileprivate var cursorLinesDataStore = [[CALayer]]()
-
-    lazy fileprivate var lineLayerStore = [Int : CAShapeLayer]() // [Line index : Layer]
+    lazy fileprivate var lineLayerStore = [Int : CAShapeLayer]()
 
     fileprivate var removeAll: Bool = false
 
@@ -164,6 +163,9 @@ open class Chart: UIView {
         return self.colors[index]
     }
 
+    // draw chart
+    //
+    //
     override open func draw(_ rect: CGRect) {
 
         guard !dataStore.isEmpty else { return }
@@ -177,7 +179,7 @@ open class Chart: UIView {
         self.drawingHeight = self.bounds.height - (2 * y.axis.inset)
         self.drawingWidth = self.bounds.width - (2 * x.axis.inset)
 
-        // remove all labels
+//        // remove all labels
         for view: AnyObject in self.subviews {
             view.removeFromSuperview()
         }
@@ -232,9 +234,9 @@ open class Chart: UIView {
 
 
 
-/**
- * Get y value for given x value. Or return zero or maximum value.
- */
+    // get y value for given x value. Or return zero or maximum value.
+    //
+    //
     fileprivate func getYValuesForXValue(_ x: Int) -> [CGFloat] {
         var result: [CGFloat] = []
 
@@ -352,7 +354,7 @@ open class Chart: UIView {
             // create cursor line
             lineLayer.frame = CGRect(x: dotLayer.frame.origin.x + dotLayer.frame.width / 2,
                     y: 0,
-                    width: 1.0,
+                    width: 0.5,
                     height: frame.size.height - y.axis.inset)
             lineLayer.backgroundColor = UIColor.lightGray.cgColor
             lineLayers.append(lineLayer)
@@ -400,16 +402,16 @@ open class Chart: UIView {
             }
 
             // add line
-            if let lineLayer = line {self.layer.addSublayer(lineLayer)}
+            if let lineLayer = line {self.layer.insertSublayer(lineLayer, at: 0)}
 
             // add dot
             self.layer.addSublayer(dot)
         }
     }
 
-// draw Axes
-//
-//
+    // draw Axes
+    //
+    //
     fileprivate func drawAxes() {
         let height = self.bounds.height
         let width = self.bounds.width
@@ -427,9 +429,9 @@ open class Chart: UIView {
         path.stroke()
     }
 
-// get maximum value in all 'Y' arrays in data store.
-//
-//
+    // get maximum value in all 'Y' arrays in data store.
+    //
+    //
     fileprivate func getMaximumYvalue() -> CGFloat? {
         var max: CGFloat?
         for (index, data) in dataStore.enumerated() {
@@ -596,6 +598,7 @@ open class Chart: UIView {
     //
     //
     fileprivate func drawXLabels() {
+//        x.labels
 
         let visibleCount = x.labels.visibleCount
         var xLabels = x.labels.values
@@ -628,7 +631,10 @@ open class Chart: UIView {
             let xLabelIndex = getIndexByXCoordinate(labelCenterX)
             label.text = xLabels[xLabelIndex]
 
-            addSubview(label)
+            UIView.animate(withDuration: 1, animations: {
+                self.addSubview(label)
+            })
+
         }
     }
 
