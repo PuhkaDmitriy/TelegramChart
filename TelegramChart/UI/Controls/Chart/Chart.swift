@@ -592,9 +592,9 @@ open class Chart: UIView {
         drawYGrid()
     }
 
-/**
- * Draw x labels.
- */
+    // draw x labels.
+    //
+    //
     fileprivate func drawXLabels() {
 
         let visibleCount = x.labels.visibleCount
@@ -632,17 +632,9 @@ open class Chart: UIView {
         }
     }
 
-    fileprivate func getIndexByXCoordinate(_ x: CGFloat) -> Int {
-        if (self.dataStore.isEmpty) {
-            return 0
-        }
-        let index = self.x.invert(x)
-        return Int(round(Double(index)))
-    }
-
-/**
- * Draw y labels.
- */
+    // draw y labels.
+    //
+    //
     fileprivate func drawYLabels() {
 
         guard let maxY = getMaximumYvalue(),
@@ -679,19 +671,25 @@ open class Chart: UIView {
         }
     }
 
+    fileprivate func getIndexByXCoordinate(_ x: CGFloat) -> Int {
+        if (self.dataStore.isEmpty) {
+            return 0
+        }
+        let index = self.x.invert(x)
+        return Int(round(Double(index)))
+    }
 
-
-/**
- * Add line chart
- */
+    // add line chart
+    //
+    //
     open func addLine(_ data: [CGFloat]) {
         self.tmpDataStore.append(data)
         self.setNeedsDisplay()
     }
 
-/**
- * Make whole thing white again.
- */
+    // make whole thing white again.
+    //
+    //
     open func clearAll() {
         self.removeAll = true
         clear()
@@ -699,19 +697,15 @@ open class Chart: UIView {
         self.removeAll = false
     }
 
-
-
-/**
- * Remove charts, areas and labels but keep axis and grid.
- */
+    // remove charts, areas and labels but keep axis and grid.
+    //
+    //
     open func clear() {
         // clear data
         tmpDataStore.removeAll()
         self.setNeedsDisplay()
     }
 }
-
-
 
 /**
  * DotCALayer
