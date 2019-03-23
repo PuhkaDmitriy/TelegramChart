@@ -10,8 +10,12 @@ import UIKit
 
 final class InfoView: UIView {
 
-    @IBInspectable var lightColor: UIColor = UIColor.white
-    @IBInspectable var darkColor: UIColor = UIColor.black
+    @IBInspectable var lightColor: UIColor = UIColor.white {
+        didSet{ themeDidChange(false) }
+    }
+    @IBInspectable var darkColor: UIColor = UIColor.black {
+        didSet{ themeDidChange(false) }
+    }
 
     // MARK: - outlets
     
@@ -37,7 +41,6 @@ final class InfoView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        themeDidChange(false)
     }
     
     func setColors(_ joinedColor: UIColor, _ leftColor: UIColor) {
