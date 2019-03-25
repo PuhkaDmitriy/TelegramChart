@@ -122,12 +122,11 @@ final class ChartViewPresenter {
             }
         }
 
-        simpleChart.area = false
         simpleChart.lineWidth = 0.7
 
 
-        simpleChart.x.labels = Chart.Labels(visible: false, visibleCount: 0, textColor: .clear, values: [String]())
-        simpleChart.y.labels = Chart.Labels(visible: false, visibleCount: 0, textColor: .clear, values: [String]())
+        simpleChart.x.labels = Chart.Labels(visible: false, visibleCount: 1, textColor: .clear, values: [String]())
+        simpleChart.y.labels = Chart.Labels(visible: false, visibleCount: 1, textColor: .clear, values: [String]())
 
         simpleChart.x.grid = Chart.Grid(visible: false, count: 1, color: .clear)
         simpleChart.y.grid = Chart.Grid(visible: false, count: 1, color: .clear)
@@ -198,7 +197,6 @@ final class ChartViewPresenter {
 
         let gridAndLabelsCount = 6
 
-        mainChart.area = false
         mainChart.lineWidth = 2.0
 
         // grid

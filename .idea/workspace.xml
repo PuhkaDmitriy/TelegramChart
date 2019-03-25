@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3c9847e1-338e-41e4-9eb6-31d570f45a9a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,21 +12,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_87aff230e3685628dcc6a93d5e5318f29dbb4e40" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_9C59E04B-CCC5-4E42-B1FF-FDB518B32AAE" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="219" column="21" lean-forward="true" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="21" />
-              <folding>
-                <element signature="e#6699#7372#0" />
-                <element signature="e#7378#8206#0" />
-                <element signature="e#8246#8900#0" />
-                <element signature="e#8939#9087#0" />
-                <element signature="e#9126#9256#0" />
-              </folding>
+            <state relative-caret-position="349">
+              <caret line="684" lean-forward="true" selection-start-line="684" selection-end-line="684" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3075">
+              <caret line="206" column="69" selection-start-line="206" selection-start-column="57" selection-end-line="206" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -34,12 +37,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fileprivate func drawDataDots(_ lineIndex: Int)</find>
-      <find>dotsData</find>
-      <find>getSwitchThemeButtonTitle</find>
-      <find>func didSelectDataPoint(_ chart: LineChart, _ x: CGFloat, yValues: [CGFloat])</find>
-      <find>didSelectDataPoint</find>
-      <find>themeDidChange</find>
       <find>animation</find>
       <find>simple</find>
       <find>charts</find>
@@ -48,9 +45,7 @@
       <find>leftChannelVi</find>
       <find>dra</find>
       <find>getMinimumYvalue</find>
-      <find>hidingLinesIndexes</find>
       <find>animate</find>
-      <find>drawLine</find>
       <find>hid</find>
       <find>CASh</find>
       <find>animat</find>
@@ -64,6 +59,14 @@
       <find>cursorLineLayer</find>
       <find>lineLayers</find>
       <find>draw labe</find>
+      <find>draw</find>
+      <find>draw(</find>
+      <find>drawAreaBeneathLineChart</find>
+      <find>area</find>
+      <find>drawLine</find>
+      <find>drawString</find>
+      <find>visibleCount</find>
+      <find>hidingLinesIndexes</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -109,24 +112,23 @@
         <option value="$PROJECT_DIR$/TelegramChart/UI/Animation/Animation.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/Extensions/CALayer+Extension.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/InfoView/InfoView.swift" />
-        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/Common/Constants.swift" />
+        <option value="$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift" />
         <option value="$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
-    <option name="height" value="797" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Cidr.FilesView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -329,7 +331,14 @@
       <workItem from="1553353329277" duration="738000" />
       <workItem from="1553354474774" duration="1550000" />
       <workItem from="1553356441477" duration="24000" />
-      <workItem from="1553357218618" duration="454000" />
+      <workItem from="1553357218618" duration="1013000" />
+      <workItem from="1553358283536" duration="1985000" />
+      <workItem from="1553424804825" duration="1404000" />
+      <workItem from="1553427192093" duration="790000" />
+      <workItem from="1553444151442" duration="116000" />
+      <workItem from="1553444365960" duration="1789000" />
+      <workItem from="1553446245679" duration="1127000" />
+      <workItem from="1553507521410" duration="85000" />
     </task>
     <task id="LOCAL-00001" summary="- fix constraints">
       <created>1552389760600</created>
@@ -513,11 +522,25 @@
       <option name="project" value="LOCAL" />
       <updated>1553351932108</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="- refactor">
+      <created>1553357679277</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1553357679277</updated>
+    </task>
+    <task id="LOCAL-00028" summary="- fix crash">
+      <created>1553358111148</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1553358111148</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181237000" />
+    <option name="totallyTimeSpent" value="189092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -529,17 +552,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19957082" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22603719" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3602837" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32756132" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.30212766" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32624114" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.15460993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
@@ -594,7 +617,8 @@
     <MESSAGE value="- add cursor line" />
     <MESSAGE value="- fix cursor line" />
     <MESSAGE value="- refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="- refactor" />
+    <MESSAGE value="- fix crash" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix crash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -625,6 +649,21 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>x.labels.visibleCount</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>data.count</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dotIndex</expression-string>
+        <language-id>Swift</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>x.labels</expression-string>
         <language-id>Swift</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -651,21 +690,6 @@
       </expression>
       <expression>
         <expression-string>x.axis.inset</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>nightGridColor</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>dayGridColor</expression-string>
-        <language-id>Swift</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>lightColor</expression-string>
         <language-id>Swift</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -903,13 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3060">
-          <caret line="205" column="92" selection-start-line="205" selection-start-column="92" selection-end-line="205" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/Common/Constants.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -940,15 +957,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controls/Chart/Chart.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="219" column="21" lean-forward="true" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="21" />
-          <folding>
-            <element signature="e#6699#7372#0" />
-            <element signature="e#7378#8206#0" />
-            <element signature="e#8246#8900#0" />
-            <element signature="e#8939#9087#0" />
-            <element signature="e#9126#9256#0" />
-          </folding>
+        <state relative-caret-position="349">
+          <caret line="684" lean-forward="true" selection-start-line="684" selection-end-line="684" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TelegramChart/UI/Controllers/ChartViewController/ChartViewPresenter.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3075">
+          <caret line="206" column="69" selection-start-line="206" selection-start-column="57" selection-end-line="206" selection-end-column="69" />
         </state>
       </provider>
     </entry>

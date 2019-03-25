@@ -66,7 +66,6 @@ open class Chart: UIView {
     }
 
     // default configuration
-    open var area: Bool = true
     open var dots: Dots = Dots()
     open var lineWidth: CGFloat = 2
     open var x: Coordinate = Coordinate()
@@ -149,11 +148,12 @@ open class Chart: UIView {
         if(needShow) {
             hidingLinesIndexes.removeAll(where: { $0 == lineIndex })
             linesAnimations[lineIndex] = AnimationType.upToCurrent
-            draw(frame)
         } else {
             layerToMove.removeFromSuperlayer()
             hidingLinesIndexes.append(lineIndex)
         }
+
+        draw(frame)
     }
 
     private func getColor(byIndex index: Int) -> UIColor {
@@ -219,14 +219,10 @@ open class Chart: UIView {
 
         // draw lines
         for (lineIndex, _) in dataStore.enumerated() {
-
             drawLine(lineIndex)
 
             // draw dots
             if dots.visible { createDotsDataSource(lineIndex) }
-
-            // draw area under line chart
-            if area { drawAreaBeneathLineChart(lineIndex) }
         }
 
         delegate?.drawIsFinished(self)
@@ -449,10 +445,9 @@ open class Chart: UIView {
         return max
     }
 
-/**
-* Get minimum value in all 'Y' arrays in data store.
-*/
-
+    // get minimum value in all 'Y' arrays in data store.
+    //
+    //
     fileprivate func getMinimumYvalue() -> CGFloat? {
         var min: CGFloat?
         for (index, data) in dataStore.enumerated() {
@@ -470,23 +465,29 @@ open class Chart: UIView {
         return min
     }
 
-
-// draw line
-//
-//
+    // draw line
+    //
+    //
     fileprivate func drawLine(_ lineIndex: Int) {
 
         var data = self.dataStore[lineIndex]
+
         let path = UIBezierPath()
+        let textPath = UIBezierPath()
 
         var xValue = self.x.scale(0) + x.axis.inset
         var yValue = self.bounds.height - self.y.scale(data[0]) - y.axis.inset
+
         path.move(to: CGPoint(x: xValue, y: yValue))
+
+        textPath.move(to: CGPoint(x: xValue, y: yValue))
+
         for index in 1..<data.count {
             xValue = self.x.scale(CGFloat(index)) + x.axis.inset
             yValue = self.bounds.height - self.y.scale(data[index]) - y.axis.inset
             path.addLine(to: CGPoint(x: xValue, y: yValue))
         }
+
 
         let layer = CAShapeLayer()
         layer.frame = self.bounds
@@ -504,6 +505,7 @@ open class Chart: UIView {
             self.layer.addSublayer(layer)
         }
 
+        // добавляем анимацию
         if let animationType = linesAnimations[lineIndex] {
             layer.addAnimation(animationType)
             linesAnimations.removeValue(forKey: lineIndex)
@@ -513,37 +515,29 @@ open class Chart: UIView {
         lineLayerStore[lineIndex] = layer
     }
 
-/**
- * Fill area between line chart and x-axis.
- */
-    fileprivate func drawAreaBeneathLineChart(_ lineIndex: Int) {
+    func drawString(_ index: Int) {
 
-        var data = self.dataStore[lineIndex]
-        let path = UIBezierPath()
+        let xValue = self.x.scale(CGFloat(index)) + x.axis.inset
 
-        getColor(byIndex: lineIndex).withAlphaComponent(0.2).setFill()
-        // move to origin
-        path.move(to: CGPoint(x: x.axis.inset, y: self.bounds.height - self.y.scale(0) - y.axis.inset))
-        // add line to first data point
-        path.addLine(to: CGPoint(x: x.axis.inset, y: self.bounds.height - self.y.scale(data[0]) - y.axis.inset))
-        // draw whole line chart
-        for index in 1..<data.count {
-            let x1 = self.x.scale(CGFloat(index)) + x.axis.inset
-            let y1 = self.bounds.height - self.y.scale(data[index]) - y.axis.inset
-            path.addLine(to: CGPoint(x: x1, y: y1))
-        }
-        // move down to x axis
-        path.addLine(to: CGPoint(x: self.x.scale(CGFloat(data.count - 1)) + x.axis.inset, y: self.bounds.height - self.y.scale(0) - y.axis.inset))
-        // move to origin
-        path.addLine(to: CGPoint(x: x.axis.inset, y: self.bounds.height - self.y.scale(0) - y.axis.inset))
-        path.fill()
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+
+        let attributes: [NSAttributedString.Key : Any] = [
+            .paragraphStyle: paragraphStyle,
+            .font: UIFont.systemFont(ofSize: 12.0),
+            .foregroundColor: UIColor.white
+        ]
+
+        let myText = "H"
+        let attributedString = NSAttributedString(string: myText, attributes: attributes)
+
+        let stringRect = CGRect(x: xValue, y: frame.height / 2, width: 30, height: 20)
+        attributedString.draw(in: stringRect)
     }
 
-
-
-/**
- * Draw x grid.
- */
+    // draw x grid.
+    //
+    //
     fileprivate func drawXGrid() {
         x.grid.color.setStroke()
         let path = UIBezierPath()
@@ -559,11 +553,9 @@ open class Chart: UIView {
         path.stroke()
     }
 
-
-
-/**
- * Draw y grid.
- */
+    // draw y grid.
+    //
+    //
     fileprivate func drawYGrid() {
         let gridCount = Int(self.y.grid.count)
         guard gridCount > 0 else { return }
@@ -586,9 +578,9 @@ open class Chart: UIView {
         path.stroke()
     }
 
-/**
- * Draw grid.
- */
+    // draw grid.
+    //
+    //
     fileprivate func drawGrid() {
         drawXGrid()
         drawYGrid()
@@ -598,7 +590,6 @@ open class Chart: UIView {
     //
     //
     fileprivate func drawXLabels() {
-//        x.labels
 
         let visibleCount = x.labels.visibleCount
         var xLabels = x.labels.values
@@ -634,7 +625,6 @@ open class Chart: UIView {
             UIView.animate(withDuration: 1, animations: {
                 self.addSubview(label)
             })
-
         }
     }
 
